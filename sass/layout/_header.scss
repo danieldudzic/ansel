@@ -1,0 +1,19 @@
+.site-branding {
+	.site-title {
+		margin: 0;
+		line-height: 1;
+
+		a {
+			color: $color__link;
+			font-family: $font__main;
+			font-weight: 900;
+			@include font-size(2.250);
+		}
+	}
+
+	.site-description {
+		color: $color__link-alt;
+		font-family: $font__main;
+		@include font-size(1.5);
+	}
+}

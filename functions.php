@@ -7,6 +7,27 @@
  * @package Ansel
  */
 
+ /**
+ * Set the content width based on the theme's design and stylesheet.
+ */
+if ( ! isset( $content_width ) ) {
+	$content_width = 650; /* pixels */
+}
+
+if ( ! function_exists( 'ansel_content_width' ) ) :
+
+	function ansel_content_width() {
+
+		global $content_width;
+
+		if ( is_page_template( 'fullwidth-page.php' ) || ! is_active_sidebar( 'sidebar-1' ) ) {
+			$content_width = 1000;
+		}
+	}
+
+endif;
+add_action( 'template_redirect', 'ansel_content_width' );
+
 if ( ! function_exists( 'ansel_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -91,7 +112,7 @@ add_action( 'after_setup_theme', 'ansel_setup' );
  * @global int $content_width
  */
 function ansel_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'ansel_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'ansel_content_width', 1000 );
 }
 add_action( 'after_setup_theme', 'ansel_content_width', 0 );
 
@@ -114,9 +135,55 @@ function ansel_widgets_init() {
 add_action( 'widgets_init', 'ansel_widgets_init' );
 
 /**
+ * Add Google webfonts
+ *
+ * - See: http://themeshaper.com/2014/08/13/how-to-add-google-fonts-to-wordpress-themes/
+ */
+function ansel_fonts_url() {
+
+	$fonts_url = '';
+
+	/* Translators: If there are characters in your language that are not
+	* supported by Work Sans, translate this to 'off'. Do not translate
+	* into your own language.
+	*/
+	$work_sans = esc_html_x( 'on', 'Work Sans font: on or off', 'ansel' );
+
+	/* Translators: If there are characters in your language that are not
+	* supported by Karla, translate this to 'off'. Do not translate
+	* into your own language.
+	*/
+	$karla = esc_html_x( 'on', 'Karla font: on or off', 'ansel' );
+
+	if ( 'off' !== $work_sans || 'off' !== $karla ) {
+		$font_families = array();
+
+		if ( 'off' !== $work_sans ) {
+			$font_families[] = 'Work Sans:100,200,300,400,500,600,700,800,900';
+		}
+
+		if ( 'off' !== $karla ) {
+			$font_families[] = 'Karla:400,700,400italic,700italic';
+		}
+
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	return esc_url_raw( $fonts_url );
+}
+
+/**
  * Enqueue scripts and styles.
  */
 function ansel_scripts() {
+
+	wp_enqueue_style( 'ansel-fonts', ansel_fonts_url(), array(), null );
+
 	wp_enqueue_style( 'ansel-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'ansel-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );

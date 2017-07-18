@@ -265,7 +265,7 @@ select,
 optgroup,
 textarea {
   color: #404040;
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
@@ -338,7 +338,7 @@ html {
 }
 
 body {
-  background: #fff;
+  background: #f7f7f7;
   /* Fallback for when there is no custom background color defined. */
 }
 
@@ -491,15 +491,16 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: royalblue;
+  color: #2C55E2;
+  text-decoration: none;
 }
 
 a:visited {
-  color: purple;
+  color: #2C55E2;
 }
 
 a:hover, a:focus, a:active {
-  color: midnightblue;
+  color: #2C55E2;
 }
 
 a:focus {
@@ -708,6 +709,87 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Layout
+--------------------------------------------------------------*/
+.site {
+  background: #fff;
+  margin: 50px auto;
+  max-width: 1100px;
+  padding: 50px;
+}
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+.site-branding .site-title {
+  margin: 0;
+  line-height: 1;
+}
+
+.site-branding .site-title a {
+  color: #2C55E2;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+  font-size: 2.25rem;
+}
+
+.site-branding .site-description {
+  color: #999999;
+  font-family: "Work Sans", sans-serif;
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+
+/*--------------------------------------------------------------
+## Content Sidebar
+--------------------------------------------------------------*/
+.content-area {
+  float: left;
+  margin: 0 -30% 0 0;
+  width: 100%;
+}
+
+.site-main {
+  margin: 0 30% 0 0;
+}
+
+.site-content .widget-area {
+  float: right;
+  overflow: hidden;
+  width: 30%;
+}
+
+.site-footer {
+  clear: both;
+  width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Sidebar Content
+--------------------------------------------------------------*/
+.content-area {
+  float: right;
+  margin: 0 0 0 -30%;
+  width: 100%;
+}
+
+.site-main {
+  margin: 0 0 0 30%;
+}
+
+.site-content .widget-area {
+  float: left;
+  overflow: hidden;
+  width: 30%;
+}
+
+.site-footer {
+  clear: both;
+  width: 100%;
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
