@@ -196,6 +196,20 @@ function ansel_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'ansel_scripts' );
 
+
+/**
+ * Conditially output the post(s) navigation.
+ */
+function ansel_posts_navigation() {
+	if ( have_posts() ) :
+		if( is_single() ) :
+			the_post_navigation();
+		else :
+			the_posts_navigation();
+		endif;
+	endif;
+}
+
 /**
  * Implement the Custom Header feature.
  */

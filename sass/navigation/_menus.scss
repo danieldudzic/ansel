@@ -1,8 +1,11 @@
 .main-navigation {
-	clear: both;
 	display: block;
 	float: left;
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-transform: uppercase;
 	width: 100%;
+	clear: both;
 
 	ul {
 		display: none;
@@ -50,15 +53,18 @@
 	}
 
 	li {
-		float: left;
 		position: relative;
 
 		&:hover > a,
 		&.focus > a {
+			color: $color__link-hover;
+
+			@include transition();
 		}
 	}
 
 	a {
+		color: $color__link-alt;
 		display: block;
 		text-decoration: none;
 	}
@@ -88,6 +94,15 @@
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
+	border-top: 1px solid $color__border;
+	font-weight: 700;
+	@include font-size(0.875);
+	letter-spacing: 2px;
+	margin: 0 -50px;
+	overflow: hidden;
+	padding: 1.375em 50px;
+	text-transform: uppercase;
+	width: auto;
 
 	.site-main & {
 		margin: 0 0 1.5em;

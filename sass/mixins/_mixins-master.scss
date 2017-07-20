@@ -22,3 +22,7 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+
+@mixin transition($transitionValue: 0.2s) {
+	transition: all $transitionValue ease-in-out;
+}

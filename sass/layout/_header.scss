@@ -1,4 +1,20 @@
+.site-header {
+	padding-bottom: 2.313em;
+}
+
+.branding-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	margin: 0 auto;
+	max-width: 1000px;
+	position: relative;
+}
+
 .site-branding {
+	flex: 1 1 auto;
+	max-width: calc(100% - 7.5em);
+
 	.site-title {
 		margin: 0;
 		line-height: 1;
@@ -6,14 +22,23 @@
 		a {
 			color: $color__link;
 			font-family: $font__main;
-			font-weight: 900;
+			font-weight: 700;
 			@include font-size(2.250);
+
+			@include transition(0.3s);
+
+			&:hover,
+			&:active,
+			&:focus {
+				color: $color__link-alt;
+			}
 		}
 	}
+}
 
-	.site-description {
-		color: $color__link-alt;
-		font-family: $font__main;
-		@include font-size(1.5);
-	}
+.site-description {
+	color: $color__link-alt;
+	font-family: $font__main;
+	@include font-size(1.5);
+	margin: 1.417em auto 0;
 }

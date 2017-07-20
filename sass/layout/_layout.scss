@@ -2,7 +2,13 @@
 	background: $color__background-body;
 	margin: 50px auto;
 	max-width: 1100px;
-	padding: 50px;
+	padding: 50px 50px 0;
+}
+
+.site-content {
+	border-top: 1px solid $color__border;
+	margin: 0 -50px;
+	padding: 100px 50px 0;
 }
 
 /*--------------------------------------------------------------
@@ -14,8 +20,3 @@
 ## Content Sidebar
 --------------------------------------------------------------*/
 @import "content-sidebar";
-
-/*--------------------------------------------------------------
-## Sidebar Content
---------------------------------------------------------------*/
-@import "sidebar-content";

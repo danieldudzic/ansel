@@ -13,6 +13,8 @@
 
 	</div><!-- #content -->
 
+	<?php ansel_posts_navigation(); ?>
+
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ansel' ) ); ?>"><?php
@@ -22,7 +24,7 @@
 			<span class="sep"> | </span>
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'ansel' ), 'ansel', '<a href="https://automattic.com/">Automattic</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'ansel' ), 'Ansel', '<a href="https://automattic.com/">Automattic</a>' );
 			?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

@@ -1,9 +1,22 @@
+.entry-title a {
+	color: $color__link-alt;
+	font-weight: 400;
+}
+
+.entry-content {
+	@include font-size(1.125);
+
+	a {
+		font-weight: 700;
+	}
+}
+
 .sticky {
 	display: block;
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 0 0 5em;
 }
 
 .updated:not(.published){

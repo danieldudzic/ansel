@@ -1,6 +1,18 @@
 .widget {
 	margin: 0 0 1.5em;
 
+	.widget-title {
+		color: $color__link-alt;
+		font-weight: 400;
+		@include font-size(1);
+		letter-spacing: 2px;
+		text-transform: uppercase;
+	}
+
+	ul, ol {
+		margin: 0 0 1.5em 0;
+	}
+
 	/* Make sure select elements fit in widgets. */
 	select {
 		max-width: 100%;

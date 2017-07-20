@@ -1,6 +1,90 @@
-.comment-content a {
-	word-wrap: break-word;
+.comments-area .comment {
+	margin-bottom: 2.500em;
 }
+
+.comment-list {
+	margin-left: 0;
+
+	&,
+	.children {
+		list-style: none;
+	}
+
+	.children {
+		margin-top: 2.500em;
+	}
+}
+
+.comments-title {
+	margin-bottom: 2.500em;
+}
+
+.comments-title,
+.comment-respond h3 {
+	@include font-size(1.250);
+}
+
+.comment-body {
+	.reply {
+		margin-top: 0.5em;
+	}
+}
+
+.comment-reply-link {
+	@include font-size(0.875);
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 700;
+}
+
+.comment-content {
+	margin-top: 1.125em;
+
+	p {
+		margin: 0;
+	}
+
+	a {
+		word-wrap: break-word;
+	}
+}
+
+.comment-meta {
+	overflow: hidden;
+
+	.comment-author {
+		color: $color__text-main;
+		@include font-size(0.875);
+		text-transform: uppercase;
+		letter-spacing: 2px;
+
+		.avatar {
+			border-radius: 3px;
+			float: left;
+			margin-right: 1.563em;
+		}
+
+		.fn {
+			display: inline-block;
+			padding-top: 0.5em;
+		}
+	}
+}
+
 .bypostauthor {
 	display: block;
+
+	.avatar {
+		border: 2px solid $color__link;
+	}
+}
+
+.comment-metadata {
+	a,
+	.edit-link {
+		color: $color__text-alt;
+		@include font-size(0.875);
+		letter-spacing: 2px;
+		text-transform: uppercase;
+	}
 }
