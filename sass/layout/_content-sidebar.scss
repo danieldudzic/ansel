@@ -15,19 +15,95 @@
 }
 
 .site-footer {
-	clear: both;
-	color: $color__text-alt;
-	font-weight: 400px;
-	@include font-size(0.875);
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	width: $size__site-main;
-	padding: 45px 50px;
-	margin: 0 -50px;
 	border-top: 1px solid $color__border;
-	width: auto;
+	padding: 50px;
+	margin: 0 -50px;
+	text-align: center;
 
 	a {
 		color: $color__text-alt;
+	}
+
+	.site-info {
+		clear: both;
+		color: $color__text-alt;
+		font-weight: 400;
+		@include font-size(0.875);
+		letter-spacing: 2px;
+		text-transform: uppercase;
+	}
+}
+
+.entry-meta,
+.entry-footer {
+	color: $color__text-alt;
+	@include font-size(0.875);
+	letter-spacing: 2px;
+	margin: 0 0 1.5em;
+	text-transform: uppercase;
+
+	a {
+		color: $color__text-alt;
+
+		@include transition();
+
+		&:hover,
+		&:focus {
+			color: $color__link-hover;
+		}
+	}
+}
+
+.entry-footer {
+	.cat-links,
+	.tags-links,
+	.comments-link,
+	.edit-link {
+		&:after {
+			content: "|";
+			color: $color__link-alt;
+			padding: 0 6px;
+		}
+
+		&:last-child:after {
+			content: "";
+			padding: 0;
+		}
+
+		a {
+			@include transition();
+
+			&:hover,
+			&:focus {
+				color: $color__link-hover;
+			}
+		}
+	}
+
+	.tags-links {
+		display: block;
+		width: 100%;
+
+		@include font-size(0.875);
+
+		a {
+			border: 1px solid $color__border;
+			color: $color__link;
+			display: inline-block;
+			font-size: inherit !important;
+			letter-spacing: 2px;
+			margin: 0 0.875em 0.714em 0;
+			max-width: 100%;
+			padding: 0.313em 0.625em;
+			word-wrap: break-word;
+			text-transform: uppercase;
+
+			@include transition();
+
+			&:hover,
+			&:focus {
+				border-color: $color__link;
+			}
+		}
 	}
 }

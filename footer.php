@@ -16,6 +16,10 @@
 	<?php ansel_posts_navigation(); ?>
 
 	<footer id="colophon" class="site-footer">
+		<div class="social-links">
+			<?php ansel_social_menu(); ?>
+		</div><!-- .social-links -->
+
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ansel' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */

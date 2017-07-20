@@ -25,6 +25,9 @@ function ansel_jetpack_setup() {
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
 
+	// Add theme support for Social Menus.
+	add_theme_support( 'jetpack-social-menu', 'svg' );
+
 	// Add theme support for Content Options.
 	add_theme_support( 'jetpack-content-options', array(
 		'post-details' => array(
@@ -50,5 +53,16 @@ function ansel_infinite_scroll_render() {
 		else :
 			get_template_part( 'template-parts/content', get_post_format() );
 		endif;
+	}
+}
+
+/*
+ * Only display social menu if function exists.
+ */
+function ansel_social_menu() {
+	if ( ! function_exists( 'jetpack_social_menu' ) ) {
+		return;
+	} else {
+		jetpack_social_menu();
 	}
 }

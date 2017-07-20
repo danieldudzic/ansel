@@ -1,20 +1,70 @@
 .widget {
-	margin: 0 0 1.5em;
+	margin: 0 0 2em;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+
 
 	.widget-title {
 		color: $color__link-alt;
 		font-weight: 400;
 		@include font-size(1);
 		letter-spacing: 2px;
+		max-width: 100%;
 		text-transform: uppercase;
+		word-wrap: break-word;
 	}
 
 	ul, ol {
 		margin: 0 0 1.5em 0;
 	}
 
+	li {
+		border-top: 1px solid $color__border-button;
+		margin: 0;
+		max-width: 100%;
+		padding-bottom: 9px;
+		padding-top: 8px;
+		word-wrap: break-word;
+	}
+
 	/* Make sure select elements fit in widgets. */
 	select {
 		max-width: 100%;
+	}
+
+	a:hover,
+	a:focus {
+		color: $color__text-main;
+	}
+
+	&.widget_text p {
+	    margin: 0 0 1em;
+	}
+
+	&.widget_tag_cloud,
+	.tags-links,
+	.tagcloud {
+		@include font-size(0.875);
+
+		a {
+			border: 1px solid $color__border;
+			color: $color__link;
+			display: inline-block;
+			font-size: inherit !important;
+			letter-spacing: 2px;
+			margin: 0 0.875em 0.714em 0;
+			max-width: 100%;
+			padding: 0.313em 0.625em;
+			word-wrap: break-word;
+			text-transform: uppercase;
+
+			@include transition();
+
+			&:hover,
+			&:focus {
+				border-color: $color__link;
+			}
+		}
 	}
 }

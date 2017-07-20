@@ -1,6 +1,18 @@
-.entry-title a {
-	color: $color__link-alt;
-	font-weight: 400;
+.entry-title {
+	max-width: 100%;
+	word-wrap: break-word;
+
+	a {
+		color: $color__link-alt;
+		font-weight: 400;
+
+		@include transition();
+
+		&:hover,
+		&:focus {
+			color: $color__link-hover;
+		}
+	}
 }
 
 .entry-content {

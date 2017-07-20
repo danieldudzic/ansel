@@ -38,4 +38,20 @@
 			}
 		}
 	}
+
+	.social-links {
+		clear: none;
+		float: right;
+		max-width: 30%;
+		text-align: right;
+	}
+
+
+	.site-footer {
+		text-align: left;
+
+		.site-info {
+			display: inline-block;
+		}
+	}
 }

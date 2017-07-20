@@ -120,3 +120,30 @@
 		width: 50%;
 	}
 }
+
+/* Social Menu. */
+.social-links {
+	.jetpack-social-navigation {
+		ul {
+			margin-bottom: 0.750em;
+		}
+
+		li {
+			padding: 0 2px 6px;
+		}
+
+		a:hover,
+		a:focus {
+			color: $color__link-hover;
+
+			@include transition(0.3s);
+		}
+
+		.icon {
+			@include font-size(1.5);
+			fill: currentcolor;
+			height: 1em;
+			width: 1em;
+		}
+	}
+}

@@ -464,7 +464,7 @@ textarea {
   color: #666;
   border: 1px solid #ccc;
   border-radius: 3px;
-  padding: 3px;
+  padding: 8px 10px;
 }
 
 input[type="text"]:focus,
@@ -492,6 +492,30 @@ select {
 
 textarea {
   width: 100%;
+}
+
+.search-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.search-form .search-field {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.search-form label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  margin-right: 10px;
+}
+
+.search-form .search-submit {
+  display: inline-block;
+  position: relative;
 }
 
 /*--------------------------------------------------------------
@@ -637,6 +661,29 @@ a:hover, a:active {
   width: 50%;
 }
 
+/* Social Menu. */
+.social-links .jetpack-social-navigation ul {
+  margin-bottom: 0.750em;
+}
+
+.social-links .jetpack-social-navigation li {
+  padding: 0 2px 6px;
+}
+
+.social-links .jetpack-social-navigation a:hover,
+.social-links .jetpack-social-navigation a:focus {
+  color: #2C55E2;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-links .jetpack-social-navigation .icon {
+  font-size: 24px;
+  font-size: 1.5rem;
+  fill: currentcolor;
+  height: 1em;
+  width: 1em;
+}
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -732,7 +779,10 @@ a:hover, a:active {
 # Widgets
 --------------------------------------------------------------*/
 .widget {
-  margin: 0 0 1.5em;
+  margin: 0 0 2em;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
   /* Make sure select elements fit in widgets. */
 }
 
@@ -742,15 +792,66 @@ a:hover, a:active {
   font-size: 16px;
   font-size: 1rem;
   letter-spacing: 2px;
+  max-width: 100%;
   text-transform: uppercase;
+  word-wrap: break-word;
 }
 
 .widget ul, .widget ol {
   margin: 0 0 1.5em 0;
 }
 
+.widget li {
+  border-top: 1px solid #eee;
+  margin: 0;
+  max-width: 100%;
+  padding-bottom: 9px;
+  padding-top: 8px;
+  word-wrap: break-word;
+}
+
 .widget select {
   max-width: 100%;
+}
+
+.widget a:hover,
+.widget a:focus {
+  color: #444444;
+}
+
+.widget.widget_text p {
+  margin: 0 0 1em;
+}
+
+.widget.widget_tag_cloud,
+.widget .tags-links,
+.widget .tagcloud {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+
+.widget.widget_tag_cloud a,
+.widget .tags-links a,
+.widget .tagcloud a {
+  border: 1px solid #f7f7f7;
+  color: #2C55E2;
+  display: inline-block;
+  font-size: inherit !important;
+  letter-spacing: 2px;
+  margin: 0 0.875em 0.714em 0;
+  max-width: 100%;
+  padding: 0.313em 0.625em;
+  word-wrap: break-word;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.widget.widget_tag_cloud a:hover, .widget.widget_tag_cloud a:focus,
+.widget .tags-links a:hover,
+.widget .tags-links a:focus,
+.widget .tagcloud a:hover,
+.widget .tagcloud a:focus {
+  border-color: #2C55E2;
 }
 
 /*--------------------------------------------------------------
@@ -846,30 +947,123 @@ a:hover, a:active {
 }
 
 .site-footer {
-  clear: both;
-  color: #ccc;
-  font-weight: 400px;
-  font-size: 14px;
-  font-size: 0.875rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  width: 100%;
-  padding: 45px 50px;
-  margin: 0 -50px;
   border-top: 1px solid #f7f7f7;
-  width: auto;
+  padding: 50px;
+  margin: 0 -50px;
+  text-align: center;
 }
 
 .site-footer a {
   color: #ccc;
 }
 
+.site-footer .site-info {
+  clear: both;
+  color: #ccc;
+  font-weight: 400;
+  font-size: 14px;
+  font-size: 0.875rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.entry-meta,
+.entry-footer {
+  color: #ccc;
+  font-size: 14px;
+  font-size: 0.875rem;
+  letter-spacing: 2px;
+  margin: 0 0 1.5em;
+  text-transform: uppercase;
+}
+
+.entry-meta a,
+.entry-footer a {
+  color: #ccc;
+  transition: all 0.2s ease-in-out;
+}
+
+.entry-meta a:hover, .entry-meta a:focus,
+.entry-footer a:hover,
+.entry-footer a:focus {
+  color: #2C55E2;
+}
+
+.entry-footer .cat-links:after,
+.entry-footer .tags-links:after,
+.entry-footer .comments-link:after,
+.entry-footer .edit-link:after {
+  content: "|";
+  color: #999999;
+  padding: 0 6px;
+}
+
+.entry-footer .cat-links:last-child:after,
+.entry-footer .tags-links:last-child:after,
+.entry-footer .comments-link:last-child:after,
+.entry-footer .edit-link:last-child:after {
+  content: "";
+  padding: 0;
+}
+
+.entry-footer .cat-links a,
+.entry-footer .tags-links a,
+.entry-footer .comments-link a,
+.entry-footer .edit-link a {
+  transition: all 0.2s ease-in-out;
+}
+
+.entry-footer .cat-links a:hover, .entry-footer .cat-links a:focus,
+.entry-footer .tags-links a:hover,
+.entry-footer .tags-links a:focus,
+.entry-footer .comments-link a:hover,
+.entry-footer .comments-link a:focus,
+.entry-footer .edit-link a:hover,
+.entry-footer .edit-link a:focus {
+  color: #2C55E2;
+}
+
+.entry-footer .tags-links {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+
+.entry-footer .tags-links a {
+  border: 1px solid #f7f7f7;
+  color: #2C55E2;
+  display: inline-block;
+  font-size: inherit !important;
+  letter-spacing: 2px;
+  margin: 0 0.875em 0.714em 0;
+  max-width: 100%;
+  padding: 0.313em 0.625em;
+  word-wrap: break-word;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.entry-footer .tags-links a:hover, .entry-footer .tags-links a:focus {
+  border-color: #2C55E2;
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+.entry-title {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
 .entry-title a {
   color: #999999;
   font-weight: 400;
+  transition: all 0.2s ease-in-out;
+}
+
+.entry-title a:hover, .entry-title a:focus {
+  color: #2C55E2;
 }
 
 .entry-content {
@@ -1153,5 +1347,17 @@ object {
     margin-left: 3em;
     padding-top: 7px;
     padding-bottom: 7px;
+  }
+  .social-links {
+    clear: none;
+    float: right;
+    max-width: 30%;
+    text-align: right;
+  }
+  .site-footer {
+    text-align: left;
+  }
+  .site-footer .site-info {
+    display: inline-block;
   }
 }
