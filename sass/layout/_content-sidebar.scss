@@ -65,7 +65,8 @@
 			padding: 0 6px;
 		}
 
-		&:last-child:after {
+		&:last-child:after,
+		&:nth-last-child(2):after {
 			content: "";
 			padding: 0;
 		}
@@ -83,6 +84,7 @@
 	.tags-links {
 		display: block;
 		width: 100%;
+		margin-top: 1.5em;
 
 		@include font-size(0.875);
 

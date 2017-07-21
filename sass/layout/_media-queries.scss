@@ -32,10 +32,36 @@
 			flex-wrap: wrap;
 
 			li {
-				margin-left: 3em;
+				margin-left: 1em;
 				padding-top: 7px;
 				padding-bottom: 7px;
 			}
+
+			ul {
+				background: $color__background-button;
+				border: 1px solid $color__border-button;
+				float: left;
+				padding: 0 7px;
+				position: absolute;
+				top: 100%;
+				left: -999em;
+				z-index: 99999;
+
+				li {
+					padding-top: 7px;
+					padding-bottom: 7px;
+				}
+
+				a {
+					width: 180px;
+				}
+			}
+		}
+
+		a {
+			border: none;
+			padding-top: 0;
+			padding-bottom: 0;
 		}
 	}
 
