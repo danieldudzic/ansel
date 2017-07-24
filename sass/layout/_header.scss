@@ -13,7 +13,7 @@
 
 .site-branding {
 	flex: 1 1 auto;
-	max-width: calc(100% - 7.5em);
+	margin-bottom: 1.417em;
 
 	.site-title {
 		margin: 0;
@@ -40,5 +40,5 @@
 	color: $color__link-alt;
 	font-family: $font__main;
 	@include font-size(1.5);
-	margin: 1.417em auto 0;
+	margin: 0.5em auto 0;
 }

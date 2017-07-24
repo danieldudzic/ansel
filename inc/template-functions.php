@@ -17,6 +17,14 @@ function ansel_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+
+	// Add a class of has-post-thumbnail if the post or page has a featured image set.
+	if ( has_post_thumbnail() && is_singular() ) {
+		if  ( ansel_has_post_thumbnail() ) {
+			$classes[] = 'has-post-thumbnail';
+		}
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'ansel_body_classes' );

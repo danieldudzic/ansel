@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for displaying single posts
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -60,3 +60,5 @@
 		<?php ansel_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
+
+<?php ansel_author_bio(); ?>

@@ -1,40 +1,38 @@
 .main-navigation {
-	display: block;
-	float: left;
-	font-weight: 400;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	width: 100%;
 	clear: both;
+	display: block;
+	width: 100%;
 
 	ul {
-		clear: both;
-		display: none;
+		background: $color__background-button;
 		list-style: none;
 		margin: 0;
-		padding-left: 0;
+		text-align: left;
+		margin-bottom: 1em;
 
 		ul {
-			margin: 0;
-			padding: 0 0.438em;
+			padding: 0 0 0 1.5em;
+			border-top: 1px solid $color__border-button;
+			margin-bottom: 0;
 
-			li {
-				margin: 0;
-
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
-				}
-
-				a {
-					padding-left: 0.875em;
-				}
+			&.toggled-on {
+				display: block;
 			}
 
 			ul {
 				left: -999em;
 				top: 0;
-				padding: 0;
+			}
+
+			li {
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			a {
+				position: relative;
 			}
 
 			:hover > a,
@@ -43,6 +41,16 @@
 
 			a:hover,
 			a.focus {
+			}
+
+			&.toggled-on {
+
+			}
+		}
+
+		li {
+			li {
+				border-bottom: 1px solid $color__border-button;
 			}
 		}
 
@@ -53,41 +61,142 @@
 	}
 
 	li {
-    	display: block;
+		border-bottom: 1px solid $color__border;
 		position: relative;
-		margin: 0;
-		padding: 0;
-		max-width: 100%;
+		text-transform: uppercase;
+		letter-spacing: 2px;
 		word-wrap: break-word;
 
 		&:hover > a,
 		&.focus > a {
-			color: $color__link-hover;
+		}
 
-			@include transition();
+		&:last-child {
+			border: 0;
 		}
 	}
 
 	a {
-		border-bottom: 1px solid $color__border-button;
 		color: $color__link-alt;
 		display: block;
+		padding: 0.75em 0;
 		text-decoration: none;
-		padding-top: 0.875em;
-		padding-bottom: 0.813em;
+
+		@include transition(0.1s);
+
+		&:hover {
+			color: $color__link-hover;
+		}
 	}
 
 	.current_page_item > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
+		color: $color__link-hover;
+	}
+
+	.menu-item-has-children a,
+	.page_item_has_children a {
+		padding: 0.75em 2em 0.75em 0;
+	}
+
+	/* Hide the menu on small screens when JavaScript is available.
+	 * It only works with JavaScript.
+	 */
+	.js & ul,
+	& .menu-item-has-children > a > .icon,
+	& .page_item_has_children > a > .icon,
+	& ul a > .icon {
+		display: none;
+	}
+
+	& > div > ul {
+		border-top: 1px solid $color__border;
+	}
+
+	.js &.toggled-on > div > ul {
+		display: block;
 	}
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
+/* Menu toggle */
+.menu-toggle {
+    border: 3px solid $color__border-button;
+    clear: none;
+    float: right;
+    padding: 0.5em;
+    height: 2.25em;
+    position: relative;
+    margin-left: 1em;
+
+	.js & {
+		display: block;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: transparent;
+		box-shadow: none;
+	}
+
+	&:focus {
+		outline: thin solid;
+	}
+
+	.icon {
+		margin-right: 0.5em;
+		top: -2px;
+	}
+
+	&.toggled-on .icon-bars,
+	& .icon-close {
+		display: none;
+	}
+
+	&.toggled-on .icon-close {
+		display: inline-block;
+	}
+}
+
+/* Dropdown Toggle */
+.dropdown-toggle {
+	background-color: transparent;
+	border: 0 none;
+	box-shadow: none;
+	display: inline-block;
+	@include font-size(1);
+	margin: 0 auto;
+	padding: 0.5em;
+	line-height: 1.75;
+	position: absolute;
+	right: -0.5em;
+	text-shadow: none;
+	top: 0;
+
+	&:hover,
+	&:focus {
+		background: transparent;
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+
+	&.toggled-on .icon {
+		transform: rotate(-180deg);
+	}
+
+	& .icon {
+		@include font-size(1);
+		height: 1em;
+		width: 1em;
+		vertical-align: bottom;
+	}
+
+	&.toggled-on .icon {
+		vertical-align: baseline;
+	}
 }
 
 .comment-navigation,
@@ -118,6 +227,13 @@
 		text-align: right;
 		width: 50%;
 	}
+
+	a:hover,
+	a:focus {
+		color: $color__text-main;
+
+		@include transition(0.3s);
+	}
 }
 
 /* Social Menu. */
@@ -135,7 +251,7 @@
 		a:focus {
 			color: $color__link-hover;
 
-			@include transition(0.3s);
+			@include transition(0.1s);
 		}
 
 		.icon {

@@ -1,6 +1,7 @@
 .entry-title {
 	max-width: 100%;
 	word-wrap: break-word;
+	margin-top: 0;
 
 	a {
 		color: $color__link-alt;
@@ -15,11 +16,17 @@
 	}
 }
 
-.entry-content {
+.entry-content,
+.entry-summary {
 	@include font-size(1.125);
 
 	a {
 		font-weight: 700;
+	}
+
+	.more-link {
+		text-transform: uppercase;
+		font-weight: 400;
 	}
 }
 
@@ -44,4 +51,20 @@
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.post-thumbnail {
+	@include transition(0.3s);
+
+	.page & {
+		margin-bottom: 3.750em;
+	}
+
+	img {
+		@include transition(0.3s);
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
 }

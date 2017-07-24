@@ -2,6 +2,8 @@ a {
 	color: $color__link;
 	text-decoration: none;
 
+	@include transition(0.1s);
+
 	&:visited {
 		color: $color__link-visited;
 	}

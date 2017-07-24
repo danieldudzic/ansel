@@ -15,6 +15,14 @@
  * See: https://jetpack.com/support/content-options/
  */
 function ansel_jetpack_setup() {
+
+		// Add support for Jetpack Portfolio Custom Post Type.
+	add_theme_support( 'jetpack-portfolio', array(
+		'title'          => true,
+		'content'        => true,
+		'featured-image' => true,
+	) );
+
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
@@ -30,13 +38,23 @@ function ansel_jetpack_setup() {
 
 	// Add theme support for Content Options.
 	add_theme_support( 'jetpack-content-options', array(
-		'post-details' => array(
+		'author-bio'      => true,
+		'post-details'    => array(
 			'stylesheet' => 'ansel-style',
 			'date'       => '.posted-on',
 			'categories' => '.cat-links',
 			'tags'       => '.tags-links',
 			'author'     => '.byline',
 			'comment'    => '.comments-link',
+		),
+		'featured-images' => array(
+			'archive'          => true,
+			'post'             => true,
+			'post-default'     => true,
+			'page'             => true,
+			'page-default'     => true,
+			'fallback'         => true,
+			'fallback-default' => false,
 		),
 	) );
 }
@@ -64,5 +82,92 @@ function ansel_social_menu() {
 		return;
 	} else {
 		jetpack_social_menu();
+	}
+}
+
+/**
+ * Return Author Bio
+ * If Jetpack is not available, fall back to ansel_author_meta()
+ */
+function ansel_author_bio() {
+	if ( ! function_exists( 'jetpack_author_bio' ) ) {
+		ansel_author_meta();
+	} else {
+		jetpack_author_bio();
+	}
+}
+
+/**
+ * Getter function for Featured Content
+ *
+ * @return (string) The value of the filter defined in add_theme_support( 'featured-content' )
+ */
+function ansel_get_featured_projects() {
+	return apply_filters( 'rebalance_get_featured_projects', array() );
+}
+
+/**
+ * Portfolio Title
+ */
+function ansel_portfolio_title( $before = '', $after = '' ) {
+	$jetpack_portfolio_title = get_option( 'jetpack_portfolio_title' );
+	$title = '';
+
+	if ( is_post_type_archive( 'jetpack-portfolio' ) ) {
+		if ( isset( $jetpack_portfolio_title ) && '' != $jetpack_portfolio_title ) {
+			$title = esc_html( $jetpack_portfolio_title );
+		} else {
+			$title = post_type_archive_title( '', false );
+		}
+	} elseif ( is_tax( 'jetpack-portfolio-type' ) || is_tax( 'jetpack-portfolio-tag' ) ) {
+		$title = single_term_title( '', false );
+	}
+
+	echo $before . $title . $after;
+}
+
+/**
+ * Portfolio Content
+ */
+function ansel_portfolio_content( $before = '', $after = '' ) {
+	$jetpack_portfolio_content = get_option( 'jetpack_portfolio_content' );
+
+	if ( is_tax() && get_the_archive_description() ) {
+		echo $before . get_the_archive_description() . $after;
+	} else if ( isset( $jetpack_portfolio_content ) && '' != $jetpack_portfolio_content ) {
+		$content = convert_chars( convert_smilies( wptexturize( stripslashes( wp_filter_post_kses( addslashes( $jetpack_portfolio_content ) ) ) ) ) );
+		echo $before . $content . $after;
+	}
+}
+
+/**
+ * Portfolio Featured Image
+ */
+function ansel_portfolio_thumbnail( $before = '', $after = '' ) {
+	$jetpack_portfolio_featured_image = get_option( 'jetpack_portfolio_featured_image' );
+
+	if ( isset( $jetpack_portfolio_featured_image ) && '' != $jetpack_portfolio_featured_image ) {
+		$featured_image = wp_get_attachment_image( (int) $jetpack_portfolio_featured_image, 'full-width' );
+		echo $before . $featured_image . $after;
+	}
+}
+
+/**
+ * Author Author Bio Avatar Size
+ */
+function ansel_author_bio_avatar_size() {
+	return 111;
+}
+add_filter( 'jetpack_author_bio_avatar_size', 'ansel_author_bio_avatar_size' );
+
+/**
+ * Custom function to check for a post thumbnail;
+ * If Jetpack is not available, fall back to has_post_thumbnail()
+ */
+function ansel_has_post_thumbnail( $post = null ) {
+	if ( function_exists( 'jetpack_has_featured_image' ) ) {
+		return jetpack_has_featured_image( $post );
+	} else {
+		return has_post_thumbnail( $post );
 	}
 }

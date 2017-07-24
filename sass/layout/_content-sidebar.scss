@@ -1,17 +1,13 @@
 .content-area {
-	float: left;
-	margin: 0 (-$size__site-sidebar - 5%) 0 0;
-	width: $size__site-main;
+	width: 100%;
 }
 
 .site-main {
-	margin: 0 ( $size__site-sidebar + 5% ) 0 0;
 }
 
 .site-content .widget-area {
-	float: right;
 	overflow: hidden;
-	width: $size__site-sidebar;
+	width: 100%;
 }
 
 .site-footer {
@@ -65,8 +61,7 @@
 			padding: 0 6px;
 		}
 
-		&:last-child:after,
-		&:nth-last-child(2):after {
+		&:last-child:after {
 			content: "";
 			padding: 0;
 		}
@@ -78,6 +73,13 @@
 			&:focus {
 				color: $color__link-hover;
 			}
+		}
+	}
+
+	.edit-link {
+		&:after {
+			content: "";
+			padding: 0;
 		}
 	}
 

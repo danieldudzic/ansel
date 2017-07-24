@@ -100,3 +100,27 @@ function ansel_entry_footer() {
 	}
 }
 endif;
+
+if ( ! function_exists( 'ansel_author_meta' ) ) :
+/**
+ * Prints HTML with meta information for the tags, project-tags and edit links.
+ */
+function ansel_author_meta() {
+// If a user has filled out their description, show a bio on their entries
+if ( get_the_author_meta( 'description' ) ) { ?>
+	<div class="author-meta clear-fix">
+		<div class="author-box">
+			<div class="author-information">
+				<div class="author-avatar">
+					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'ansel_author_bio_avatar_size', 111 ) ); ?>
+				</div><!-- #author-avatar -->
+				<h3><?php printf( esc_attr__( 'About %s', 'ansel' ), get_the_author() ); ?></h3>
+				<div class="author-description">
+					<?php the_author_meta( 'description' ); ?>
+				</div>
+			</div><!-- #author-description -->
+		</div>
+	</div><!-- #author-meta-->
+<?php }
+}
+endif;

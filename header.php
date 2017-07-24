@@ -11,7 +11,7 @@
 
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-js no-svg">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,14 +38,18 @@
 				endif; ?>
 			</div><!-- .site-branding -->
 
+			<button class="menu-toggle" aria-controls="top-menu" aria-expanded="false">
+			<?php
+				echo ansel_get_svg( array( 'icon' => 'bars' ) );
+				echo ansel_get_svg( array( 'icon' => 'close' ) );
+				esc_html_e( 'Menu', 'ansel' );
+			?>
+			</button>
 			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'ansel' ); ?></button>
-				<?php
-					wp_nav_menu( array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					) );
-				?>
+				<?php wp_nav_menu( array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'top-menu',
+				) ); ?>
 			</nav><!-- #site-navigation -->
 		</div><!-- .branding-container -->
 

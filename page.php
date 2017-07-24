@@ -14,6 +14,14 @@
 
 get_header(); ?>
 
+	<?php if ( ansel_has_post_thumbnail() ) : ?>
+		<div class="post-thumbnail">
+			<a href="<?php the_permalink(); ?>">
+				<?php the_post_thumbnail( 'ansel-featured-image-page' ); ?>
+			</a>
+		</div>
+	<?php endif; ?>
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
