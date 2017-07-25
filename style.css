@@ -271,7 +271,12 @@ textarea {
   line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   clear: both;
   font-family: "Work Sans", sans-serif;
   font-weight: normal;
@@ -279,10 +284,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  margin-bottom: 1.5em;
+  margin: 0 0 1.5em;
+  padding: 0;
 }
 
-dfn, cite, em, i {
+p:last-child {
+  margin-bottom: 0;
+}
+
+dfn,
+cite,
+em,
+i {
   font-style: italic;
 }
 
@@ -306,18 +319,23 @@ pre {
   padding: 1.6em;
 }
 
-code, kbd, tt, var {
+code,
+kbd,
+tt,
+var {
   font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
   font-size: 15px;
   font-size: 0.9375rem;
 }
 
-abbr, acronym {
+abbr,
+acronym {
   border-bottom: 1px dotted #666;
   cursor: help;
 }
 
-mark, ins {
+mark,
+ins {
   background: #fff9c0;
   text-decoration: none;
 }
@@ -664,6 +682,7 @@ a:hover, a:active {
 .menu-toggle {
   border: 3px solid #eee;
   clear: none;
+  display: none;
   float: right;
   padding: 0.5em;
   height: 2.25em;
@@ -740,6 +759,10 @@ a:hover, a:active {
   vertical-align: baseline;
 }
 
+.no-js .dropdown-toggle {
+  display: none;
+}
+
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
@@ -785,6 +808,16 @@ a:hover, a:active {
 .post-navigation a:focus {
   color: #444444;
   transition: all 0.3s ease-in-out;
+}
+
+.nav-subtitle {
+  color: #999999;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 /* Social Menu. */
@@ -998,10 +1031,9 @@ a:hover, a:active {
   padding: 0 50px;
 }
 
-.single .site-content,
-.page:not(.has-post-thumbnail) .site-content {
+body:not(.has-custom-header) .site-content {
   border-top: 1px solid #f7f7f7;
-  padding-top: 100px;
+  padding-top: 6.250em;
 }
 
 /*--------------------------------------------------------------
@@ -1058,6 +1090,10 @@ a:hover, a:active {
   margin: 0.5em auto 0;
 }
 
+.has-custom-header .site-content .featured-image-header {
+  margin-bottom: 4.688em;
+}
+
 /*--------------------------------------------------------------
 ## Content Sidebar
 --------------------------------------------------------------*/
@@ -1079,6 +1115,10 @@ a:hover, a:active {
 
 .site-footer a {
   color: #ccc;
+}
+
+.site-footer a:hover, .site-footer a:focus {
+  color: #2C55E2;
 }
 
 .site-footer .site-info {
@@ -1181,19 +1221,30 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-.entry-title {
+.hfeed .hentry {
+  margin-bottom: 6em;
+}
+
+.entry-title,
+.page-title {
   max-width: 100%;
   word-wrap: break-word;
   margin-top: 0;
+  margin-bottom: 1em;
+  font-size: 24px;
+  font-size: 1.5rem;
 }
 
-.entry-title a {
+.entry-title a,
+.page-title a {
   color: #999999;
   font-weight: 400;
   transition: all 0.2s ease-in-out;
 }
 
-.entry-title a:hover, .entry-title a:focus {
+.entry-title a:hover, .entry-title a:focus,
+.page-title a:hover,
+.page-title a:focus {
   color: #2C55E2;
 }
 
@@ -1210,16 +1261,23 @@ a:hover, a:active {
 
 .entry-content .more-link,
 .entry-summary .more-link {
-  text-transform: uppercase;
+  display: block;
+  margin: 1.5em 0;
+  color: #999999;
   font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+.entry-content .more-link:hover,
+.entry-summary .more-link:hover {
+  color: #2C55E2;
 }
 
 .sticky {
   display: block;
-}
-
-.hentry {
-  margin: 0 0 5em;
 }
 
 .updated:not(.published) {
@@ -1229,7 +1287,7 @@ a:hover, a:active {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0;
+  margin: 1.5em 0;
 }
 
 .page-links {
@@ -1238,6 +1296,7 @@ a:hover, a:active {
 }
 
 .post-thumbnail {
+  margin-bottom: 1em;
   transition: all 0.3s ease-in-out;
 }
 
@@ -1253,9 +1312,81 @@ a:hover, a:active {
   opacity: 0.7;
 }
 
+.entry-author {
+  border: 1px solid #eee;
+  border-radius: 3px;
+  overflow: hidden;
+  padding: 1.5em;
+  margin: 5em 0 0;
+}
+
+.entry-author .author-avatar {
+  width: 16%;
+  float: right;
+  margin-left: 4%;
+}
+
+.entry-author .author-avatar .avatar {
+  border-radius: 3px;
+  float: right;
+}
+
+.entry-author .author-heading {
+  clear: none;
+  margin: 0 0 1em;
+  width: 80%;
+}
+
+.entry-author .author-title {
+  text-align: left;
+  margin: 0;
+  clear: none;
+  color: #444444;
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.entry-author .author-title .author-name {
+  color: #999999;
+  font-size: 24px;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  display: block;
+  letter-spacing: 0px;
+}
+
+.entry-author .author-bio {
+  margin-bottom: 0;
+  overflow: hidden;
+  width: 80%;
+}
+
+.entry-author .author-link {
+  display: block;
+  margin-top: 1em;
+  font-weight: 700;
+}
+
+.entry-author .author-link:hover {
+  color: #444444;
+}
+
+.entry-author .author-description > :last-child {
+  margin-bottom: 0;
+}
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+.comments-area {
+  border-top: 1px solid #eee;
+  margin: 6em 0 0;
+  padding-top: 2em;
+}
+
 .comments-area .comment {
   margin-bottom: 2.500em;
 }
@@ -1284,7 +1415,7 @@ a:hover, a:active {
 }
 
 .comment-body .reply {
-  margin-top: 0.5em;
+  margin-top: 0.75em;
 }
 
 .comment-reply-link {
@@ -1542,7 +1673,7 @@ object {
     display: none;
     height: 0;
     position: absolute;
-    right: 1.35em;
+    right: 0.85em;
     bottom: -1px;
     width: 0;
     z-index: 100000;
@@ -1559,7 +1690,6 @@ object {
   }
   .main-navigation ul li:hover > ul,
   .main-navigation ul li.focus > ul {
-    left: 0.5em;
     right: auto;
   }
   .main-navigation > div > ul {
@@ -1587,11 +1717,11 @@ object {
     color: #2C55E2;
   }
   .main-navigation a {
-    padding: 0.5em 1.25em;
+    padding: 0.75em 1.25em;
   }
   .main-navigation .menu-item-has-children a,
   .main-navigation .page_item_has_children a {
-    padding: 0.5em 1.25em;
+    padding: 0.75em 1.25em;
   }
   .main-navigation .menu-item-has-children > a > .icon,
   .main-navigation .page_item_has_children > a > .icon {
@@ -1613,6 +1743,16 @@ object {
     float: left;
     margin: 0 -35% 0 0;
     width: 100%;
+  }
+  .no-sidebar .content-area,
+  .no-sidebar .post-thumbnail {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+  }
+  .no-sidebar .site-main {
+    margin: 0;
   }
   .site-main {
     margin: 0 35% 0 0;

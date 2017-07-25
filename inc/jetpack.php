@@ -61,6 +61,35 @@ function ansel_jetpack_setup() {
 add_action( 'after_setup_theme', 'ansel_jetpack_setup' );
 
 /**
+ * Show/Hide Featured Image outside of the loop.
+ */
+function ansel_jetpack_featured_image_display() {
+    if ( ! function_exists( 'jetpack_featured_images_remove_post_thumbnail' ) ) {
+        return true;
+    } else {
+        $options         = get_theme_support( 'jetpack-content-options' );
+        $featured_images = ( ! empty( $options[0]['featured-images'] ) ) ? $options[0]['featured-images'] : null;
+
+        $settings = array(
+            'post-default' => ( isset( $featured_images['post-default'] ) && false === $featured_images['post-default'] ) ? '' : 1,
+            'page-default' => ( isset( $featured_images['page-default'] ) && false === $featured_images['page-default'] ) ? '' : 1,
+        );
+
+        $settings = array_merge( $settings, array(
+            'post-option'  => get_option( 'jetpack_content_featured_images_post', $settings['post-default'] ),
+            'page-option'  => get_option( 'jetpack_content_featured_images_page', $settings['page-default'] ),
+        ) );
+
+        if ( ( ! $settings['post-option'] && is_single() )
+            || ( ! $settings['page-option'] && is_singular() && is_page() ) ) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+
+/**
  * Custom render function for Infinite Scroll.
  */
 function ansel_infinite_scroll_render() {
@@ -86,24 +115,12 @@ function ansel_social_menu() {
 }
 
 /**
- * Return Author Bio
- * If Jetpack is not available, fall back to ansel_author_meta()
- */
-function ansel_author_bio() {
-	if ( ! function_exists( 'jetpack_author_bio' ) ) {
-		ansel_author_meta();
-	} else {
-		jetpack_author_bio();
-	}
-}
-
-/**
  * Getter function for Featured Content
  *
  * @return (string) The value of the filter defined in add_theme_support( 'featured-content' )
  */
 function ansel_get_featured_projects() {
-	return apply_filters( 'rebalance_get_featured_projects', array() );
+	return apply_filters( 'ansel_get_featured_projects', array() );
 }
 
 /**
@@ -153,10 +170,10 @@ function ansel_portfolio_thumbnail( $before = '', $after = '' ) {
 }
 
 /**
- * Author Author Bio Avatar Size
+ * Author Bio Avatar Size
  */
 function ansel_author_bio_avatar_size() {
-	return 111;
+	return 90;
 }
 add_filter( 'jetpack_author_bio_avatar_size', 'ansel_author_bio_avatar_size' );
 

@@ -124,6 +124,7 @@
 .menu-toggle {
     border: 3px solid $color__border-button;
     clear: none;
+    display: none;
     float: right;
     padding: 0.5em;
     height: 2.25em;
@@ -197,6 +198,10 @@
 	&.toggled-on .icon {
 		vertical-align: baseline;
 	}
+
+	.no-js & {
+		display: none;
+	}
 }
 
 .comment-navigation,
@@ -234,6 +239,15 @@
 
 		@include transition(0.3s);
 	}
+}
+
+.nav-subtitle {
+	color: $color__link-alt;
+	display: block;
+	@include font-size(0.875);
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-transform: uppercase;
 }
 
 /* Social Menu. */

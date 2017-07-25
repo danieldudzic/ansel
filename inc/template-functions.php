@@ -18,11 +18,14 @@ function ansel_body_classes( $classes ) {
 	}
 
 
-	// Add a class of has-post-thumbnail if the post or page has a featured image set.
-	if ( has_post_thumbnail() && is_singular() ) {
-		if  ( ansel_has_post_thumbnail() ) {
-			$classes[] = 'has-post-thumbnail';
-		}
+	// Add a class of has-post-thumbnail if the post or page has a featured image set or a custom header image is set.
+	if ( is_singular() && ansel_has_post_thumbnail() && ansel_jetpack_featured_image_display() || has_header_image() ) {
+		$classes[] = 'has-custom-header';
+	}
+
+	// Add a class of no-sidebar when there is no sidebar present.
+	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+		$classes[] = 'no-sidebar';
 	}
 
 	return $classes;

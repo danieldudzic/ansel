@@ -43,7 +43,7 @@ function ansel_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	add_image_size( 'ansel-featured-image-post', 650, 9999 );
-	add_image_size( 'ansel-featured-image-page', 1000, 9999 );
+	add_image_size( 'ansel-featured-image-header', 1000, 9999 );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -116,36 +116,29 @@ function ansel_widgets_init() {
 }
 add_action( 'widgets_init', 'ansel_widgets_init' );
 
+if ( ! function_exists( 'ansel_continue_reading_link' ) ) :
 /**
- * Replaces "[...]" (appended to automatically generated excerpts) with ... and
- * a 'Continue reading' link.
- *
- * @param string $link Link to single post/page.
- * @return string 'Continue reading' link prepended with an ellipsis.
+ * Returns an ellipsis and "Continue reading" plus off-screen title link for excerpts
  */
-function ansel_excerpt_more( $link ) {
+function ansel_continue_reading_link() {
+	return '&hellip; <a href="'. esc_url( get_permalink() ) . '" class="more-link">' . sprintf( __( 'Continue reading <span class="screen-reader-text">%1$s</span>', 'ansel' ), esc_attr( strip_tags( get_the_title() ) ) ) . '</a>';
+}
+endif; // ansel_continue_reading_link
+
+/**
+ * Replaces "[...]" (appended to automatically generated excerpts) with ansel_continue_reading_link().
+ *
+ * To override this in a child theme, remove the filter and add your own
+ * function tied to the excerpt_more filter hook.
+ */
+function ansel_auto_excerpt_more() {
 	if ( is_admin() ) {
-		return $link;
+		return;
 	}
 
-	$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
-		esc_url( get_permalink( get_the_ID() ) ),
-		sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'ansel' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title( get_the_ID() )
-		)
-	);
-	return ' &hellip; ' . $link;
+	return ansel_continue_reading_link();
 }
-add_filter( 'excerpt_more', 'ansel_excerpt_more' );
+add_filter( 'excerpt_more', 'ansel_auto_excerpt_more' );
 
 /**
  * Handles JavaScript detection.
@@ -240,11 +233,29 @@ add_action( 'wp_enqueue_scripts', 'ansel_scripts' );
 function ansel_posts_navigation() {
 	if ( have_posts() ) :
 		if( is_single() ) :
-			the_post_navigation();
+			the_post_navigation( array(
+				'prev_text' => '<span aria-hidden="true" class="nav-subtitle">' .
+									esc_html_x( 'Previous', 'previous post', 'ansel' ) .
+								'</span>%title',
+				'next_text' => '<span aria-hidden="true" class="nav-subtitle">' .
+									esc_html_x( 'Next', 'next post', 'ansel' ) .
+								'</span>%title',
+			) );
 		else :
 			the_posts_navigation();
 		endif;
 	endif;
+}
+
+/**
+ * Load the author template if Author Bio is not available.
+ */
+function ansel_author_bio() {
+	if ( ! function_exists( 'jetpack_author_bio' ) ) {
+		get_template_part( 'template-parts/post/content', 'author' );
+	} else {
+		jetpack_author_bio();
+	}
 }
 
 /**
@@ -275,6 +286,4 @@ require get_template_directory() . '/inc/icon-functions.php';
 /**
  * Load Jetpack compatibility file.
  */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
+require get_template_directory() . '/inc/jetpack.php';

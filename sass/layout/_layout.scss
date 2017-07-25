@@ -9,10 +9,9 @@
 	margin: 0 -50px;
 	padding: 0 50px;
 
-	.single &,
-	.page:not(.has-post-thumbnail) & {
+	body:not(.has-custom-header) & {
 		border-top: 1px solid $color__border;
-		padding-top: 100px;
+		padding-top: 6.250em;
 	}
 }
 

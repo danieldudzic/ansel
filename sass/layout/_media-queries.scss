@@ -101,7 +101,7 @@
 					display: none;
 					height: 0;
 					position: absolute;
-					right: 1.35em;
+					right: 0.85em;
 					bottom: -1px;
 					width: 0;
 					z-index: 100000;
@@ -131,7 +131,6 @@
 
 				&:hover > ul,
 				&.focus > ul {
-					left: 0.5em;
 					right: auto;
 				}
 			}
@@ -173,12 +172,12 @@
 		}
 
 		a {
-			padding: 0.5em 1.25em;
+			padding: 0.75em 1.25em;
 		}
 
 		.menu-item-has-children a,
 		.page_item_has_children a {
-			padding: 0.5em 1.25em;
+			padding: 0.75em 1.25em;
 		}
 
 
@@ -209,6 +208,20 @@
 		float: left;
 		margin: 0 (-$size__site-sidebar - 5%) 0 0;
 		width: $size__site-main;
+	}
+
+	.no-sidebar {
+		.content-area,
+		.post-thumbnail {
+			float: none;
+			margin-left: auto;
+			margin-right: auto;
+			width: 65%;
+		}
+
+		.site-main {
+			margin: 0;
+		}
 	}
 
 	.site-main {

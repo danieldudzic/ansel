@@ -2,9 +2,6 @@
 	width: 100%;
 }
 
-.site-main {
-}
-
 .site-content .widget-area {
 	overflow: hidden;
 	width: 100%;
@@ -18,6 +15,11 @@
 
 	a {
 		color: $color__text-alt;
+
+		&:hover,
+		&:focus {
+			color: $color__link-hover;
+		}
 	}
 
 	.site-info {

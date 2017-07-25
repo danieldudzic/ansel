@@ -1,7 +1,14 @@
-.entry-title {
+.hfeed .hentry {
+	margin-bottom: 6em;
+}
+
+.entry-title,
+.page-title {
 	max-width: 100%;
 	word-wrap: break-word;
 	margin-top: 0;
+	margin-bottom: 1em;
+	@include font-size(1.5);
 
 	a {
 		color: $color__link-alt;
@@ -25,17 +32,22 @@
 	}
 
 	.more-link {
-		text-transform: uppercase;
+		display: block;
+		margin: 1.5em 0;
+		color: $color__link-alt;
 		font-weight: 400;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		@include font-size(1);
+
+		&:hover {
+			color: $color__link-hover;
+		}
 	}
 }
 
 .sticky {
 	display: block;
-}
-
-.hentry {
-	margin: 0 0 5em;
 }
 
 .updated:not(.published){
@@ -45,7 +57,7 @@
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 1.5em 0;
 }
 
 .page-links {
@@ -54,6 +66,8 @@
 }
 
 .post-thumbnail {
+	margin-bottom: 1em;
+
 	@include transition(0.3s);
 
 	.page & {
@@ -65,6 +79,72 @@
 
 		&:hover {
 			opacity: 0.7;
+		}
+	}
+}
+
+.entry-author {
+	border: 1px solid $color__border-button;
+	border-radius: 3px;
+	overflow: hidden;
+	padding: 1.5em;
+	margin: 5em 0 0;
+
+	.author-avatar {
+		width: 16%;
+		float: right;
+		margin-left: 4%;
+
+		.avatar {
+			border-radius: 3px;
+			float: right;
+		}
+	}
+
+	.author-heading {
+		clear: none;
+		margin: 0 0 1em;
+		width: 80%;
+	}
+
+	.author-title {
+		text-align: left;
+		margin: 0;
+		clear: none;
+		color: $color__text-main;
+		font-family: $font__secondary;
+		@include font-size(0.875);
+		text-transform: uppercase;
+		letter-spacing: 2px;
+
+		.author-name {
+			color: $color__link-alt;
+			@include font-size(1.5);
+			text-transform: capitalize;
+			display: block;
+			letter-spacing: 0px;
+		}
+	}
+
+	.author-bio {
+		margin-bottom: 0;
+		overflow: hidden;
+		width: 80%;
+	}
+
+	.author-link {
+		display: block;
+		margin-top: 1em;
+		font-weight: 700;
+
+		&:hover {
+			color: $color__text-main;
+		}
+	}
+
+	.author-description {
+		> :last-child {
+			margin-bottom: 0;
 		}
 	}
 }

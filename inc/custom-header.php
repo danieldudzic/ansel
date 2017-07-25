@@ -21,7 +21,7 @@ function ansel_custom_header_setup() {
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
-		'height'                 => 250,
+		'height'                 => 500,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'ansel_header_style',
 	) ) );
@@ -70,3 +70,24 @@ function ansel_header_style() {
 	<?php
 }
 endif;
+
+/**
+ * Manages the logic for displaying the custom header image.
+ */
+function ansel_custom_header() {
+	// Display the Featured Image as the Custom Header Image on Single Posts and Pages.
+	if ( is_singular() && ansel_has_post_thumbnail() && ansel_jetpack_featured_image_display() ) { ?>
+		<div class="featured-image-header">
+			<a href="<?php the_permalink(); ?>">
+				<?php the_post_thumbnail( 'ansel-featured-image-header' ); ?>
+			</a>
+		</div>
+	<?php
+	} elseif ( has_header_image() ) { ?>
+		<div class="featured-image-header">
+			<?php the_header_image_tag(); ?>
+		</div>
+	<?php
+	}
+}
+

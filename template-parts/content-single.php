@@ -26,14 +26,6 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php if ( ansel_has_post_thumbnail() ) : ?>
-		<div class="post-thumbnail">
-			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'ansel-featured-image-post' ); ?>
-			</a>
-		</div>
-	<?php endif; ?>
-
 	<div class="entry-content">
 		<?php
 			the_content( sprintf(
