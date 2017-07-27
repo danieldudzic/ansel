@@ -23,183 +23,282 @@ function ansel_customize_register( $wp_customize ) {
 	) );
 
 	// Homepage Feature 1
-	$wp_customize->add_section( 'ansel_panel_1', array(
+	$wp_customize->add_section( 'ansel_homepage_feature_1', array(
 		'title'           => esc_html__( 'Homepage Feature 1', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel_1', array(
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_1', array(
 		'default'           => false,
 		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_1', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_homepage_feature_content_1', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel_1',
+		'section' => 'ansel_homepage_feature_1',
 		'type'    => 'select',
 		'choices' => ansel_get_homepage_feature_content_choices(),
 	) ) );
 
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_thumbnail_1', array(
+		'default'           => false,
+		'sanitize_callback'	=> 'esc_url_raw',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_homepage_feature_content_thumbnail_1', array(
+		'section'	=> 'ansel_homepage_feature_1',
+		'settings'	=> 'ansel_homepage_feature_content_thumbnail_1',
+		'label'		=> esc_html__( 'Feature Content Thumbnail', 'ansel' ),
+	) ) );
+
 	// Homepage Feature 2
-	$wp_customize->add_section( 'ansel_panel_2', array(
+	$wp_customize->add_section( 'ansel_homepage_feature_2', array(
 		'title'           => esc_html__( 'Homepage Feature 2', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel_2', array(
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_2', array(
 		'default'           => false,
 		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_2', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_homepage_feature_content_2', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel_2',
+		'section' => 'ansel_homepage_feature_2',
 		'type'    => 'select',
 		'choices' => ansel_get_homepage_feature_content_choices(),
 	) ) );
 
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_thumbnail_2', array(
+		'default'           => false,
+		'sanitize_callback'	=> 'esc_url_raw',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_homepage_feature_content_thumbnail_2', array(
+		'section'	=> 'ansel_homepage_feature_2',
+		'settings'	=> 'ansel_homepage_feature_content_thumbnail_2',
+		'label'		=> esc_html__( 'Feature Content Thumbnail', 'ansel' ),
+	) ) );
+
 	// Homepage Feature 3
-	$wp_customize->add_section( 'ansel_panel_3', array(
+	$wp_customize->add_section( 'ansel_homepage_feature_3', array(
 		'title'           => esc_html__( 'Homepage Feature 3', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel_3', array(
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_3', array(
 		'default'           => false,
 		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_3', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_homepage_feature_content_3', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel_3',
+		'section' => 'ansel_homepage_feature_3',
 		'type'    => 'select',
 		'choices' => ansel_get_homepage_feature_content_choices(),
 	) ) );
 
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_thumbnail_3', array(
+		'default'           => false,
+		'sanitize_callback'	=> 'esc_url_raw',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_homepage_feature_content_thumbnail_3', array(
+		'section'	=> 'ansel_homepage_feature_3',
+		'settings'	=> 'ansel_homepage_feature_content_thumbnail_3',
+		'label'		=> esc_html__( 'Feature Content Thumbnail', 'ansel' ),
+	) ) );
+
 	// Homepage Feature 4
-	$wp_customize->add_section( 'ansel_panel4', array(
+	$wp_customize->add_section( 'ansel_homepage_feature_4', array(
 		'title'           => esc_html__( 'Homepage Feature 4', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel4', array(
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_4', array(
 		'default'           => false,
 		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel4', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_homepage_feature_content_4', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel4',
+		'section' => 'ansel_homepage_feature_4',
 		'type'    => 'select',
 		'choices' => ansel_get_homepage_feature_content_choices(),
 	) ) );
 
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_thumbnail_4', array(
+		'default'           => false,
+		'sanitize_callback'	=> 'esc_url_raw',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_homepage_feature_content_thumbnail_4', array(
+		'section'	=> 'ansel_homepage_feature_4',
+		'settings'	=> 'ansel_homepage_feature_content_thumbnail_4',
+		'label'		=> esc_html__( 'Feature Content Thumbnail', 'ansel' ),
+	) ) );
+
 	// Homepage Feature 5
-	$wp_customize->add_section( 'ansel_panel_5', array(
+	$wp_customize->add_section( 'ansel_homepage_feature_5', array(
 		'title'           => esc_html__( 'Homepage Feature 5', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel_5', array(
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_5', array(
 		'default'           => false,
 		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_5', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_homepage_feature_content_5', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel_5',
+		'section' => 'ansel_homepage_feature_5',
 		'type'    => 'select',
 		'choices' => ansel_get_homepage_feature_content_choices(),
 	) ) );
 
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_thumbnail_5', array(
+		'default'           => false,
+		'sanitize_callback'	=> 'esc_url_raw',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_homepage_feature_content_thumbnail_5', array(
+		'section'	=> 'ansel_homepage_feature_5',
+		'settings'	=> 'ansel_homepage_feature_content_thumbnail_5',
+		'label'		=> esc_html__( 'Feature Content Thumbnail', 'ansel' ),
+	) ) );
+
 	// Homepage Feature 6
-	$wp_customize->add_section( 'ansel_panel_6', array(
+	$wp_customize->add_section( 'ansel_homepage_feature_6', array(
 		'title'           => esc_html__( 'Homepage Feature 6', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel_6', array(
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_6', array(
 		'default'           => false,
 		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_6', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_homepage_feature_content_6', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel_6',
+		'section' => 'ansel_homepage_feature_6',
 		'type'    => 'select',
 		'choices' => ansel_get_homepage_feature_content_choices(),
 	) ) );
 
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_thumbnail_6', array(
+		'default'           => false,
+		'sanitize_callback'	=> 'esc_url_raw',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_homepage_feature_content_thumbnail_6', array(
+		'section'	=> 'ansel_homepage_feature_6',
+		'settings'	=> 'ansel_homepage_feature_content_thumbnail_6',
+		'label'		=> esc_html__( 'Feature Content Thumbnail', 'ansel' ),
+	) ) );
+
 	// Homepage Feature 7
-	$wp_customize->add_section( 'ansel_panel_7', array(
+	$wp_customize->add_section( 'ansel_homepage_feature_7', array(
 		'title'           => esc_html__( 'Homepage Feature 7', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel_7', array(
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_7', array(
 		'default'           => false,
 		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_7', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_homepage_feature_content_7', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel_7',
+		'section' => 'ansel_homepage_feature_7',
 		'type'    => 'select',
 		'choices' => ansel_get_homepage_feature_content_choices(),
 	) ) );
 
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_thumbnail_7', array(
+		'default'           => false,
+		'sanitize_callback'	=> 'esc_url_raw',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_homepage_feature_content_thumbnail_7', array(
+		'section'	=> 'ansel_homepage_feature_7',
+		'settings'	=> 'ansel_homepage_feature_content_thumbnail_7',
+		'label'		=> esc_html__( 'Feature Content Thumbnail', 'ansel' ),
+	) ) );
+
 	// Homepage Feature 8
-	$wp_customize->add_section( 'ansel_panel_8', array(
+	$wp_customize->add_section( 'ansel_homepage_feature_8', array(
 		'title'           => esc_html__( 'Homepage Feature 8', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel_8', array(
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_8', array(
 		'default'           => false,
 		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_8', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_homepage_feature_content_8', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel_8',
+		'section' => 'ansel_homepage_feature_8',
 		'type'    => 'select',
 		'choices' => ansel_get_homepage_feature_content_choices(),
 	) ) );
 
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_thumbnail_8', array(
+		'default'           => false,
+		'sanitize_callback'	=> 'esc_url_raw',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_homepage_feature_content_thumbnail_8', array(
+		'section'	=> 'ansel_homepage_feature_8',
+		'settings'	=> 'ansel_homepage_feature_content_thumbnail_8',
+		'label'		=> esc_html__( 'Feature Content Thumbnail', 'ansel' ),
+	) ) );
+
 	// Homepage Feature 9
-	$wp_customize->add_section( 'ansel_panel_9', array(
+	$wp_customize->add_section( 'ansel_homepage_feature_9', array(
 		'title'           => esc_html__( 'Homepage Feature 9', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel_9', array(
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_9', array(
 		'default'           => false,
 		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_9', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_homepage_feature_content_9', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel_9',
+		'section' => 'ansel_homepage_feature_9',
 		'type'    => 'select',
 		'choices' => ansel_get_homepage_feature_content_choices(),
+	) ) );
+
+	$wp_customize->add_setting( 'ansel_homepage_feature_content_thumbnail_9', array(
+		'default'           => false,
+		'sanitize_callback'	=> 'esc_url_raw',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_homepage_feature_content_thumbnail_9', array(
+		'section'	=> 'ansel_homepage_feature_9',
+		'settings'	=> 'ansel_homepage_feature_content_thumbnail_9',
+		'label'		=> esc_html__( 'Feature Content Thumbnail', 'ansel' ),
 	) ) );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
