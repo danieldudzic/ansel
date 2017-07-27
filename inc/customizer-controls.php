@@ -25,6 +25,8 @@ if ( class_exists('WP_Customize_Control') ) {
 					$types	 = $choices['types'];
 					$options = $choices['options'];
 
+					echo '<option value="select"' . selected( $this->value(), 'select', false ) . '>' . esc_html__( '— Select —' ) . '</option>';
+
 					if( ! empty( $options['pages'] ) ) {
 						echo '<optgroup label="' . $types['pages_label'] . '">';
 

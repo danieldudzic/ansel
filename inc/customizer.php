@@ -47,7 +47,7 @@ function ansel_customize_register( $wp_customize ) {
 		'title'           => esc_html__( 'Homepage Feature 2', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
-		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
+		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
 	$wp_customize->add_setting( 'ansel_panel_2', array(
@@ -67,7 +67,7 @@ function ansel_customize_register( $wp_customize ) {
 		'title'           => esc_html__( 'Homepage Feature 3', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
-		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
+		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
 	$wp_customize->add_setting( 'ansel_panel_3', array(
@@ -87,7 +87,7 @@ function ansel_customize_register( $wp_customize ) {
 		'title'           => esc_html__( 'Homepage Feature 4', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
-		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
+		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
 	$wp_customize->add_setting( 'ansel_panel4', array(
@@ -107,7 +107,7 @@ function ansel_customize_register( $wp_customize ) {
 		'title'           => esc_html__( 'Homepage Feature 5', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
-		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
+		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
 	$wp_customize->add_setting( 'ansel_panel_5', array(
@@ -127,7 +127,7 @@ function ansel_customize_register( $wp_customize ) {
 		'title'           => esc_html__( 'Homepage Feature 6', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
-		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
+		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
 	$wp_customize->add_setting( 'ansel_panel_6', array(
@@ -147,7 +147,7 @@ function ansel_customize_register( $wp_customize ) {
 		'title'           => esc_html__( 'Homepage Feature 7', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
-		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
+		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
 	$wp_customize->add_setting( 'ansel_panel_7', array(
@@ -167,7 +167,7 @@ function ansel_customize_register( $wp_customize ) {
 		'title'           => esc_html__( 'Homepage Feature 8', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
-		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
+		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
 	$wp_customize->add_setting( 'ansel_panel_8', array(
@@ -187,7 +187,7 @@ function ansel_customize_register( $wp_customize ) {
 		'title'           => esc_html__( 'Homepage Feature 9', 'ansel' ),
 		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
-		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
+		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
 	$wp_customize->add_setting( 'ansel_panel_9', array(
@@ -252,15 +252,26 @@ function ansel_is_page_template_portfolio() {
 	}
 }
 
-function ansel_sanitize_select( $input, $setting ) {
+function ansel_sanitize_select( $input ) {
 	// Ensure input is a slug.
 	$input = sanitize_key( $input );
 
 	// Get list of choices from the control associated with the setting.
-	$choices = $setting->manager->get_control( $setting->id )->choices;
+	$choices = ansel_get_homepage_feature_content_choices();
 
-	// If the input is a valid key, return it; otherwise, return the default.
-	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+	$options = $choices['options'];
+
+	if ( array_key_exists( $input, $options['pages'] ) ) {
+		$sanitized_input = $input;
+	} elseif ( array_key_exists( $input, $options['portfolio_types'] ) ) {
+		$sanitized_input = $input;
+	} elseif ( array_key_exists( $input, $options['categories'] ) ) {
+		$sanitized_input = $input;
+	} else {
+		$sanitized_input = 'select';
+	}
+
+	return $sanitized_input;
 }
 
 /**
