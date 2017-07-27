@@ -1598,6 +1598,7 @@ object {
 @media screen and (min-width: 37.5em) {
   .site-branding {
     max-width: calc(100% - 7.5em);
+    margin-top: 0.25em;
   }
   .js .menu-toggle,
   .js .dropdown-toggle {

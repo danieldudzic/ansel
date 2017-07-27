@@ -13,19 +13,6 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-
-		<?php
-			/*
-			 * Include the Featured Project loop.
-			 * - if featured posts exist, collect their IDs and exclude them from the main loop
-			 */
-			if ( rebalance_has_featured_projects( 1 ) ) {
-				$featured_ids = rebalance_get_featured_project_ids();
-				get_template_part( 'template-parts/section', 'featured' );
-			} else {
-				$featured_ids = null;
-			} ?>
-
 		<main id="main" class="site-main" role="main">
 
 			<?php // Set Up New Query
@@ -76,5 +63,4 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

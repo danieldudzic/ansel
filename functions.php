@@ -279,6 +279,11 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Custom customizer controls.
+ */
+require get_template_directory() . '/inc/customizer-controls.php';
+
+/**
  * SVG icons functions and filters.
  */
 require get_template_directory() . '/inc/icon-functions.php';

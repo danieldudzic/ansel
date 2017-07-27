@@ -23,175 +23,184 @@ function ansel_customize_register( $wp_customize ) {
 	) );
 
 	// Homepage Feature 1
-	$wp_customize->add_section( 'ansel_panel1', array(
+	$wp_customize->add_section( 'ansel_panel_1', array(
 		'title'           => esc_html__( 'Homepage Feature 1', 'ansel' ),
-		'active_callback' => 'is_front_page',
+		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
-		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
+		'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel1', array(
+	$wp_customize->add_setting( 'ansel_panel_1', array(
 		'default'           => false,
-		'sanitize_callback' => 'ansel_sanitize_numeric_value',
+		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( 'ansel_panel1', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_1', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel1',
-		'type'    => 'dropdown-pages',
-	) );
+		'section' => 'ansel_panel_1',
+		'type'    => 'select',
+		'choices' => ansel_get_homepage_feature_content_choices(),
+	) ) );
 
 	// Homepage Feature 2
-	$wp_customize->add_section( 'ansel_panel2', array(
+	$wp_customize->add_section( 'ansel_panel_2', array(
 		'title'           => esc_html__( 'Homepage Feature 2', 'ansel' ),
-		'active_callback' => 'is_front_page',
+		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel2', array(
+	$wp_customize->add_setting( 'ansel_panel_2', array(
 		'default'           => false,
-		'sanitize_callback' => 'ansel_sanitize_numeric_value',
+		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( 'ansel_panel2', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_2', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel2',
-		'type'    => 'dropdown-pages',
-	) );
+		'section' => 'ansel_panel_2',
+		'type'    => 'select',
+		'choices' => ansel_get_homepage_feature_content_choices(),
+	) ) );
 
 	// Homepage Feature 3
-	$wp_customize->add_section( 'ansel_panel3', array(
+	$wp_customize->add_section( 'ansel_panel_3', array(
 		'title'           => esc_html__( 'Homepage Feature 3', 'ansel' ),
-		'active_callback' => 'is_front_page',
+		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel3', array(
+	$wp_customize->add_setting( 'ansel_panel_3', array(
 		'default'           => false,
-		'sanitize_callback' => 'ansel_sanitize_numeric_value',
+		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( 'ansel_panel3', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_3', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel3',
-		'type'    => 'dropdown-pages',
-	) );
+		'section' => 'ansel_panel_3',
+		'type'    => 'select',
+		'choices' => ansel_get_homepage_feature_content_choices(),
+	) ) );
 
 	// Homepage Feature 4
 	$wp_customize->add_section( 'ansel_panel4', array(
 		'title'           => esc_html__( 'Homepage Feature 4', 'ansel' ),
-		'active_callback' => 'is_front_page',
+		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
 	) );
 
 	$wp_customize->add_setting( 'ansel_panel4', array(
 		'default'           => false,
-		'sanitize_callback' => 'ansel_sanitize_numeric_value',
+		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( 'ansel_panel4', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel4', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
 		'section' => 'ansel_panel4',
-		'type'    => 'dropdown-pages',
-	) );
+		'type'    => 'select',
+		'choices' => ansel_get_homepage_feature_content_choices(),
+	) ) );
 
 	// Homepage Feature 5
-	$wp_customize->add_section( 'ansel_panel5', array(
+	$wp_customize->add_section( 'ansel_panel_5', array(
 		'title'           => esc_html__( 'Homepage Feature 5', 'ansel' ),
-		'active_callback' => 'is_front_page',
+		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel5', array(
+	$wp_customize->add_setting( 'ansel_panel_5', array(
 		'default'           => false,
-		'sanitize_callback' => 'ansel_sanitize_numeric_value',
+		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( 'ansel_panel5', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_5', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel5',
-		'type'    => 'dropdown-pages',
-	) );
+		'section' => 'ansel_panel_5',
+		'type'    => 'select',
+		'choices' => ansel_get_homepage_feature_content_choices(),
+	) ) );
 
 	// Homepage Feature 6
-	$wp_customize->add_section( 'ansel_panel6', array(
+	$wp_customize->add_section( 'ansel_panel_6', array(
 		'title'           => esc_html__( 'Homepage Feature 6', 'ansel' ),
-		'active_callback' => 'is_front_page',
+		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel6', array(
+	$wp_customize->add_setting( 'ansel_panel_6', array(
 		'default'           => false,
-		'sanitize_callback' => 'ansel_sanitize_numeric_value',
+		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( 'ansel_panel6', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_6', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel6',
-		'type'    => 'dropdown-pages',
-	) );
+		'section' => 'ansel_panel_6',
+		'type'    => 'select',
+		'choices' => ansel_get_homepage_feature_content_choices(),
+	) ) );
 
 	// Homepage Feature 7
-	$wp_customize->add_section( 'ansel_panel7', array(
+	$wp_customize->add_section( 'ansel_panel_7', array(
 		'title'           => esc_html__( 'Homepage Feature 7', 'ansel' ),
-		'active_callback' => 'is_front_page',
+		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel7', array(
+	$wp_customize->add_setting( 'ansel_panel_7', array(
 		'default'           => false,
-		'sanitize_callback' => 'ansel_sanitize_numeric_value',
+		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( 'ansel_panel7', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_7', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel7',
-		'type'    => 'dropdown-pages',
-	) );
+		'section' => 'ansel_panel_7',
+		'type'    => 'select',
+		'choices' => ansel_get_homepage_feature_content_choices(),
+	) ) );
 
 	// Homepage Feature 8
-	$wp_customize->add_section( 'ansel_panel8', array(
+	$wp_customize->add_section( 'ansel_panel_8', array(
 		'title'           => esc_html__( 'Homepage Feature 8', 'ansel' ),
-		'active_callback' => 'is_front_page',
+		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel8', array(
+	$wp_customize->add_setting( 'ansel_panel_8', array(
 		'default'           => false,
-		'sanitize_callback' => 'ansel_sanitize_numeric_value',
+		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( 'ansel_panel8', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_8', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel8',
-		'type'    => 'dropdown-pages',
-	) );
+		'section' => 'ansel_panel_8',
+		'type'    => 'select',
+		'choices' => ansel_get_homepage_feature_content_choices(),
+	) ) );
 
 	// Homepage Feature 9
-	$wp_customize->add_section( 'ansel_panel9', array(
+	$wp_customize->add_section( 'ansel_panel_9', array(
 		'title'           => esc_html__( 'Homepage Feature 9', 'ansel' ),
-		'active_callback' => 'is_front_page',
+		'active_callback' => 'ansel_is_page_template_portfolio',
 		'panel'           => 'ansel_theme_options',
 		'description'     => esc_html__( 'Add a background image to your panel by setting a featured image in the page editor. If you don&rsquo;t select a page, this panel will not be displayed.', 'ansel' ),
 	) );
 
-	$wp_customize->add_setting( 'ansel_panel9', array(
+	$wp_customize->add_setting( 'ansel_panel_9', array(
 		'default'           => false,
-		'sanitize_callback' => 'ansel_sanitize_numeric_value',
+		'sanitize_callback' => 'ansel_sanitize_select',
 	) );
 
-	$wp_customize->add_control( 'ansel_panel9', array(
+	$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_panel_9', array(
 		'label'   => esc_html__( 'Feature Content', 'ansel' ),
-		'section' => 'ansel_panel9',
-		'type'    => 'dropdown-pages',
-	) );
+		'section' => 'ansel_panel_9',
+		'type'    => 'select',
+		'choices' => ansel_get_homepage_feature_content_choices(),
+	) ) );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -228,6 +237,76 @@ function ansel_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function ansel_customize_preview_js() {
-	wp_enqueue_script( 'ansel-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+	wp_enqueue_script( 'ansel-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'ansel_customize_preview_js' );
+
+/**
+ * Check if the page is using the Portfolio Template.
+ */
+function ansel_is_page_template_portfolio() {
+	if ( is_page_template( 'templates/portfolio-page.php' ) ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function ansel_sanitize_select( $input, $setting ) {
+	// Ensure input is a slug.
+	$input = sanitize_key( $input );
+
+	// Get list of choices from the control associated with the setting.
+	$choices = $setting->manager->get_control( $setting->id )->choices;
+
+	// If the input is a valid key, return it; otherwise, return the default.
+	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+}
+
+/**
+ * Get all the options for the Homepage Feature Content select.
+ */
+function ansel_get_homepage_feature_content_choices() {
+	$options = array(
+		'pages'			  => '',
+		'portfolio_types' => '',
+		'categories'	  => '',
+	);
+
+	$types = array(
+		'pages_label'			=> esc_html__( 'Pages', 'ansel' ),
+		'portfolio_types_label' => esc_html__( 'Portfolio Types', 'ansel' ),
+		'categories_label'		=> esc_html__( 'Categories', 'ansel' ),
+	);
+
+	$pages = get_pages();
+
+	foreach ( $pages as $page ) {
+		$page_id = 'page_' . $page->ID;
+		$options['pages'][$page_id] = $page->post_title;
+	}
+
+	$portfolio_types = get_terms( array(
+		'taxonomy' => 'jetpack-portfolio-type',
+		'hide_empty' => false,
+	) );
+
+	foreach ( $portfolio_types as $portfolio_type ) {
+		$portfolio_type_id = 'portfolio_type_' . $portfolio_type->term_id;
+		$options['portfolio_types'][$portfolio_type_id] = $portfolio_type->name;
+	}
+
+	$categories = get_categories();
+
+	foreach ( $categories as $category ) {
+		$category_id = 'category_' . $category->term_id;
+		$options['categories'][$category_id] = $category->name;
+	}
+
+	$choices = array(
+		'types'   => $types,
+		'options' => $options,
+	);
+
+	return $choices;
+}
