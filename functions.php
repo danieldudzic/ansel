@@ -44,7 +44,7 @@ function ansel_setup() {
 
 	add_image_size( 'ansel-featured-image-post', 650, 9999 );
 	add_image_size( 'ansel-featured-image-header', 1000, 9999 );
-	add_image_size( 'ansel-homepage-feature', 300, 200, true );
+	add_image_size( 'ansel-feature-card', 300, 200, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

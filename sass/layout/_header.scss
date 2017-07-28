@@ -44,9 +44,16 @@
 }
 
 .has-custom-header .site-content .featured-image-header {
-	margin-bottom: 4.688em;
+	margin-bottom: 2.167em;
 
 	img {
 		border-radius: 3px;
+	}
+}
+
+.tax-jetpack-portfolio-type.has-custom-header,
+.tax-jetpack-portfolio-tag.has-custom-header {
+	.site-content .featured-image-header {
+		margin-bottom: 2.292em;
 	}
 }

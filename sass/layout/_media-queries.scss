@@ -211,7 +211,8 @@
 		width: $size__site-main;
 	}
 
-	.no-sidebar {
+	.no-sidebar,
+	.error404 {
 		.content-area,
 		.post-thumbnail {
 			float: none;
@@ -229,7 +230,9 @@
 		margin: 0 ( $size__site-sidebar + 5% ) 0 0;
 	}
 
-	.page-template-portfolio-page {
+	.page-template-portfolio-page,
+	.tax-jetpack-portfolio-type,
+	.tax-jetpack-portfolio-tag {
 		.site-main {
 			margin: 0;
 		}
@@ -241,7 +244,8 @@
 			width: 100%;
 		}
 
-		.homepage-feature {
+		.homepage-feature,
+		.jetpack-portfolio.hentry {
 			width: 30%;
 			margin-right: 5%;
 

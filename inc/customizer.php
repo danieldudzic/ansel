@@ -295,7 +295,7 @@ function ansel_homepage_feature_thumbnail( $src, $feature_id = '', $feature_type
 	}
 
 	if ( $thumbnail_id ) {
-		$thumbnail = wp_get_attachment_image( $thumbnail_id, 'ansel-homepage-feature', false, $thumbnail_attr );
+		$thumbnail = wp_get_attachment_image( $thumbnail_id, 'ansel-feature-card', false, $thumbnail_attr );
 	} else {
 		$thumbnail = '<img src="' . get_template_directory_uri() . '/assets/images/homepage-feature-default-thumbnail.png' . '" alt="' . $thumbnail_attr['alt'] . '" />';
 	}

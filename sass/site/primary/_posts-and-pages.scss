@@ -23,8 +23,11 @@
 	}
 }
 
-.page-template-portfolio-page {
-	.homepage-feature {
+.page-template-portfolio-page,
+.tax-jetpack-portfolio-type,
+.tax-jetpack-portfolio-tag {
+	.homepage-feature,
+	.jetpack-portfolio.hentry {
 		float: left;
 		text-align: center;
 		width: 45%;
@@ -47,7 +50,10 @@
 			padding: 0.813em 0;
 		}
 
-		.entry-thumbnail {
+		.entry-thumbnail,
+		.post-thumbnail {
+			margin-bottom: 0;
+
 			img {
 				border-radius: 3px;
 
@@ -62,6 +68,14 @@
 
 	.no-homepage-features {
 		margin-bottom: 6em;
+	}
+}
+
+.tax-jetpack-portfolio-type,
+.tax-jetpack-portfolio-tag {
+	.page-title {
+		text-align: center;
+		margin-bottom: 2em;
 	}
 }
 
