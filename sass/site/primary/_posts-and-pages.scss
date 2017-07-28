@@ -23,6 +23,44 @@
 	}
 }
 
+.page-template-portfolio-page {
+	.homepage-feature {
+		float: left;
+		text-align: center;
+		width: 45%;
+		margin-right: 10%;
+		margin-bottom: 0.938em;
+
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+
+		&:nth-child(2n+1) {
+			clear: both;
+		}
+
+		.entry-title {
+			font-family: $font__secondary;
+			text-transform: uppercase;
+			@include font-size(1);
+			letter-spacing: 2px;
+			padding: 0.813em 0;
+		}
+
+		.entry-thumbnail {
+			img {
+				border-radius: 3px;
+
+				@include transition(0.3s);
+
+				&:hover {
+					opacity: 0.7;
+				}
+			}
+		}
+	}
+}
+
 .entry-content,
 .entry-summary {
 	@include font-size(1.125);
@@ -75,6 +113,8 @@
 	}
 
 	img {
+		border-radius: 3px;
+
 		@include transition(0.3s);
 
 		&:hover {

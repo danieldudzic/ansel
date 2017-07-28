@@ -1094,6 +1094,10 @@ body:not(.has-custom-header) .site-content {
   margin-bottom: 4.688em;
 }
 
+.has-custom-header .site-content .featured-image-header img {
+  border-radius: 3px;
+}
+
 /*--------------------------------------------------------------
 ## Content Sidebar
 --------------------------------------------------------------*/
@@ -1248,6 +1252,40 @@ body:not(.has-custom-header) .site-content {
   color: #2C55E2;
 }
 
+.page-template-portfolio-page .homepage-feature {
+  float: left;
+  text-align: center;
+  width: 45%;
+  margin-right: 10%;
+  margin-bottom: 0.938em;
+}
+
+.page-template-portfolio-page .homepage-feature:nth-child(2n) {
+  margin-right: 0;
+}
+
+.page-template-portfolio-page .homepage-feature:nth-child(2n+1) {
+  clear: both;
+}
+
+.page-template-portfolio-page .homepage-feature .entry-title {
+  font-family: "Karla", sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  padding: 0.813em 0;
+}
+
+.page-template-portfolio-page .homepage-feature .entry-thumbnail img {
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.page-template-portfolio-page .homepage-feature .entry-thumbnail img:hover {
+  opacity: 0.7;
+}
+
 .entry-content,
 .entry-summary {
   font-size: 18px;
@@ -1305,6 +1343,7 @@ body:not(.has-custom-header) .site-content {
 }
 
 .post-thumbnail img {
+  border-radius: 3px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -1757,6 +1796,31 @@ object {
   }
   .site-main {
     margin: 0 35% 0 0;
+  }
+  .page-template-portfolio-page .site-main {
+    margin: 0;
+  }
+  .page-template-portfolio-page .content-area {
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  .page-template-portfolio-page .homepage-feature {
+    width: 30%;
+    margin-right: 5%;
+  }
+  .page-template-portfolio-page .homepage-feature:nth-child(2n) {
+    margin-right: 5%;
+  }
+  .page-template-portfolio-page .homepage-feature:nth-child(2n+1) {
+    clear: none;
+  }
+  .page-template-portfolio-page .homepage-feature:nth-child(3n) {
+    margin-right: 0;
+  }
+  .page-template-portfolio-page .homepage-feature:nth-child(3n+1) {
+    clear: both;
   }
   .site-content .widget-area {
     float: right;

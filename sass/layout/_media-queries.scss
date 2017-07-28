@@ -229,6 +229,40 @@
 		margin: 0 ( $size__site-sidebar + 5% ) 0 0;
 	}
 
+	.page-template-portfolio-page {
+		.site-main {
+			margin: 0;
+		}
+
+		.content-area {
+			float: none;
+			margin-left: 0;
+			margin-right: 0;
+			width: 100%;
+		}
+
+		.homepage-feature {
+			width: 30%;
+			margin-right: 5%;
+
+			&:nth-child(2n) {
+				margin-right: 5%;
+			}
+
+			&:nth-child(2n+1) {
+				clear: none;
+			}
+
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
+
+			&:nth-child(3n+1) {
+				clear: both;
+			}
+		}
+	}
+
 	.site-content .widget-area {
 		float: right;
 		overflow: hidden;

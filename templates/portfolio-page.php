@@ -2,8 +2,8 @@
 /**
  * Template Name: Portfolio Page
  *
- * This page template displays a feautred project section followed by a collection of projects thumbnails.
- * If no featutred projects exists, only a collection of projects thumbnails is displayed.
+ * Homepage features link out to other sections of the website, such as pages, project types, and post categories.
+ * They appear in a grid underneath the header image.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -13,54 +13,31 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main portfolio-masonry">
 
-			<?php // Set Up New Query
-				$paged = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1;
-				$temp = null;
-				$project_query = $temp;
-				$project_query = new WP_Query();
-				$project_query->query( array(
-					'post_type'    => 'jetpack-portfolio',
-					'paged'        => $paged,
-					'post__not_in' => $featured_ids
-				) ); ?>
+			<?php
+				$homepage_features = ansel_get_homepage_features();
 
-			<?php if ( $project_query->have_posts() ) : ?>
+				if ( ! empty ( $homepage_features ) ) {
 
-				<div id="infinite-wrap">
+					foreach( $homepage_features as $id => $feature ) { ?>
 
-					<?php /* Start the Loop */ ?>
-					<?php while ( $project_query->have_posts() ) : $project_query->the_post(); ?>
+						<article id="entry-<?php echo $id; ?>" class="homepage-feature">
+							<div class="entry-thumbnail">
+								<?php ansel_homepage_feature_thumbnail( $feature['thumbnail'], $id, $feature['type'] ); ?>
+							</div>
 
-						<?php
-							/*
-							 * Include the Card template for the project content.
-							 */
-							get_template_part( 'template-parts/content', 'card' );
-						?>
+							<header class="entry-header">
+								<h2 class="entry-title">
+									<?php ansel_homepage_feature_title( $id, $feature['type'] ) ?>
+								</h2><!-- .entry-header -->
+							</header>
 
-					<?php endwhile; ?>
-
-				</div>
-
-				<?php the_posts_navigation(); ?>
-
-			<?php else : ?>
-
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-			<?php endif; ?>
-
-			<?php // Empty queries
-				$project_query = $temp;
-				$temp = null; ?>
-
-			<?php // Reset posts so our normal loop isn't affected
-				wp_reset_postdata(); ?>
+						</article><!-- #entry-## -->
+					<?php }
+				} ?>
 
 		</main><!-- #main -->
-
 	</div><!-- #primary -->
 
 <?php get_footer(); ?>
