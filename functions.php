@@ -45,6 +45,7 @@ function ansel_setup() {
 	add_image_size( 'ansel-featured-image-post', 650, 9999 );
 	add_image_size( 'ansel-featured-image-header', 1000, 9999 );
 	add_image_size( 'ansel-feature-card', 300, 200, true );
+	add_image_size( 'ansel-feature-card-featured', 1000, 500, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -233,7 +234,7 @@ add_action( 'wp_enqueue_scripts', 'ansel_scripts' );
  */
 function ansel_posts_navigation() {
 	if ( have_posts() ) :
-		if( is_single() ) :
+		if ( is_single() ) {
 			the_post_navigation( array(
 				'prev_text' => '<span aria-hidden="true" class="nav-subtitle">' .
 									esc_html_x( 'Previous', 'previous post', 'ansel' ) .
@@ -242,9 +243,17 @@ function ansel_posts_navigation() {
 									esc_html_x( 'Next', 'next post', 'ansel' ) .
 								'</span>%title',
 			) );
-		else :
-			the_posts_navigation();
-		endif;
+		} else {
+			if ( 'jetpack-portfolio' === get_post_type() ) {
+				the_posts_navigation( array(
+					'prev_text'          => esc_html__( 'Older Projects', 'ansel' ),
+					'next_text'          => esc_html__( 'Newer Projects', 'ansel' ),
+					'screen_reader_text' => esc_html__( 'Portfolio Navigation', 'ansel' ),
+				) );
+			} else {
+				the_posts_navigation();
+			}
+		}
 	endif;
 }
 
@@ -253,7 +262,7 @@ function ansel_posts_navigation() {
  */
 function ansel_author_bio() {
 	if ( ! function_exists( 'jetpack_author_bio' ) ) {
-		get_template_part( 'template-parts/post/content', 'author' );
+		get_template_part( 'template-parts/content', 'author' );
 	} else {
 		jetpack_author_bio();
 	}

@@ -8,3 +8,49 @@
 .infinity-end.neverending .site-footer {
 	display: block;
 }
+
+#infinite-handle {
+	clear: both;
+	text-align: center;
+	margin-bottom: 6.25em;
+
+	span {
+		border: 3px solid $color__border-button;
+		border-radius: 3px;
+		background: $color__background-button;
+		box-shadow: none;
+		color: $color__link-alt;
+		display: inline-block;
+		@include font-size(1);
+		line-height: 1;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		padding: 0.625em 0.875em;
+		text-shadow: none;
+
+		@include transition(0.3s);
+
+		&:hover {
+			border-color: $color__border-button-hover;
+			color: $color__link;
+		}
+
+		&:active,
+		&:focus {
+			border-color: $color__border-button-focus;
+			color: $color__link;
+		}
+	}
+}
+
+/* Spinner */
+.infinite-loader {
+	clear: both;
+	padding: 3em 0 3em;
+	margin-bottom: 3.25em;
+
+	.spinner {
+		left: 50% !important;
+		top: 50% !important;
+	}
+}

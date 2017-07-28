@@ -1,4 +1,25 @@
 /**
+ * <= 600px
+ */
+
+@media screen and ( max-width: 37.5em ) {
+	.has-cards {
+		.entry-card {
+			width: 45%;
+
+			&:nth-of-type(2n) {
+				margin-right: 5%;
+				clear: both;
+			}
+		}
+
+		.entry-card-featured {
+			width: 100%;
+		}
+	}
+}
+
+/**
  * >= 600px
  */
 
@@ -230,9 +251,7 @@
 		margin: 0 ( $size__site-sidebar + 5% ) 0 0;
 	}
 
-	.page-template-portfolio-page,
-	.tax-jetpack-portfolio-type,
-	.tax-jetpack-portfolio-tag {
+	.has-cards {
 		.site-main {
 			margin: 0;
 		}
@@ -244,24 +263,15 @@
 			width: 100%;
 		}
 
-		.homepage-feature,
-		.jetpack-portfolio.hentry {
+		.entry-card {
 			width: 30%;
-			margin-right: 5%;
 
-			&:nth-child(2n) {
+			&:nth-of-type(3n),
+			&:nth-of-type(3n + 2) {
 				margin-right: 5%;
 			}
 
-			&:nth-child(2n+1) {
-				clear: none;
-			}
-
-			&:nth-child(3n) {
-				margin-right: 0;
-			}
-
-			&:nth-child(3n+1) {
+			&:nth-of-type(3n+5) {
 				clear: both;
 			}
 		}
@@ -271,6 +281,10 @@
 			margin-left: auto;
 			margin-right: auto;
 			width: 65%;
+		}
+
+		.entry-card-featured {
+			width: 100%;
 		}
 	}
 

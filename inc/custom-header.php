@@ -83,7 +83,7 @@ function ansel_custom_header() {
 			</a>
 		</div>
 	<?php
-	} elseif ( has_header_image() ) { ?>
+	} elseif ( has_header_image() && 'jetpack-portfolio' !== get_post_type() ) { ?>
 		<div class="featured-image-header">
 			<?php the_header_image_tag(); ?>
 		</div>

@@ -10,44 +10,33 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) : ?>
+			<?php
+				if ( have_posts() ) : ?>
 
-			<?php ansel_portfolio_thumbnail( '<div class="entry-image">', '</div>' ) ?>
-
-			<header class="page-header">
-				<?php
-					ansel_portfolio_title( '<h1 class="page-title">', '</h1>' );
-					ansel_portfolio_content( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
-
-			<div id="infinite-wrap">
-
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php get_template_part( 'template-parts/content', 'portfolio' ); ?>
-
-				<?php endwhile; ?>
+				<header class="page-header">
+					<?php
+						ansel_portfolio_title( '<h1 class="page-title">', '</h1>' );
+					?>
+				</header><!-- .page-header -->
 
 				<?php
-					the_posts_navigation( array(
-						'prev_text'          => esc_html__( 'Older projects', 'ansel' ),
-						'next_text'          => esc_html__( 'Newer projects', 'ansel' ),
-						'screen_reader_text' => esc_html__( 'Portfolio navigation', 'ansel' ),
-					) );
-				?>
+					/* Start the Loop */
+					while ( have_posts() ) : the_post();
 
-			</div>
+						if ( 0 === $wp_query->current_post ) :
+							get_template_part( 'template-parts/content', 'card-featured' );
+						else :
+							get_template_part( 'template-parts/content', 'card' );
+						endif;
 
-		<?php else : ?>
+					endwhile;
+				else :
+					get_template_part( 'template-parts/content', 'none' );
 
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
+				endif;
+			?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

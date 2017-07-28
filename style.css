@@ -1231,7 +1231,11 @@ body:not(.has-custom-header) .site-content {
 ## Posts and pages
 --------------------------------------------------------------*/
 .hfeed .hentry {
-  margin-bottom: 6em;
+  margin-bottom: 5.062em;
+}
+
+.hfeed .hentry:last-of-type {
+  margin-bottom: 5.625em;
 }
 
 .entry-title,
@@ -1257,43 +1261,31 @@ body:not(.has-custom-header) .site-content {
   color: #2C55E2;
 }
 
-.page-template-portfolio-page .homepage-feature,
-.page-template-portfolio-page .jetpack-portfolio.hentry,
-.tax-jetpack-portfolio-type .homepage-feature,
-.tax-jetpack-portfolio-type .jetpack-portfolio.hentry,
-.tax-jetpack-portfolio-tag .homepage-feature,
-.tax-jetpack-portfolio-tag .jetpack-portfolio.hentry {
+.page-title {
+  margin-bottom: 1.35em;
+}
+
+.hfeed .page-title {
+  color: #444444;
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.has-cards .entry-card {
   float: left;
   text-align: center;
-  width: 45%;
-  margin-right: 10%;
   margin-bottom: 0.938em;
 }
 
-.page-template-portfolio-page .homepage-feature:nth-child(2n),
-.page-template-portfolio-page .jetpack-portfolio.hentry:nth-child(2n),
-.tax-jetpack-portfolio-type .homepage-feature:nth-child(2n),
-.tax-jetpack-portfolio-type .jetpack-portfolio.hentry:nth-child(2n),
-.tax-jetpack-portfolio-tag .homepage-feature:nth-child(2n),
-.tax-jetpack-portfolio-tag .jetpack-portfolio.hentry:nth-child(2n) {
-  margin-right: 0;
+.has-cards .entry-card:first-of-type .entry-title {
+  font-size: 1.5em;
+  margin-top: 0.583em;
+  margin-bottom: 0.292em;
 }
 
-.page-template-portfolio-page .homepage-feature:nth-child(2n+1),
-.page-template-portfolio-page .jetpack-portfolio.hentry:nth-child(2n+1),
-.tax-jetpack-portfolio-type .homepage-feature:nth-child(2n+1),
-.tax-jetpack-portfolio-type .jetpack-portfolio.hentry:nth-child(2n+1),
-.tax-jetpack-portfolio-tag .homepage-feature:nth-child(2n+1),
-.tax-jetpack-portfolio-tag .jetpack-portfolio.hentry:nth-child(2n+1) {
-  clear: both;
-}
-
-.page-template-portfolio-page .homepage-feature .entry-title,
-.page-template-portfolio-page .jetpack-portfolio.hentry .entry-title,
-.tax-jetpack-portfolio-type .homepage-feature .entry-title,
-.tax-jetpack-portfolio-type .jetpack-portfolio.hentry .entry-title,
-.tax-jetpack-portfolio-tag .homepage-feature .entry-title,
-.tax-jetpack-portfolio-tag .jetpack-portfolio.hentry .entry-title {
+.has-cards .entry-card .entry-title {
   font-family: "Karla", sans-serif;
   text-transform: uppercase;
   font-size: 16px;
@@ -1302,62 +1294,33 @@ body:not(.has-custom-header) .site-content {
   padding: 0.813em 0;
 }
 
-.page-template-portfolio-page .homepage-feature .entry-thumbnail,
-.page-template-portfolio-page .homepage-feature .post-thumbnail,
-.page-template-portfolio-page .jetpack-portfolio.hentry .entry-thumbnail,
-.page-template-portfolio-page .jetpack-portfolio.hentry .post-thumbnail,
-.tax-jetpack-portfolio-type .homepage-feature .entry-thumbnail,
-.tax-jetpack-portfolio-type .homepage-feature .post-thumbnail,
-.tax-jetpack-portfolio-type .jetpack-portfolio.hentry .entry-thumbnail,
-.tax-jetpack-portfolio-type .jetpack-portfolio.hentry .post-thumbnail,
-.tax-jetpack-portfolio-tag .homepage-feature .entry-thumbnail,
-.tax-jetpack-portfolio-tag .homepage-feature .post-thumbnail,
-.tax-jetpack-portfolio-tag .jetpack-portfolio.hentry .entry-thumbnail,
-.tax-jetpack-portfolio-tag .jetpack-portfolio.hentry .post-thumbnail {
+.has-cards .entry-card .entry-thumbnail,
+.has-cards .entry-card .post-thumbnail {
   margin-bottom: 0;
 }
 
-.page-template-portfolio-page .homepage-feature .entry-thumbnail img,
-.page-template-portfolio-page .homepage-feature .post-thumbnail img,
-.page-template-portfolio-page .jetpack-portfolio.hentry .entry-thumbnail img,
-.page-template-portfolio-page .jetpack-portfolio.hentry .post-thumbnail img,
-.tax-jetpack-portfolio-type .homepage-feature .entry-thumbnail img,
-.tax-jetpack-portfolio-type .homepage-feature .post-thumbnail img,
-.tax-jetpack-portfolio-type .jetpack-portfolio.hentry .entry-thumbnail img,
-.tax-jetpack-portfolio-type .jetpack-portfolio.hentry .post-thumbnail img,
-.tax-jetpack-portfolio-tag .homepage-feature .entry-thumbnail img,
-.tax-jetpack-portfolio-tag .homepage-feature .post-thumbnail img,
-.tax-jetpack-portfolio-tag .jetpack-portfolio.hentry .entry-thumbnail img,
-.tax-jetpack-portfolio-tag .jetpack-portfolio.hentry .post-thumbnail img {
+.has-cards .entry-card .entry-thumbnail img,
+.has-cards .entry-card .post-thumbnail img {
   border-radius: 3px;
   transition: all 0.3s ease-in-out;
 }
 
-.page-template-portfolio-page .homepage-feature .entry-thumbnail img:hover,
-.page-template-portfolio-page .homepage-feature .post-thumbnail img:hover,
-.page-template-portfolio-page .jetpack-portfolio.hentry .entry-thumbnail img:hover,
-.page-template-portfolio-page .jetpack-portfolio.hentry .post-thumbnail img:hover,
-.tax-jetpack-portfolio-type .homepage-feature .entry-thumbnail img:hover,
-.tax-jetpack-portfolio-type .homepage-feature .post-thumbnail img:hover,
-.tax-jetpack-portfolio-type .jetpack-portfolio.hentry .entry-thumbnail img:hover,
-.tax-jetpack-portfolio-type .jetpack-portfolio.hentry .post-thumbnail img:hover,
-.tax-jetpack-portfolio-tag .homepage-feature .entry-thumbnail img:hover,
-.tax-jetpack-portfolio-tag .homepage-feature .post-thumbnail img:hover,
-.tax-jetpack-portfolio-tag .jetpack-portfolio.hentry .entry-thumbnail img:hover,
-.tax-jetpack-portfolio-tag .jetpack-portfolio.hentry .post-thumbnail img:hover {
+.has-cards .entry-card .entry-thumbnail img:hover,
+.has-cards .entry-card .post-thumbnail img:hover {
   opacity: 0.7;
 }
 
-.page-template-portfolio-page .no-homepage-features,
-.tax-jetpack-portfolio-type .no-homepage-features,
-.tax-jetpack-portfolio-tag .no-homepage-features {
-  margin-bottom: 6em;
+.has-cards .entry-card-featured {
+  width: 100%;
 }
 
-.tax-jetpack-portfolio-type .page-title,
-.tax-jetpack-portfolio-tag .page-title {
+.has-cards .page-title {
   text-align: center;
   margin-bottom: 2em;
+}
+
+.has-cards .no-homepage-features {
+  margin-bottom: 6em;
 }
 
 .entry-content,
@@ -1606,6 +1569,51 @@ body:not(.has-custom-header) .site-content {
   display: block;
 }
 
+#infinite-handle {
+  clear: both;
+  text-align: center;
+  margin-bottom: 6.25em;
+}
+
+#infinite-handle span {
+  border: 3px solid #eee;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: none;
+  color: #999999;
+  display: inline-block;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.625em 0.875em;
+  text-shadow: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#infinite-handle span:hover {
+  border-color: #2C55E2;
+  color: #2C55E2;
+}
+
+#infinite-handle span:active, #infinite-handle span:focus {
+  border-color: #2C55E2;
+  color: #2C55E2;
+}
+
+/* Spinner */
+.infinite-loader {
+  clear: both;
+  padding: 3em 0 3em;
+  margin-bottom: 3.25em;
+}
+
+.infinite-loader .spinner {
+  left: 50% !important;
+  top: 50% !important;
+}
+
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
@@ -1705,6 +1713,22 @@ object {
 /*--------------------------------------------------------------
 # Media Queries
 --------------------------------------------------------------*/
+/**
+ * <= 600px
+ */
+@media screen and (max-width: 37.5em) {
+  .has-cards .entry-card {
+    width: 45%;
+  }
+  .has-cards .entry-card:nth-of-type(2n) {
+    margin-right: 5%;
+    clear: both;
+  }
+  .has-cards .entry-card-featured {
+    width: 100%;
+  }
+}
+
 /**
  * >= 600px
  */
@@ -1874,67 +1898,32 @@ object {
   .site-main {
     margin: 0 35% 0 0;
   }
-  .page-template-portfolio-page .site-main,
-  .tax-jetpack-portfolio-type .site-main,
-  .tax-jetpack-portfolio-tag .site-main {
+  .has-cards .site-main {
     margin: 0;
   }
-  .page-template-portfolio-page .content-area,
-  .tax-jetpack-portfolio-type .content-area,
-  .tax-jetpack-portfolio-tag .content-area {
+  .has-cards .content-area {
     float: none;
     margin-left: 0;
     margin-right: 0;
     width: 100%;
   }
-  .page-template-portfolio-page .homepage-feature,
-  .page-template-portfolio-page .jetpack-portfolio.hentry,
-  .tax-jetpack-portfolio-type .homepage-feature,
-  .tax-jetpack-portfolio-type .jetpack-portfolio.hentry,
-  .tax-jetpack-portfolio-tag .homepage-feature,
-  .tax-jetpack-portfolio-tag .jetpack-portfolio.hentry {
+  .has-cards .entry-card {
     width: 30%;
+  }
+  .has-cards .entry-card:nth-of-type(3n), .has-cards .entry-card:nth-of-type(3n + 2) {
     margin-right: 5%;
   }
-  .page-template-portfolio-page .homepage-feature:nth-child(2n),
-  .page-template-portfolio-page .jetpack-portfolio.hentry:nth-child(2n),
-  .tax-jetpack-portfolio-type .homepage-feature:nth-child(2n),
-  .tax-jetpack-portfolio-type .jetpack-portfolio.hentry:nth-child(2n),
-  .tax-jetpack-portfolio-tag .homepage-feature:nth-child(2n),
-  .tax-jetpack-portfolio-tag .jetpack-portfolio.hentry:nth-child(2n) {
-    margin-right: 5%;
-  }
-  .page-template-portfolio-page .homepage-feature:nth-child(2n+1),
-  .page-template-portfolio-page .jetpack-portfolio.hentry:nth-child(2n+1),
-  .tax-jetpack-portfolio-type .homepage-feature:nth-child(2n+1),
-  .tax-jetpack-portfolio-type .jetpack-portfolio.hentry:nth-child(2n+1),
-  .tax-jetpack-portfolio-tag .homepage-feature:nth-child(2n+1),
-  .tax-jetpack-portfolio-tag .jetpack-portfolio.hentry:nth-child(2n+1) {
-    clear: none;
-  }
-  .page-template-portfolio-page .homepage-feature:nth-child(3n),
-  .page-template-portfolio-page .jetpack-portfolio.hentry:nth-child(3n),
-  .tax-jetpack-portfolio-type .homepage-feature:nth-child(3n),
-  .tax-jetpack-portfolio-type .jetpack-portfolio.hentry:nth-child(3n),
-  .tax-jetpack-portfolio-tag .homepage-feature:nth-child(3n),
-  .tax-jetpack-portfolio-tag .jetpack-portfolio.hentry:nth-child(3n) {
-    margin-right: 0;
-  }
-  .page-template-portfolio-page .homepage-feature:nth-child(3n+1),
-  .page-template-portfolio-page .jetpack-portfolio.hentry:nth-child(3n+1),
-  .tax-jetpack-portfolio-type .homepage-feature:nth-child(3n+1),
-  .tax-jetpack-portfolio-type .jetpack-portfolio.hentry:nth-child(3n+1),
-  .tax-jetpack-portfolio-tag .homepage-feature:nth-child(3n+1),
-  .tax-jetpack-portfolio-tag .jetpack-portfolio.hentry:nth-child(3n+1) {
+  .has-cards .entry-card:nth-of-type(3n+5) {
     clear: both;
   }
-  .page-template-portfolio-page .no-homepage-features,
-  .tax-jetpack-portfolio-type .no-homepage-features,
-  .tax-jetpack-portfolio-tag .no-homepage-features {
+  .has-cards .no-homepage-features {
     float: none;
     margin-left: auto;
     margin-right: auto;
     width: 65%;
+  }
+  .has-cards .entry-card-featured {
+    width: 100%;
   }
   .site-content .widget-area {
     float: right;

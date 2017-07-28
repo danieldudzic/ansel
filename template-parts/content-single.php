@@ -19,10 +19,10 @@
 		endif;
 
 		if ( 'post' === get_post_type() || 'jetpack-portfolio' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php ansel_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
+			<div class="entry-meta">
+				<?php ansel_posted_on(); ?>
+			</div><!-- .entry-meta -->
+			<?php
 		endif; ?>
 	</header><!-- .entry-header -->
 

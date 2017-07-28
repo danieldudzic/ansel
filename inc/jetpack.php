@@ -28,6 +28,7 @@ function ansel_jetpack_setup() {
 		'container' => 'main',
 		'render'    => 'ansel_infinite_scroll_render',
 		'footer'    => 'page',
+		'wrapper'	=> false,
 	) );
 
 	// Add theme support for Responsive Videos.
@@ -38,14 +39,16 @@ function ansel_jetpack_setup() {
 
 	// Add theme support for Content Options.
 	add_theme_support( 'jetpack-content-options', array(
-		'author-bio'     => true,
-		'post-details'   => array(
-			'stylesheet' => 'ansel-style',
-			'date'       => '.posted-on',
-			'categories' => '.cat-links',
-			'tags'       => '.tags-links',
-			'author'     => '.byline',
-			'comment'    => '.comments-link',
+		'blog-display'		 => 'excerpt',
+		'author-bio'		 => true,
+		'author-bio-default' => false,
+		'post-details'		 => array(
+			'stylesheet'	 => 'ansel-style',
+			'date'			 => '.posted-on',
+			'categories'	 => '.cat-links',
+			'tags'			 => '.tags-links',
+			'author'		 => '.byline',
+			'comment'		 => '.comments-link',
 		),
 		'featured-images' => array(
 			'archive'          => true,
@@ -97,6 +100,8 @@ function ansel_infinite_scroll_render() {
 		the_post();
 		if ( is_search() ) :
 			get_template_part( 'template-parts/content', 'search' );
+		elseif ( 'jetpack-portfolio' === get_post_type() || ansel_is_page_template_portfolio() ) :
+			get_template_part( 'template-parts/content', 'card' );
 		else :
 			get_template_part( 'template-parts/content', get_post_format() );
 		endif;

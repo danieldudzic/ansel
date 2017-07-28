@@ -10,37 +10,31 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) : ?>
+			<?php
+				if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php
-					ansel_portfolio_title( '<h1 class="page-title">' . esc_html( 'Project Tag: ', 'ansel' ), '</h1>' );
-				?>
-			</header><!-- .page-header -->
-
-			<div id="infinite-wrap">
-
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+					<header class="page-header">
+						<?php
+							ansel_portfolio_title( '<h1 class="page-title">' . esc_html( 'Project Tag: ', 'ansel' ), '</h1>' );
+						?>
+					</header><!-- .page-header -->
 
 					<?php
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'template-parts/content', 'card' );
-					?>
+						/* Start the Loop */
+						while ( have_posts() ) : the_post();
 
-				<?php endwhile; ?>
+							if ( 0 === $wp_query->current_post ) :
+								get_template_part( 'template-parts/content', 'card-featured' );
+							else :
+								get_template_part( 'template-parts/content', 'card' );
+							endif;
 
-			</div>
+						endwhile;
+				else :
 
-		<?php else : ?>
+					get_template_part( 'template-parts/content', 'none' );
 
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
+				endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

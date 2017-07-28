@@ -1,5 +1,9 @@
 .hfeed .hentry {
-	margin-bottom: 6em;
+	margin-bottom: 5.062em;
+
+	&:last-of-type {
+		margin-bottom: 5.625em;
+	}
 }
 
 .entry-title,
@@ -23,23 +27,30 @@
 	}
 }
 
-.page-template-portfolio-page,
-.tax-jetpack-portfolio-type,
-.tax-jetpack-portfolio-tag {
-	.homepage-feature,
-	.jetpack-portfolio.hentry {
+.page-title {
+	margin-bottom: 1.35em;
+
+	.hfeed & {
+		color: $color__text-main;
+		font-family: $font__secondary;
+		font-weight: 700;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+	}
+}
+
+.has-cards {
+	.entry-card {
 		float: left;
 		text-align: center;
-		width: 45%;
-		margin-right: 10%;
 		margin-bottom: 0.938em;
 
-		&:nth-child(2n) {
-			margin-right: 0;
-		}
-
-		&:nth-child(2n+1) {
-			clear: both;
+		&:first-of-type {
+			.entry-title {
+				font-size: 1.5em;
+				margin-top: 0.583em;
+				margin-bottom: 0.292em;
+			}
 		}
 
 		.entry-title {
@@ -66,16 +77,17 @@
 		}
 	}
 
-	.no-homepage-features {
-		margin-bottom: 6em;
+	.entry-card-featured {
+		width: 100%;
 	}
-}
 
-.tax-jetpack-portfolio-type,
-.tax-jetpack-portfolio-tag {
 	.page-title {
 		text-align: center;
 		margin-bottom: 2em;
+	}
+
+	.no-homepage-features {
+		margin-bottom: 6em;
 	}
 }
 
