@@ -13,7 +13,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main portfolio-masonry">
+		<main id="main" class="site-main">
 
 			<?php
 				$homepage_features = ansel_get_homepage_features();
@@ -22,7 +22,7 @@ get_header(); ?>
 
 					foreach( $homepage_features as $id => $feature ) { ?>
 
-						<article id="entry-<?php echo $id; ?>" class="homepage-feature">
+						<article id="entry-<?php echo esc_attr( $id ); ?>" class="homepage-feature">
 							<div class="entry-thumbnail">
 								<?php ansel_homepage_feature_thumbnail( $feature['thumbnail'], $id, $feature['type'] ); ?>
 							</div>
@@ -34,8 +34,30 @@ get_header(); ?>
 							</header>
 
 						</article><!-- #entry-## -->
-					<?php }
-				} ?>
+						<?php
+					}
+				} else { ?>
+
+					<article class="page no-homepage-features">
+						<header class="entry-header">
+							<h1 class="entry-title">
+								<?php esc_html_e( 'Homepage Features', 'ansel' ); ?>
+							</h1>
+						</header>
+
+						<div class="entry-content">
+							<p>
+								<?php esc_html_e( 'Homepage features link out to other sections of the website, such as pages, project types, and post categories. They appear in a grid underneath the header image.', 'ansel' ); ?>
+							</p>
+
+							<p>
+								<?php esc_html_e( 'You can set up this section in the Customizer > Theme Options.', 'ansel' ); ?>
+							</p>
+						</div>
+					</article>
+					<?php
+				}
+			?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
