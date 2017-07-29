@@ -17,14 +17,14 @@
 function ansel_jetpack_setup() {
 
 		// Add support for Jetpack Portfolio Custom Post Type.
-	add_theme_support( 'jetpack-portfolio', array(
+	add_theme_support( 'jetpack-portfolio', array (
 		'title'          => true,
 		'content'        => true,
 		'featured-image' => true,
 	) );
 
 	// Add theme support for Infinite Scroll.
-	add_theme_support( 'infinite-scroll', array(
+	add_theme_support( 'infinite-scroll', array (
 		'container' => 'main',
 		'render'    => 'ansel_infinite_scroll_render',
 		'footer'    => 'page',
@@ -38,7 +38,7 @@ function ansel_jetpack_setup() {
 	add_theme_support( 'jetpack-social-menu', 'svg' );
 
 	// Add theme support for Content Options.
-	add_theme_support( 'jetpack-content-options', array(
+	add_theme_support( 'jetpack-content-options', array (
 		'blog-display'		 => 'excerpt',
 		'author-bio'		 => true,
 		'author-bio-default' => false,
