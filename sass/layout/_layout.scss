@@ -9,7 +9,7 @@
 	margin: 0 -50px;
 	padding: 0 50px;
 
-	body:not(.has-custom-header) & {
+	body:not(.has-custom-header):not(.has-cards) & {
 		border-top: 1px solid $color__border;
 		padding-top: 5.750em;
 	}
