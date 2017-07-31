@@ -680,14 +680,15 @@ a:hover, a:active {
 
 /* Menu toggle */
 .menu-toggle {
+  float: left;
+  margin: 1.5em 0;
+  width: 100%;
   border: 3px solid #eee;
   clear: none;
   display: none;
-  float: right;
   padding: 0.5em;
   height: 2.25em;
   position: relative;
-  margin-left: 1em;
 }
 
 .js .menu-toggle {
@@ -957,20 +958,28 @@ a:hover, a:active {
 }
 
 .widget ul, .widget ol {
-  margin: 0 0 1.5em 0;
+  margin: 0;
 }
 
 .widget li {
   border-top: 1px solid #eee;
   margin: 0;
   max-width: 100%;
+  word-wrap: break-word;
+}
+
+.widget li a {
   padding-bottom: 9px;
   padding-top: 8px;
-  word-wrap: break-word;
+  display: inline-block;
 }
 
 .widget select {
   max-width: 100%;
+}
+
+.widget table {
+  margin-bottom: 0;
 }
 
 .widget a:hover,
@@ -1013,6 +1022,10 @@ a:hover, a:active {
   border-color: #2C55E2;
 }
 
+.widget.widget_calendar table td {
+  text-align: center;
+}
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -1043,33 +1056,13 @@ body:not(.has-custom-header) .site-content {
   padding-bottom: 2.313em;
 }
 
-.branding-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  margin: 0 auto;
-  max-width: 1000px;
-  position: relative;
-}
-
-.site-branding {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-  margin-bottom: 1.417em;
-}
-
-.site-branding .site-title {
+.site-title {
   margin: 0;
   line-height: 1;
+  width: auto;
 }
 
-.site-branding .site-title a {
+.site-title a {
   color: #2C55E2;
   font-family: "Work Sans", sans-serif;
   font-weight: 700;
@@ -1078,8 +1071,23 @@ body:not(.has-custom-header) .site-content {
   transition: all 0.3s ease-in-out;
 }
 
-.site-branding .site-title a:hover, .site-branding .site-title a:active, .site-branding .site-title a:focus {
+.site-title a:hover, .site-title a:active, .site-title a:focus {
   color: #999999;
+}
+
+.custom-logo-link {
+  margin-bottom: 1.417em;
+  width: auto;
+  width: 100%;
+  display: block;
+}
+
+.custom-logo-link img {
+  max-width: 100%;
+  display: inline-block;
+  max-height: 100px;
+  width: auto;
+  height: auto;
 }
 
 .site-description {
@@ -1733,9 +1741,25 @@ object {
  * >= 600px
  */
 @media screen and (min-width: 37.5em) {
+  .branding-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    margin: 0 auto;
+    max-width: 1000px;
+    position: relative;
+  }
   .site-branding {
-    max-width: calc(100% - 7.5em);
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
     margin-top: 0.25em;
+    width: auto;
   }
   .js .menu-toggle,
   .js .dropdown-toggle {
@@ -1746,6 +1770,7 @@ object {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
+    max-width: calc(100% - 16em);
   }
   .js .main-navigation ul,
   .js .main-navigation ul ul,

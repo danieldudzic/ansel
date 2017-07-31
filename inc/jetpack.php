@@ -39,7 +39,7 @@ function ansel_jetpack_setup() {
 
 	// Add theme support for Content Options.
 	add_theme_support( 'jetpack-content-options', array (
-		'blog-display'		 => 'excerpt',
+		'blog-display'		 => 'content',
 		'author-bio'		 => true,
 		'author-bio-default' => false,
 		'post-details'		 => array(
@@ -54,6 +54,7 @@ function ansel_jetpack_setup() {
 			'archive'          => true,
 			'post'             => true,
 			'post-default'     => true,
+			'portfolio'        => false,
 			'page'             => true,
 			'page-default'     => true,
 			'fallback'         => true,
@@ -120,7 +121,7 @@ function ansel_social_menu() {
 }
 
 /**
- * Getter function for Featured Content
+ * Getter function for Featured Content.
  *
  * @return (string) The value of the filter defined in add_theme_support( 'featured-content' )
  */
@@ -129,7 +130,7 @@ function ansel_get_featured_projects() {
 }
 
 /**
- * Portfolio Title
+ * Portfolio Title.
  */
 function ansel_portfolio_title( $before = '', $after = '' ) {
 	$jetpack_portfolio_title = get_option( 'jetpack_portfolio_title' );
@@ -149,7 +150,7 @@ function ansel_portfolio_title( $before = '', $after = '' ) {
 }
 
 /**
- * Portfolio Content
+ * Portfolio Content.
  */
 function ansel_portfolio_content( $before = '', $after = '' ) {
 	$jetpack_portfolio_content = get_option( 'jetpack_portfolio_content' );
@@ -163,7 +164,7 @@ function ansel_portfolio_content( $before = '', $after = '' ) {
 }
 
 /**
- * Portfolio Featured Image
+ * Portfolio Featured Image.
  */
 function ansel_portfolio_thumbnail( $before = '', $after = '' ) {
 	$jetpack_portfolio_featured_image = get_option( 'jetpack_portfolio_featured_image' );
@@ -175,7 +176,7 @@ function ansel_portfolio_thumbnail( $before = '', $after = '' ) {
 }
 
 /**
- * Author Bio Avatar Size
+ * Author Bio Avatar Size.
  */
 function ansel_author_bio_avatar_size() {
 	return 90;
@@ -192,4 +193,178 @@ function ansel_has_post_thumbnail( $post = null ) {
 	} else {
 		return has_post_thumbnail( $post );
 	}
+}
+
+/**
+ * Get Homepage Features data.
+ */
+function ansel_get_homepage_features() {
+	$homepage_features = '';
+
+	for ( $x = 1; $x <= 9; $x++ ) {
+		$homepage_features[$x]['content'] = '';
+		$homepage_features[$x]['thumbnail'] = '';
+
+		$content = get_theme_mod('ansel_homepage_feature_content_' . $x );
+		$thumbnail = get_theme_mod('ansel_homepage_feature_content_thumbnail_' . $x );
+
+		if ( ! empty( $content ) ) {
+			$homepage_features[$x]['content'] = $content;
+		}
+
+		if ( ! empty( $thumbnail ) ) {
+			$homepage_features[$x]['thumbnail'] = $thumbnail;
+		}
+	}
+
+	if ( empty( $homepage_features ) ) {
+		return false;
+	} else {
+		$features = '';
+
+		foreach ( $homepage_features as $feature ) {
+			if ( ! empty( $feature['content'] ) || 'select' === $feature['content'] ) {
+
+				$feature_id = '';
+
+				if ( 'select' !== $feature['content'] ) {
+					$exploded_feature = explode( '_', $feature['content'] );
+
+					$feature_id = $exploded_feature[1];
+					$feature_type = $exploded_feature[0];
+
+					$features[$feature_id]['type'] = $feature_type;
+
+					if ( ! empty( $feature['thumbnail'] ) ) {
+						$features[$feature_id]['thumbnail'] = $feature['thumbnail'];
+					} else {
+						$features[$feature_id]['thumbnail'] = '';
+					}
+				}
+			}
+		}
+
+		return $features;
+	}
+}
+
+/**
+ * Get Homepage Feature title.
+ */
+function ansel_homepage_get_feature_title( $id, $type ) {
+	switch ( $type ) {
+		case 'page':
+			$title = get_the_title( $id );
+			break;
+		case 'portfolio-type':
+			$portfolio_type = get_term_by( 'id', $id, 'jetpack-portfolio-type' );
+			$title = $portfolio_type->name;
+			break;
+		case 'category':
+			$title = get_cat_name( $id );
+			break;
+	}
+
+	return $title;
+}
+
+/**
+ * Get Homepage Feature url.
+ */
+function ansel_homepage_get_feature_url( $id, $type ) {
+	switch ( $type ) {
+		case 'page':
+			$url = get_permalink( $id );
+			break;
+		case 'portfolio-type':
+			$portfolio_type = get_term_by( 'id', $id, 'jetpack-portfolio-type' );
+			$url = get_term_link( $portfolio_type->slug, 'jetpack-portfolio-type' );
+			break;
+		case 'category':
+			$url = get_category_link( $id );
+			break;
+	}
+
+	return $url;
+}
+
+/**
+ * Display the Homepage Feature title.
+ */
+function ansel_homepage_feature_title( $id, $type ) {
+	echo '<a href="' . esc_url( ansel_homepage_get_feature_url( $id, $type ) ) . '" rel="bookmark">' . apply_filters( 'the_title', ansel_homepage_get_feature_title( $id, $type ), $id ) . '</a>';
+}
+
+/**
+ * Display the Homepage Feature thumbnail.
+ */
+function ansel_homepage_feature_thumbnail( $src, $feature_id = '', $feature_type = '' ) {
+
+	if ( ! empty ( $src ) ) {
+		$thumbnail_id = ansel_get_attachment_id( $src );
+	} else {
+		$thumbnail_id = false;
+	}
+
+	$thumbnail_attr = '';
+
+	if ( ! empty( $feature_id ) && ! empty ( $feature_type ) ) {
+		$thumbnail_attr = array(
+			 'alt' => esc_attr( ansel_homepage_get_feature_title( $feature_id, $feature_type ) ),
+		);
+	}
+
+	if ( $thumbnail_id ) {
+		$thumbnail = wp_get_attachment_image( $thumbnail_id, 'ansel-feature-card', false, $thumbnail_attr );
+	} else {
+		$thumbnail = '<img src="' . get_template_directory_uri() . '/assets/images/card-default-thumbnail.png' . '" alt="' . $thumbnail_attr['alt'] . '" />';
+	}
+
+	$url = ansel_homepage_get_feature_url( $feature_id, $feature_type );
+
+	if ( ! empty( $feature_id ) && ! empty ( $feature_type ) ) {
+		$thumbnail = '<a href="' . esc_url( $url ) . '">' . $thumbnail . '</a>';
+	}
+
+	echo $thumbnail;
+}
+
+/**
+ * Get an attachment ID given a URL.
+ *
+ * @param string $url
+ *
+ * @return int Attachment ID on success, 0 on failure
+ */
+function ansel_get_attachment_id( $url ) {
+	$attachment_id = 0;
+	$dir = wp_upload_dir();
+	if ( false !== strpos( $url, $dir['baseurl'] . '/' ) ) { // Is URL in uploads directory?
+		$file = basename( $url );
+		$query_args = array(
+			'post_type'   => 'attachment',
+			'post_status' => 'inherit',
+			'fields'      => 'ids',
+			'meta_query'  => array(
+				array(
+					'value'   => $file,
+					'compare' => 'LIKE',
+					'key'     => '_wp_attachment_metadata',
+				),
+			)
+		);
+		$query = new WP_Query( $query_args );
+		if ( $query->have_posts() ) {
+			foreach ( $query->posts as $post_id ) {
+				$meta = wp_get_attachment_metadata( $post_id );
+				$original_file       = basename( $meta['file'] );
+				$cropped_image_files = wp_list_pluck( $meta['sizes'], 'file' );
+				if ( $original_file === $file || in_array( $file, $cropped_image_files ) ) {
+					$attachment_id = $post_id;
+					break;
+				}
+			}
+		}
+	}
+	return $attachment_id;
 }

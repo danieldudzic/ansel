@@ -17,13 +17,11 @@
 			</a>
 		<?php else: ?>
 			<a href="<?php the_permalink(); ?>">
-				<img src="<?php echo get_template_directory_uri() . '/assets/images/card-default-thumbnail.png' . '"' .  the_title_attribute( 'echo=0' ) . ' />'; ?>
+				<img src="<?php echo get_template_directory_uri() . '/assets/images/card-default-thumbnail.png'; ?>" <?php echo the_title_attribute( 'echo=0' ); ?> />
 			</a>
 		<?php endif; ?>
 	</div>
 	<header class="entry-header">
-		<?php
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		?>
+		<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 	</header><!-- .entry-header -->
 </article><!-- #post-<?php the_ID(); ?> -->

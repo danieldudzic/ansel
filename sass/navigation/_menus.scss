@@ -122,14 +122,15 @@
 
 /* Menu toggle */
 .menu-toggle {
+	float: left;
+	margin: 1.5em 0;
+	width: 100%;
     border: 3px solid $color__border-button;
     clear: none;
     display: none;
-    float: right;
     padding: 0.5em;
     height: 2.25em;
     position: relative;
-    margin-left: 1em;
 
 	.js & {
 		display: block;

@@ -11,32 +11,31 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php
-				if ( have_posts() ) : ?>
+			if ( have_posts() ) : ?>
 
-					<header class="page-header">
-						<?php
-							ansel_portfolio_title( '<h1 class="page-title">' . esc_html( 'Project Type: ', 'ansel' ), '</h1>' );
-						?>
-					</header><!-- .page-header -->
+				<header class="page-header">
+					<?php ansel_portfolio_title( '<h1 class="page-title">' . esc_html( 'Project Type: ', 'ansel' ), '</h1>' ); ?>
+				</header><!-- .page-header -->
 
-					<?php
-						/* Start the Loop */
-						while ( have_posts() ) : the_post();
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) : the_post();
 
-							if ( 0 === $wp_query->current_post ) :
-								get_template_part( 'template-parts/content', 'card-featured' );
-							else :
-								get_template_part( 'template-parts/content', 'card' );
-							endif;
+					if ( 0 === $wp_query->current_post ) :
+						get_template_part( 'template-parts/content', 'card-featured' );
+					else :
+						get_template_part( 'template-parts/content', 'card' );
+					endif;
 
-						endwhile;
-				else :
+				endwhile;
+			else :
 
-					get_template_part( 'template-parts/content', 'none' );
+				get_template_part( 'template-parts/content', 'none' );
 
-				endif; ?>
+			endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_footer(); ?>
+<?php
+get_footer();

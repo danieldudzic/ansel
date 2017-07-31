@@ -33,7 +33,7 @@
 					'clip': 'auto',
 					'position': 'relative'
 				} );
-				$( '.site-title a, .site-description' ).css( {
+				$( '.site-description' ).css( {
 					'color': to
 				} );
 			}
@@ -53,7 +53,7 @@
 					'clip': 'auto',
 					'position': 'relative'
 				} );
-				$( '.site-title a, .site-description' ).css( {
+				$( '.site-description' ).css( {
 					'color': to
 				} );
 			}

@@ -29,39 +29,42 @@
 
 			<div class="site-branding">
 				<?php
-					the_custom_logo();
-					if ( is_front_page() && is_home() ) : ?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				the_custom_logo();
+				if ( is_front_page() && is_home() ) : ?>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php else : ?>
+					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
-					else : ?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-					endif; ?>
+				endif; ?>
 			</div><!-- .site-branding -->
 
 			<button class="menu-toggle" aria-controls="top-menu" aria-expanded="false">
-			<?php
+				<?php
 				echo ansel_get_svg( array( 'icon' => 'bars' ) );
 				echo ansel_get_svg( array( 'icon' => 'close' ) );
 				esc_html_e( 'Menu', 'ansel' );
-			?>
+				?>
 			</button>
 			<nav id="site-navigation" class="main-navigation">
-				<?php wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'top-menu',
-				) ); ?>
+				<?php
+					wp_nav_menu( array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'top-menu',
+					) );
+				?>
 			</nav><!-- #site-navigation -->
 		</div><!-- .branding-container -->
 
 		<?php
 		$description = get_bloginfo( 'description', 'display' );
+
 		if ( $description || is_customize_preview() ) : ?>
 			<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-		<?php
+			<?php
 		endif; ?>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
 
-	<?php ansel_custom_header(); ?>
+	<?php
+	ansel_custom_header();
