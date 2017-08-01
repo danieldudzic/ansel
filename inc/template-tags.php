@@ -108,7 +108,7 @@ function ansel_entry_footer() {
 
 	$tags_list = get_the_tag_list();
 
-	if ( $tags_list ) {
+	if ( $tags_list && 'jetpack-portfolio' !== get_post_type() ) {
 		/* translators: 1: list of tags. */
 		printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'ansel' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 	}
