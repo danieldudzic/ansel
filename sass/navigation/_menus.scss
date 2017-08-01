@@ -127,14 +127,10 @@
 	width: 100%;
     border: 3px solid $color__border-button;
     clear: none;
-    display: none;
+    display: block;
     padding: 0.75em;
     height: 2.75em;
     position: relative;
-
-	.js & {
-		display: block;
-	}
 
 	&:hover,
 	&:focus {

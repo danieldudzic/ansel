@@ -228,6 +228,7 @@ function ansel_scripts() {
 	);
 
 	wp_enqueue_script( 'ansel-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array(), '1.0', true );
+
 	$ansel_l10n['has_navigation'] = 'true';
 	$ansel_l10n['expand']         = esc_html__( 'Expand child menu', 'ansel' );
 	$ansel_l10n['collapse']       = esc_html__( 'Collapse child menu', 'ansel' );
@@ -235,7 +236,6 @@ function ansel_scripts() {
 		'icon' => 'expand',
 		'fallback' => true,
 	) );
-
 	wp_localize_script( 'ansel-skip-link-focus-fix', 'anselScreenReaderText', $ansel_l10n );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
