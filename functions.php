@@ -227,16 +227,14 @@ function ansel_scripts() {
 		'has_navigation' => 'false',
 	);
 
-	if ( has_nav_menu( 'menu-1' ) ) {
-		wp_enqueue_script( 'ansel-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array(), '1.0', true );
-		$ansel_l10n['has_navigation'] = 'true';
-		$ansel_l10n['expand']         = __( 'Expand child menu', 'ansel' );
-		$ansel_l10n['collapse']       = __( 'Collapse child menu', 'ansel' );
-		$ansel_l10n['icon']           = ansel_get_svg( array(
-			'icon' => 'expand',
-			'fallback' => true,
-		) );
-	}
+	wp_enqueue_script( 'ansel-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array(), '1.0', true );
+	$ansel_l10n['has_navigation'] = 'true';
+	$ansel_l10n['expand']         = esc_html__( 'Expand child menu', 'ansel' );
+	$ansel_l10n['collapse']       = esc_html__( 'Collapse child menu', 'ansel' );
+	$ansel_l10n['icon']           = ansel_get_svg( array(
+		'icon' => 'expand',
+		'fallback' => true,
+	) );
 
 	wp_localize_script( 'ansel-skip-link-focus-fix', 'anselScreenReaderText', $ansel_l10n );
 

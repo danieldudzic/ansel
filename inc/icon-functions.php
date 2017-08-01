@@ -36,12 +36,12 @@ add_action( 'wp_footer', 'ansel_include_svg_icons', 9999 );
 function ansel_get_svg( $args = array() ) {
 	// Make sure $args are an array.
 	if ( empty( $args ) ) {
-		return __( 'Please define default parameters in the form of an array.', 'ansel' );
+		return esc_html__( 'Please define default parameters in the form of an array.', 'ansel' );
 	}
 
 	// Define an icon.
 	if ( false === array_key_exists( 'icon', $args ) ) {
-		return __( 'Please define an SVG icon filename.', 'ansel' );
+		return esc_html__( 'Please define an SVG icon filename.', 'ansel' );
 	}
 
 	// Set defaults.
@@ -152,13 +152,11 @@ add_filter( 'walker_nav_menu_start_el', 'ansel_nav_menu_social_icons', 10, 4 );
  * @return string $title The menu item's title with dropdown icon.
  */
 function ansel_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
-	if ( 'menu-1' === $args->theme_location ) {
-		foreach ( $item->classes as $value ) {
-			if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
-				$title = $title . ansel_get_svg( array(
-					'icon' => 'expand',
-				) );
-			}
+	foreach ( $item->classes as $value ) {
+		if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
+			$title = $title . ansel_get_svg( array(
+				'icon' => 'expand',
+			) );
 		}
 	}
 

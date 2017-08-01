@@ -78,4 +78,14 @@
 	&.widget_calendar table td {
 		text-align: center;
 	}
+
+	&.widget_nav_menu {
+		li svg {
+			display: none;
+		}
+	}
+
+	.sub-menu {
+		padding: 0 0 0 1.5em;
+	}
 }
