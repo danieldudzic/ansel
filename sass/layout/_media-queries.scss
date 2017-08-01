@@ -245,7 +245,8 @@
 
 	.no-sidebar:not(.has-cards),
 	.error404,
-	.no-results {
+	.no-results,
+	.page-template-portfolio-page:not(.has-cards) {
 		.content-area,
 		.post-thumbnail {
 			float: none;
