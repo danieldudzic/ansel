@@ -77,6 +77,9 @@ function ansel_is_page_template_portfolio() {
 	}
 }
 
+/**
+ * Sanitize the Homepage Features select.
+ */
 function ansel_sanitize_select( $input ) {
 	// Ensure input is a slug.
 	$input = sanitize_key( $input );
@@ -107,7 +110,7 @@ function ansel_generate_customizer_homepage_feature_sections( $wp_customize ) {
 	for ( $x = 1; $x <= 9; $x++ ) {
 
 		$wp_customize->add_section( 'ansel_homepage_feature_' . $x, array(
-			'title'           => esc_html__( 'Homepage Feature ' . $x, 'ansel' ),
+			'title'           => esc_html__( 'Homepage Feature ', 'ansel' ) . $x,
 			'active_callback' => 'ansel_is_page_template_portfolio',
 			'panel'           => 'ansel_theme_options',
 			'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
@@ -127,13 +130,13 @@ function ansel_generate_customizer_homepage_feature_sections( $wp_customize ) {
 
 		$wp_customize->add_setting( 'ansel_homepage_feature_content_thumbnail_' . $x, array(
 			'default'           => false,
-			'sanitize_callback'	=> 'esc_url_raw',
+			'sanitize_callback' => 'esc_url_raw',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_homepage_feature_content_thumbnail_' . $x, array(
-			'section'	=> 'ansel_homepage_feature_' . $x,
-			'settings'	=> 'ansel_homepage_feature_content_thumbnail_' . $x,
-			'label'		=> esc_html__( 'Feature Content Thumbnail', 'ansel' ),
+			'section'  => 'ansel_homepage_feature_' . $x,
+			'settings' => 'ansel_homepage_feature_content_thumbnail_' . $x,
+			'label'    => esc_html__( 'Feature Content Thumbnail', 'ansel' ),
 		) ) );
 	}
 }
@@ -143,22 +146,22 @@ function ansel_generate_customizer_homepage_feature_sections( $wp_customize ) {
  */
 function ansel_get_homepage_feature_content_choices() {
 	$options = array(
-		'pages'			  => '',
+		'pages'           => '',
 		'portfolio_types' => '',
-		'categories'	  => '',
+		'categories'      => '',
 	);
 
 	$types = array(
-		'pages_label'			=> esc_html__( 'Pages', 'ansel' ),
+		'pages_label'           => esc_html__( 'Pages', 'ansel' ),
 		'portfolio_types_label' => esc_html__( 'Portfolio Types', 'ansel' ),
-		'categories_label'		=> esc_html__( 'Categories', 'ansel' ),
+		'categories_label'      => esc_html__( 'Categories', 'ansel' ),
 	);
 
 	$pages = get_pages();
 
 	foreach ( $pages as $page ) {
 		$page_id = 'page_' . $page->ID;
-		$options['pages'][$page_id] = $page->post_title;
+		$options['pages'][ $page_id ] = $page->post_title;
 	}
 
 	$portfolio_types = get_terms( array(
@@ -168,14 +171,14 @@ function ansel_get_homepage_feature_content_choices() {
 
 	foreach ( $portfolio_types as $portfolio_type ) {
 		$portfolio_type_id = 'portfolio-type_' . $portfolio_type->term_id;
-		$options['portfolio_types'][$portfolio_type_id] = $portfolio_type->name;
+		$options['portfolio_types'][ $portfolio_type_id ] = $portfolio_type->name;
 	}
 
 	$categories = get_categories();
 
 	foreach ( $categories as $category ) {
 		$category_id = 'category_' . $category->term_id;
-		$options['categories'][$category_id] = $category->name;
+		$options['categories'][ $category_id ] = $category->name;
 	}
 
 	$choices = array(

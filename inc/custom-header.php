@@ -48,23 +48,23 @@ function ansel_header_style() {
 	// If we get this far, we have custom styles. Let's do this.
 	?>
 	<style type="text/css">
-	<?php
+		<?php
 		// Has the text been hidden?
 		if ( ! display_header_text() ) :
-	?>
-		.site-title,
-		.site-description {
-			position: absolute;
-			clip: rect(1px, 1px, 1px, 1px);
-		}
-	<?php
+			?>
+			.site-title,
+			.site-description {
+				position: absolute;
+				clip: rect(1px, 1px, 1px, 1px);
+			}
+			<?php
 		// If the user has set a custom color for the text use that.
-		else :
-	?>
-		.site-description {
-			color: #<?php echo esc_attr( $header_text_color ); ?>;
-		}
-	<?php endif; ?>
+		else : ?>
+			.site-description {
+				color: #<?php echo esc_attr( $header_text_color ); ?>;
+			}
+			<?php
+		endif; ?>
 	</style>
 	<?php
 }
@@ -81,12 +81,11 @@ function ansel_custom_header() {
 				<?php the_post_thumbnail( 'ansel-featured-image-header' ); ?>
 			</a>
 		</div>
-	<?php
+		<?php
 	} elseif ( has_header_image() && 'jetpack-portfolio' !== get_post_type() ) { ?>
 		<div class="featured-image-header">
 			<?php the_header_image_tag(); ?>
 		</div>
-	<?php
+		<?php
 	}
 }
-

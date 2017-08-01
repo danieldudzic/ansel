@@ -19,41 +19,42 @@
 		endif;
 
 		if ( 'post' === get_post_type() || 'jetpack-portfolio' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php ansel_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
+			<div class="entry-meta">
+				<?php ansel_posted_on(); ?>
+			</div><!-- .entry-meta -->
+			<?php
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php if ( ansel_has_post_thumbnail() ) : ?>
+	<?php
+	if ( ansel_has_post_thumbnail() ) : ?>
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>">
 				<?php the_post_thumbnail( 'ansel-featured-image-post' ); ?>
 			</a>
 		</div>
-	<?php endif; ?>
+		<?php
+	endif; ?>
 
 	<div class="entry-content">
 		<?php
-			the_content( sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'ansel' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			) );
+		the_content( sprintf(
+			wp_kses(
+				/* translators: %s: Name of current post. Only visible to screen readers */
+				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'ansel' ),
+				array(
+					'span' => array(
+						'class' => array(),
+					),
+				)
+			),
+			get_the_title()
+		) );
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ansel' ),
-				'after'  => '</div>',
-			) );
-		?>
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ansel' ),
+			'after'  => '</div>',
+		) ); ?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">

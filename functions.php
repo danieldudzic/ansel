@@ -83,7 +83,10 @@ function ansel_setup() {
 		'width'       => 250,
 		'flex-width'  => true,
 		'flex-height' => true,
-		'header-text' => array( 'site-title', 'site-description' )
+		'header-text' => array(
+			'site-title',
+			'site-description',
+		),
 	) );
 }
 endif;
@@ -119,14 +122,25 @@ function ansel_widgets_init() {
 }
 add_action( 'widgets_init', 'ansel_widgets_init' );
 
-if ( ! function_exists( 'ansel_continue_reading_link' ) ) :
 /**
  * Returns an ellipsis and "Continue reading" plus off-screen title link for excerpts
  */
 function ansel_continue_reading_link() {
-	return '&hellip; <a href="'. esc_url( get_permalink() ) . '" class="more-link">' . sprintf( __( 'Continue reading <span class="screen-reader-text">%1$s</span>', 'ansel' ), esc_attr( strip_tags( get_the_title() ) ) ) . '</a>';
+	return '&hellip; <a href="' . esc_url( get_permalink() ) . '" class="more-link">' .
+		sprintf(
+			wp_kses(
+				/* translators: %s: post title */
+				__( 'Continue reading <span class="screen-reader-text">%1$s</span>', 'ansel' ),
+				array(
+					'span' => array(
+						'class' => array(),
+					),
+				)
+			),
+			get_the_title()
+		) .
+	'</a>';
 }
-endif; // ansel_continue_reading_link
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with ansel_continue_reading_link().
@@ -162,13 +176,15 @@ function ansel_fonts_url() {
 
 	$fonts_url = '';
 
-	/* Translators: If there are characters in your language that are not
+	/*
+	* Translators: If there are characters in your language that are not
 	* supported by Work Sans, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
 	$work_sans = esc_html_x( 'on', 'Work Sans font: on or off', 'ansel' );
 
-	/* Translators: If there are characters in your language that are not
+	/*
+	* Translators: If there are characters in your language that are not
 	* supported by Karla, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
@@ -216,7 +232,10 @@ function ansel_scripts() {
 		$ansel_l10n['has_navigation'] = 'true';
 		$ansel_l10n['expand']         = __( 'Expand child menu', 'ansel' );
 		$ansel_l10n['collapse']       = __( 'Collapse child menu', 'ansel' );
-		$ansel_l10n['icon']           = ansel_get_svg( array( 'icon' => 'expand', 'fallback' => true ) );
+		$ansel_l10n['icon']           = ansel_get_svg( array(
+			'icon' => 'expand',
+			'fallback' => true,
+		) );
 	}
 
 	wp_localize_script( 'ansel-skip-link-focus-fix', 'anselScreenReaderText', $ansel_l10n );

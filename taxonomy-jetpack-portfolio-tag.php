@@ -27,7 +27,7 @@ get_header(); ?>
 						get_template_part( 'template-parts/content', 'card' );
 					endif;
 
-				endwhile;
+				endwhile; // End of the loop.
 			else :
 
 				get_template_part( 'template-parts/content', 'none' );

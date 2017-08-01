@@ -19,3 +19,5 @@ node_modules/
 #Grunt
 Gruntfile.js
 package.json
+
+codesniffer.ruleset.xml

@@ -17,7 +17,6 @@ function ansel_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-
 	// Add a class of has-post-thumbnail if the post or page has a featured image set or a custom header image is set.
 	if ( is_singular() && ansel_has_post_thumbnail() && ansel_jetpack_featured_image_display() || has_header_image() ) {
 		$classes[] = 'has-custom-header';

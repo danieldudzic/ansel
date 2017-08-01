@@ -9,7 +9,6 @@
 
 ?>
 
-
 <div class="entry-author">
 	<div class="author-avatar"><?php echo get_avatar( get_the_author_meta( 'user_email' ), 90 ); ?></div>
 

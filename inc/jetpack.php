@@ -16,19 +16,19 @@
  */
 function ansel_jetpack_setup() {
 
-		// Add support for Jetpack Portfolio Custom Post Type.
-	add_theme_support( 'jetpack-portfolio', array (
+	// Add support for Jetpack Portfolio Custom Post Type.
+	add_theme_support( 'jetpack-portfolio', array(
 		'title'          => true,
 		'content'        => true,
 		'featured-image' => true,
 	) );
 
 	// Add theme support for Infinite Scroll.
-	add_theme_support( 'infinite-scroll', array (
+	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
 		'render'    => 'ansel_infinite_scroll_render',
 		'footer'    => 'page',
-		'wrapper'	=> false,
+		'wrapper'   => false,
 	) );
 
 	// Add theme support for Responsive Videos.
@@ -38,19 +38,19 @@ function ansel_jetpack_setup() {
 	add_theme_support( 'jetpack-social-menu', 'svg' );
 
 	// Add theme support for Content Options.
-	add_theme_support( 'jetpack-content-options', array (
-		'blog-display'		 => 'content',
-		'author-bio'		 => true,
+	add_theme_support( 'jetpack-content-options', array(
+		'blog-display'       => 'content',
+		'author-bio'         => true,
 		'author-bio-default' => false,
-		'post-details'		 => array(
-			'stylesheet'	 => 'ansel-style',
-			'date'			 => '.posted-on',
-			'categories'	 => '.cat-links',
-			'tags'			 => '.tags-links',
-			'author'		 => '.byline',
-			'comment'		 => '.comments-link',
+		'post-details'       => array(
+			'stylesheet'     => 'ansel-style',
+			'date'           => '.posted-on',
+			'categories'     => '.cat-links',
+			'tags'           => '.tags-links',
+			'author'         => '.byline',
+			'comment'        => '.comments-link',
 		),
-		'featured-images' => array(
+		'featured-images'      => array(
 			'archive'          => true,
 			'post'             => true,
 			'post-default'     => true,
@@ -68,29 +68,28 @@ add_action( 'after_setup_theme', 'ansel_jetpack_setup' );
  * Show/Hide Featured Image outside of the loop.
  */
 function ansel_jetpack_featured_image_display() {
-    if ( ! function_exists( 'jetpack_featured_images_remove_post_thumbnail' ) ) {
-        return true;
-    } else {
-        $options         = get_theme_support( 'jetpack-content-options' );
-        $featured_images = ( ! empty( $options[0]['featured-images'] ) ) ? $options[0]['featured-images'] : null;
+	if ( ! function_exists( 'jetpack_featured_images_remove_post_thumbnail' ) ) {
+		return true;
+	} else {
+		$options         = get_theme_support( 'jetpack-content-options' );
+		$featured_images = ( ! empty( $options[0]['featured-images'] ) ) ? $options[0]['featured-images'] : null;
 
-        $settings = array(
-            'post-default' => ( isset( $featured_images['post-default'] ) && false === $featured_images['post-default'] ) ? '' : 1,
-            'page-default' => ( isset( $featured_images['page-default'] ) && false === $featured_images['page-default'] ) ? '' : 1,
-        );
+		$settings = array(
+			'post-default' => ( isset( $featured_images['post-default'] ) && false === $featured_images['post-default'] ) ? '' : 1,
+			'page-default' => ( isset( $featured_images['page-default'] ) && false === $featured_images['page-default'] ) ? '' : 1,
+		);
 
-        $settings = array_merge( $settings, array(
-            'post-option'  => get_option( 'jetpack_content_featured_images_post', $settings['post-default'] ),
-            'page-option'  => get_option( 'jetpack_content_featured_images_page', $settings['page-default'] ),
-        ) );
+		$settings = array_merge( $settings, array(
+			'post-option' => get_option( 'jetpack_content_featured_images_post', $settings['post-default'] ),
+			'page-option' => get_option( 'jetpack_content_featured_images_page', $settings['page-default'] ),
+		) );
 
-        if ( ( ! $settings['post-option'] && is_single() )
-            || ( ! $settings['page-option'] && is_singular() && is_page() ) ) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+		if ( ( ! $settings['post-option'] && is_single() ) || ( ! $settings['page-option'] && is_singular() && is_page() ) ) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
 
 /**
@@ -109,7 +108,7 @@ function ansel_infinite_scroll_render() {
 	}
 }
 
-/*
+/**
  * Only display social menu if function exists.
  */
 function ansel_social_menu() {
@@ -202,18 +201,18 @@ function ansel_get_homepage_features() {
 	$homepage_features = '';
 
 	for ( $x = 1; $x <= 9; $x++ ) {
-		$homepage_features[$x]['content'] = '';
-		$homepage_features[$x]['thumbnail'] = '';
+		$homepage_features[ $x ]['content'] = '';
+		$homepage_features[ $x ]['thumbnail'] = '';
 
-		$content = get_theme_mod('ansel_homepage_feature_content_' . $x );
-		$thumbnail = get_theme_mod('ansel_homepage_feature_content_thumbnail_' . $x );
+		$content = get_theme_mod( 'ansel_homepage_feature_content_' . $x );
+		$thumbnail = get_theme_mod( 'ansel_homepage_feature_content_thumbnail_' . $x );
 
 		if ( ! empty( $content ) ) {
-			$homepage_features[$x]['content'] = $content;
+			$homepage_features[ $x ]['content'] = $content;
 		}
 
 		if ( ! empty( $thumbnail ) ) {
-			$homepage_features[$x]['thumbnail'] = $thumbnail;
+			$homepage_features[ $x ]['thumbnail'] = $thumbnail;
 		}
 	}
 
@@ -233,12 +232,12 @@ function ansel_get_homepage_features() {
 					$feature_id = $exploded_feature[1];
 					$feature_type = $exploded_feature[0];
 
-					$features[$feature_id]['type'] = $feature_type;
+					$features[ $feature_id ]['type'] = $feature_type;
 
 					if ( ! empty( $feature['thumbnail'] ) ) {
-						$features[$feature_id]['thumbnail'] = $feature['thumbnail'];
+						$features[ $feature_id ]['thumbnail'] = $feature['thumbnail'];
 					} else {
-						$features[$feature_id]['thumbnail'] = '';
+						$features[ $feature_id ]['thumbnail'] = '';
 					}
 				}
 			}
@@ -300,7 +299,7 @@ function ansel_homepage_feature_title( $id, $type ) {
  */
 function ansel_homepage_feature_thumbnail( $src, $feature_id = '', $feature_type = '' ) {
 
-	if ( ! empty ( $src ) ) {
+	if ( ! empty( $src ) ) {
 		$thumbnail_id = ansel_get_attachment_id( $src );
 	} else {
 		$thumbnail_id = false;
@@ -308,21 +307,21 @@ function ansel_homepage_feature_thumbnail( $src, $feature_id = '', $feature_type
 
 	$thumbnail_attr = '';
 
-	if ( ! empty( $feature_id ) && ! empty ( $feature_type ) ) {
+	if ( ! empty( $feature_id ) && ! empty( $feature_type ) ) {
 		$thumbnail_attr = array(
-			 'alt' => esc_attr( ansel_homepage_get_feature_title( $feature_id, $feature_type ) ),
+			'alt' => esc_attr( ansel_homepage_get_feature_title( $feature_id, $feature_type ) ),
 		);
 	}
 
 	if ( $thumbnail_id ) {
 		$thumbnail = wp_get_attachment_image( $thumbnail_id, 'ansel-feature-card', false, $thumbnail_attr );
 	} else {
-		$thumbnail = '<img src="' . get_template_directory_uri() . '/assets/images/card-default-thumbnail.png' . '" alt="' . $thumbnail_attr['alt'] . '" />';
+		$thumbnail = '<img src="' . get_template_directory_uri() . '/assets/images/card-default-thumbnail.png" alt="' . $thumbnail_attr['alt'] . '" />';
 	}
 
 	$url = ansel_homepage_get_feature_url( $feature_id, $feature_type );
 
-	if ( ! empty( $feature_id ) && ! empty ( $feature_type ) ) {
+	if ( ! empty( $feature_id ) && ! empty( $feature_type ) ) {
 		$thumbnail = '<a href="' . esc_url( $url ) . '">' . $thumbnail . '</a>';
 	}
 
@@ -331,8 +330,6 @@ function ansel_homepage_feature_thumbnail( $src, $feature_id = '', $feature_type
 
 /**
  * Get an attachment ID given a URL.
- *
- * @param string $url
  *
  * @return int Attachment ID on success, 0 on failure
  */
@@ -351,7 +348,7 @@ function ansel_get_attachment_id( $url ) {
 					'compare' => 'LIKE',
 					'key'     => '_wp_attachment_metadata',
 				),
-			)
+			),
 		);
 		$query = new WP_Query( $query_args );
 		if ( $query->have_posts() ) {

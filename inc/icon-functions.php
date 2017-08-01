@@ -131,7 +131,9 @@ function ansel_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	if ( 'social' === $args->theme_location ) {
 		foreach ( $social_icons as $attr => $value ) {
 			if ( false !== strpos( $item_output, $attr ) ) {
-				$item_output = str_replace( $args->link_after, '</span>' . ansel_get_svg( array( 'icon' => esc_attr( $value ) ) ), $item_output );
+				$item_output = str_replace( $args->link_after, '</span>' . ansel_get_svg( array(
+					'icon' => esc_attr( $value ),
+				) ), $item_output );
 			}
 		}
 	}
@@ -153,7 +155,9 @@ function ansel_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	if ( 'menu-1' === $args->theme_location ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
-				$title = $title . ansel_get_svg( array( 'icon' => 'expand' ) );
+				$title = $title . ansel_get_svg( array(
+					'icon' => 'expand',
+				) );
 			}
 		}
 	}

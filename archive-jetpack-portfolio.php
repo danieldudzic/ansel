@@ -11,30 +11,28 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php
-				if ( have_posts() ) : ?>
+			if ( have_posts() ) : ?>
 
-					<header class="page-header">
-						<?php
-							ansel_portfolio_title( '<h1 class="page-title">', '</h1>' );
-						?>
-					</header><!-- .page-header -->
+				<header class="page-header">
+					<?php ansel_portfolio_title( '<h1 class="page-title">', '</h1>' ); ?>
+				</header><!-- .page-header -->
 
-					<?php
-						/* Start the Loop */
-						while ( have_posts() ) : the_post();
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) : the_post();
 
-							if ( 0 === $wp_query->current_post ) :
-								get_template_part( 'template-parts/content', 'card-featured' );
-							else :
-								get_template_part( 'template-parts/content', 'card' );
-							endif;
+					if ( 0 === $wp_query->current_post ) :
+						get_template_part( 'template-parts/content', 'card-featured' );
+					else :
+						get_template_part( 'template-parts/content', 'card' );
+					endif;
 
-						endwhile;
-				else :
-					get_template_part( 'template-parts/content', 'none' );
+				endwhile; // End of the loop.
+			else :
 
-				endif;
-			?>
+				get_template_part( 'template-parts/content', 'none' );
+
+			endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
