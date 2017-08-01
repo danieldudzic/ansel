@@ -820,7 +820,7 @@ a:hover, a:active {
   letter-spacing: 2px;
   margin: 0 -50px;
   overflow: hidden;
-  padding: 1.375em 50px;
+  padding: 1.375em 50px 0;
   text-transform: uppercase;
   width: auto;
 }
@@ -836,7 +836,8 @@ a:hover, a:active {
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {
   float: left;
-  width: 50%;
+  width: 100%;
+  margin-bottom: 1.5em;
 }
 
 .comment-navigation .nav-next,
@@ -844,7 +845,8 @@ a:hover, a:active {
 .post-navigation .nav-next {
   float: right;
   text-align: right;
-  width: 50%;
+  width: 100%;
+  margin-bottom: 1.5em;
 }
 
 .comment-navigation a:hover,
@@ -1658,6 +1660,14 @@ body .site-main {
   margin-top: 0.75em;
 }
 
+.comment-form label {
+  display: block;
+}
+
+.comment-form input {
+  max-width: 100%;
+}
+
 .comment-reply-link {
   font-size: 14px;
   font-size: 0.875rem;
@@ -2206,6 +2216,16 @@ p a[href$=".jpg"], p a[href$=".jpeg"], p a[href$=".png"], p a[href$=".gif"] {
     float: right;
     overflow: hidden;
     width: 30%;
+  }
+  .comment-navigation .nav-previous,
+  .posts-navigation .nav-previous,
+  .post-navigation .nav-previous {
+    width: 45%;
+  }
+  .comment-navigation .nav-next,
+  .posts-navigation .nav-next,
+  .post-navigation .nav-next {
+    width: 45%;
   }
   .site-footer {
     text-align: left;

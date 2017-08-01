@@ -214,7 +214,7 @@
 	letter-spacing: 2px;
 	margin: 0 -50px;
 	overflow: hidden;
-	padding: 1.375em 50px;
+	padding: 1.375em 50px 0;
 	text-transform: uppercase;
 	width: auto;
 
@@ -225,13 +225,15 @@
 
 	.nav-previous {
 		float: left;
-		width: 50%;
+		width: 100%;
+		margin-bottom: 1.5em;
 	}
 
 	.nav-next {
 		float: right;
 		text-align: right;
-		width: 50%;
+		width: 100%;
+		margin-bottom: 1.5em;
 	}
 
 	a:hover,

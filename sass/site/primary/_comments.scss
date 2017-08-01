@@ -40,6 +40,16 @@
 	}
 }
 
+.comment-form {
+	label {
+		display: block;
+	}
+
+	input {
+		max-width: 100%;
+	}
+}
+
 .comment-reply-link {
 	@include font-size(0.875);
 	text-transform: uppercase;
