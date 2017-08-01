@@ -2,6 +2,13 @@
 	border-top: 1px solid $color__border-button;
 	margin: 6em 0 0;
 	padding-top: 2em;
+
+	a {
+		&:hover,
+		&:active {
+			color: $color__text-main;
+		}
+	}
 }
 
 .comments-area .comment {

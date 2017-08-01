@@ -1624,6 +1624,10 @@ body .site-main {
   padding-top: 2em;
 }
 
+.comments-area a:hover, .comments-area a:active {
+  color: #444444;
+}
+
 .comments-area .comment {
   margin-bottom: 2.500em;
 }
@@ -2154,8 +2158,8 @@ p a[href$=".jpg"], p a[href$=".jpeg"], p a[href$=".png"], p a[href$=".gif"] {
   .no-sidebar:not(.has-cards) .post-thumbnail,
   .error404 .content-area,
   .error404 .post-thumbnail,
-  .page-template-portfolio-page:not(.has-cards) .content-area,
-  .page-template-portfolio-page:not(.has-cards) .post-thumbnail {
+  .no-results .content-area,
+  .no-results .post-thumbnail {
     float: none;
     margin-left: auto;
     margin-right: auto;
@@ -2163,7 +2167,7 @@ p a[href$=".jpg"], p a[href$=".jpeg"], p a[href$=".png"], p a[href$=".gif"] {
   }
   .no-sidebar:not(.has-cards) .site-main,
   .error404 .site-main,
-  .page-template-portfolio-page:not(.has-cards) .site-main {
+  .no-results .site-main {
     margin-right: 0;
   }
   .site-main {

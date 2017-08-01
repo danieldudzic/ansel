@@ -32,6 +32,11 @@ function ansel_body_classes( $classes ) {
 		$classes[] = 'has-cards';
 	}
 
+	// Add a class of no-results when no posts present.
+	if ( ! have_posts() ) {
+		$classes[] = 'no-results';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'ansel_body_classes' );
