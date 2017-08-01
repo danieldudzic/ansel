@@ -20,4 +20,9 @@ node_modules/
 Gruntfile.js
 package.json
 
-codesniffer.ruleset.xml
+grunt-lib.js
+Gruntfile.twig.js
+Gruntfile.js
+package.json
+index.js
+package-lock.json
