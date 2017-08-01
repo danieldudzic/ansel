@@ -243,8 +243,9 @@
 		width: $size__site-main;
 	}
 
-	.no-sidebar,
-	.error404 {
+	.no-sidebar:not(.has-cards),
+	.error404,
+	.page-template-portfolio-page:not(.has-cards) {
 		.content-area,
 		.post-thumbnail {
 			float: none;
@@ -254,7 +255,7 @@
 		}
 
 		.site-main {
-			margin: 0;
+			margin-right: 0;
 		}
 	}
 
@@ -283,6 +284,27 @@
 			}
 
 			&:nth-of-type(3n+5) {
+				clear: both;
+			}
+		}
+
+		.homepage-feature {
+			width: 30%;
+			margin-right: 5%;
+
+			&:nth-child(2n) {
+				margin-right: 5%;
+			}
+
+			&:nth-child(2n+1) {
+				clear: none;
+			}
+
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
+
+			&:nth-child(3n+1) {
 				clear: both;
 			}
 		}

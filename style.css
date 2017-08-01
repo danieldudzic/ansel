@@ -1018,6 +1018,11 @@ a:hover, a:active {
   padding-bottom: 0.563em;
   padding-top: 0.5em;
   display: inline-block;
+  vertical-align: middle;
+}
+
+.widget li a a, .widget li a span, .widget li span a, .widget li span span {
+  padding: 0;
 }
 
 .widget select {
@@ -1103,6 +1108,23 @@ a:hover, a:active {
 
 .widget.widget_jetpack_display_posts_widget .jetpack-display-remote-posts p {
   margin-bottom: inherit !important;
+}
+
+.widget.widget_rss li {
+  padding: 2em 0;
+}
+
+.widget.widget_rss li:first-child {
+  border: 0;
+  padding-top: 0;
+}
+
+.widget.widget_rss li:last-child {
+  padding-bottom: 0;
+}
+
+.widget.widget_rss li a, .widget.widget_rss li span {
+  padding: 0;
 }
 
 /*--------------------------------------------------------------
@@ -1325,6 +1347,11 @@ body:not(.has-custom-header):not(.has-cards) .site-content {
   margin-bottom: 5.625em;
 }
 
+body .site-main {
+  margin-bottom: 6.5em;
+  overflow: hidden;
+}
+
 .entry-title,
 .page-title {
   max-width: 100%;
@@ -1381,19 +1408,54 @@ body:not(.has-custom-header):not(.has-cards) .site-content {
   padding: 0.813em 0;
 }
 
-.has-cards .entry-card .entry-thumbnail,
 .has-cards .entry-card .post-thumbnail {
   margin-bottom: 0;
 }
 
-.has-cards .entry-card .entry-thumbnail img,
 .has-cards .entry-card .post-thumbnail img {
   border-radius: 3px;
   transition: all 0.3s ease-in-out;
 }
 
-.has-cards .entry-card .entry-thumbnail img:hover,
 .has-cards .entry-card .post-thumbnail img:hover {
+  opacity: 0.7;
+}
+
+.has-cards .homepage-feature {
+  float: left;
+  text-align: center;
+  width: 45%;
+  margin-right: 10%;
+  margin-bottom: 0.938em;
+}
+
+.has-cards .homepage-feature:nth-child(2n) {
+  margin-right: 0;
+}
+
+.has-cards .homepage-feature:nth-child(2n+1) {
+  clear: both;
+}
+
+.has-cards .homepage-feature .entry-title {
+  font-family: "Karla", sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  padding: 0.813em 0;
+}
+
+.has-cards .homepage-feature .entry-thumbnail {
+  margin-bottom: 0;
+}
+
+.has-cards .homepage-feature .entry-thumbnail img {
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.has-cards .homepage-feature .entry-thumbnail img:hover {
   opacity: 0.7;
 }
 
@@ -1419,6 +1481,12 @@ body:not(.has-custom-header):not(.has-cards) .site-content {
 .entry-content a,
 .entry-summary a {
   font-weight: 700;
+}
+
+.entry-content a:hover, .entry-content a:focus,
+.entry-summary a:hover,
+.entry-summary a:focus {
+  color: #444444;
 }
 
 .entry-content .more-link,
@@ -1539,6 +1607,10 @@ body:not(.has-custom-header):not(.has-cards) .site-content {
 
 .entry-author .author-description > :last-child {
   margin-bottom: 0;
+}
+
+.error404 .page-content .search-form {
+  margin-bottom: 2em;
 }
 
 /*--------------------------------------------------------------
@@ -2063,18 +2135,21 @@ p a[href$=".jpg"], p a[href$=".jpeg"], p a[href$=".png"], p a[href$=".gif"] {
     margin: 0 -35% 0 0;
     width: 100%;
   }
-  .no-sidebar .content-area,
-  .no-sidebar .post-thumbnail,
+  .no-sidebar:not(.has-cards) .content-area,
+  .no-sidebar:not(.has-cards) .post-thumbnail,
   .error404 .content-area,
-  .error404 .post-thumbnail {
+  .error404 .post-thumbnail,
+  .page-template-portfolio-page:not(.has-cards) .content-area,
+  .page-template-portfolio-page:not(.has-cards) .post-thumbnail {
     float: none;
     margin-left: auto;
     margin-right: auto;
     width: 65%;
   }
-  .no-sidebar .site-main,
-  .error404 .site-main {
-    margin: 0;
+  .no-sidebar:not(.has-cards) .site-main,
+  .error404 .site-main,
+  .page-template-portfolio-page:not(.has-cards) .site-main {
+    margin-right: 0;
   }
   .site-main {
     margin: 0 35% 0 0;
@@ -2095,6 +2170,22 @@ p a[href$=".jpg"], p a[href$=".jpeg"], p a[href$=".png"], p a[href$=".gif"] {
     margin-right: 5%;
   }
   .has-cards .entry-card:nth-of-type(3n+5) {
+    clear: both;
+  }
+  .has-cards .homepage-feature {
+    width: 30%;
+    margin-right: 5%;
+  }
+  .has-cards .homepage-feature:nth-child(2n) {
+    margin-right: 5%;
+  }
+  .has-cards .homepage-feature:nth-child(2n+1) {
+    clear: none;
+  }
+  .has-cards .homepage-feature:nth-child(3n) {
+    margin-right: 0;
+  }
+  .has-cards .homepage-feature:nth-child(3n+1) {
     clear: both;
   }
   .has-cards .no-homepage-features {

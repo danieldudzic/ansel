@@ -28,7 +28,7 @@ function ansel_body_classes( $classes ) {
 	}
 
 	// Add a class of has-cards when displaying portfolio items.
-	if ( ! is_single() && 'jetpack-portfolio' === get_post_type() || ansel_is_page_template_portfolio() ) {
+	if ( ! is_single() && 'jetpack-portfolio' === get_post_type() || ( ansel_is_page_template_portfolio() && ansel_get_homepage_features() ) ) {
 		$classes[] = 'has-cards';
 	}
 

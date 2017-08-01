@@ -22,7 +22,7 @@ get_header(); ?>
 
 				foreach ( $homepage_features as $id => $feature ) { ?>
 
-					<article id="entry-<?php echo esc_attr( $id ); ?>" class="entry-card">
+					<article id="entry-<?php echo esc_attr( $id ); ?>" class="homepage-feature">
 						<div class="entry-thumbnail">
 							<?php ansel_homepage_feature_thumbnail( $feature['thumbnail'], $id, $feature['type'] ); ?>
 						</div>

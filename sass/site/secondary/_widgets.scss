@@ -28,6 +28,11 @@
 			padding-bottom: 0.563em;
 			padding-top: 0.5em;
 			display: inline-block;
+			vertical-align: middle;
+
+			a, span {
+				padding: 0;
+			}
 		}
 	}
 
@@ -117,6 +122,23 @@
 	&.widget_jetpack_display_posts_widget {
 		.jetpack-display-remote-posts p {
 			margin-bottom: inherit !important;
+		}
+	}
+
+	&.widget_rss li {
+		padding: 2em 0;
+
+		&:first-child {
+			border: 0;
+			padding-top: 0;
+		}
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+
+		a, span {
+			padding: 0;
 		}
 	}
 }
