@@ -1635,6 +1635,11 @@ body .site-main {
   list-style: none;
 }
 
+.comment-list .edit-link,
+.comment-list .children .edit-link {
+  margin-left: 1em;
+}
+
 .comment-list .children {
   margin-top: 2.500em;
 }
