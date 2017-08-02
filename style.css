@@ -1226,7 +1226,11 @@ body:not(.has-custom-header):not(.has-cards) .site-content {
 	font-family: "Work Sans", sans-serif;
 	font-size: 24px;
 	font-size: 1.5rem;
-	margin: 0.5em auto 0;
+	margin: 1.5em auto 0.25em;
+}
+
+.site-description:last-child {
+	margin: 1.5em auto 0.25em;
 }
 
 .has-custom-header .site-content .featured-image-header {

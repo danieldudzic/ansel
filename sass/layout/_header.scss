@@ -38,12 +38,15 @@
 	}
 }
 
-
 .site-description {
 	color: $color__link-alt;
 	font-family: $font__main;
 	@include font-size(1.5);
-	margin: 0.5em auto 0;
+	margin: 1.5em auto 0.25em;
+
+	&:last-child {
+		margin: 1.5em auto 0.25em;
+	}
 }
 
 .has-custom-header .site-content .featured-image-header {
