@@ -42,10 +42,10 @@
 	color: $color__link-alt;
 	font-family: $font__main;
 	@include font-size(1.5);
-	margin: 1.5em auto 0.25em;
+	margin: 1em auto 0.5em;
 
 	&:last-child {
-		margin: 1.5em auto 0.25em;
+		margin: 1em auto 0.5em;
 	}
 }
 

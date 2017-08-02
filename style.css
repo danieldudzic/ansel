@@ -1226,11 +1226,11 @@ body:not(.has-custom-header):not(.has-cards) .site-content {
 	font-family: "Work Sans", sans-serif;
 	font-size: 24px;
 	font-size: 1.5rem;
-	margin: 1.5em auto 0.25em;
+	margin: 1em auto 0.5em;
 }
 
 .site-description:last-child {
-	margin: 1.5em auto 0.25em;
+	margin: 1em auto 0.5em;
 }
 
 .has-custom-header .site-content .featured-image-header {
@@ -2056,6 +2056,14 @@ p a[href$=".gif"] {
  */
 
 @media screen and (min-width: 37.5em) {
+
+	.site-description {
+		margin: 1.5em auto 0.25em;
+	}
+
+	.site-description:last-child {
+		margin: 1.5em auto 0.25em;
+	}
 
 	.branding-container {
 		display: -webkit-box;
