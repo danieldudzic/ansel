@@ -1257,7 +1257,7 @@ body:not(.has-custom-header):not(.has-cards) .site-content {
 
 .site-footer {
 	border-top: 1px solid #f7f7f7;
-	padding: 50px;
+	padding: 2.813em 50px 2em;
 	margin: 0 -50px;
 	text-align: center;
 }
@@ -1277,6 +1277,7 @@ body:not(.has-custom-header):not(.has-cards) .site-content {
 	font-weight: 400;
 	font-size: 14px;
 	font-size: 0.875rem;
+	margin-bottom: 0.75em;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 }

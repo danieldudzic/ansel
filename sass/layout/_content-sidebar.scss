@@ -9,7 +9,7 @@
 
 .site-footer {
 	border-top: 1px solid $color__border;
-	padding: 50px;
+	padding: 2.813em 50px 2em;
 	margin: 0 -50px;
 	text-align: center;
 
@@ -29,6 +29,7 @@
 		@include font-size(0.875);
 		letter-spacing: 2px;
 		text-transform: uppercase;
+		margin-bottom: 0.75em;
 	}
 }
 
