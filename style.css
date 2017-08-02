@@ -1429,6 +1429,10 @@ body .site-main {
 	text-transform: uppercase;
 }
 
+.archive-description {
+	margin-bottom: 2em;
+}
+
 .has-cards .entry-card {
 	float: left;
 	text-align: center;
