@@ -22,7 +22,7 @@
 		.widget &,
 		.blog &,
 		.archive &,
-		.search &{
+		.search & {
 			margin: 0;
 		}
 	}
@@ -44,7 +44,7 @@
 	}
 
 	&.alignleft,
-	.alignright {
+	&.alignright {
 		margin: 0 auto;
 
 		p + & {
@@ -81,7 +81,10 @@
 }
 
 p {
-	a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"] {
+	a[href$=".jpg"],
+	a[href$=".jpeg"],
+	a[href$=".png"],
+	a[href$=".gif"] {
 		border: none;
 	}
 }

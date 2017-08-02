@@ -34,18 +34,6 @@
 			a {
 				position: relative;
 			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
-
-			&.toggled-on {
-
-			}
 		}
 
 		li {
@@ -66,10 +54,6 @@
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		word-wrap: break-word;
-
-		&:hover > a,
-		&.focus > a {
-		}
 
 		&:last-child {
 			border: 0;

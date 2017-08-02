@@ -183,13 +183,6 @@
 				border: 0;
 				display: block;
 
-				&:hover,
-				&.focus {
-				}
-
-				a {
-				}
-
 				&.focus > a,
 				&:focus > a,
 				&:hover > a,
@@ -212,8 +205,6 @@
 		.page_item_has_children a {
 			padding: 0.75em 1.25em;
 		}
-
-
 
 		& .menu-item-has-children > a,
 		& .page_item_has_children > a {

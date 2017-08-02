@@ -1,17 +1,327 @@
 /*
 Theme Name: Ansel
 
-Adding support for languages written in a Right To Left (RTL) direction is easy -
+Adding support for language written in a Right To Left (RTL) direction is easy -
 it's just a matter of overwriting all the horizontal positioning attributes
 of your CSS stylesheet in a separate stylesheet file named rtl.css.
 
-https://codex.wordpress.org/Right-to-Left_Language_Support
-
+https://codex.wordpress.org/Right_to_Left_Language_Support
 */
 
-/*
-body {
-	direction: rtl;
-	unicode-bidi: embed;
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+
+blockquote {
+	border-right: 4px solid #f7f7f7;
+	border-left: 0;
+	padding: 0 1.5em 0 0;
 }
-*/
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+
+ul,
+ol {
+	margin: 0 3em 1.5em 0;
+	padding-right: 0;
+}
+
+li > ul,
+li > ol {
+	margin-right: 3em;
+	margin-left: 0;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+
+.search-form label {
+	margin-left: 10px;
+}
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+
+.main-navigation ul {
+	text-align: right;
+}
+
+.main-navigation ul ul {
+	padding: 0 1.5em 0 0;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	right: 100%;
+	left: auto;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	right: auto;
+}
+
+.main-navigation .menu-item-has-children a,
+.main-navigation .page_item_has_children a {
+	padding: 0.75em 0;
+}
+
+/* Menu toggle */
+
+.menu-toggle {
+	float: right;
+}
+
+.menu-toggle .icon {
+	margin-left: 0.5em;
+	margin-right: 0;
+}
+
+/* Dropdown Toggle */
+
+.dropdown-toggle {
+	left: -0.5em;
+	right: auto;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: right;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: left;
+	text-align: left;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+
+.screen-reader-text:focus {
+	right: 5px;
+	left: auto;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+
+.widget .sub-menu {
+	padding: 0 1.5em 0 0;
+}
+
+.widget.widget_tag_cloud a,
+.widget .tags-links a,
+.widget .tagcloud a {
+	margin: 0 0 0.714em 0.875em;
+}
+
+/*--------------------------------------------------------------
+## Content Sidebar
+--------------------------------------------------------------*/
+
+.entry-footer .tags-links a {
+	margin: 0 0 0.714em 0.875em;
+}
+
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+
+.has-cards .entry-card {
+	float: right;
+}
+
+.has-cards .homepage-feature {
+	float: right;
+	margin-left: 10%;
+	margin-right: 0;
+}
+
+.has-cards .homepage-feature:nth-child(2n) {
+	margin-left: 0;
+}
+
+.entry-author .author-avatar {
+	float: left;
+	margin-right: 4%;
+	margin-left: 0;
+}
+
+.entry-author .author-avatar .avatar {
+	float: left;
+}
+
+.entry-author .author-title {
+	text-align: right;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+
+.comment-list {
+	margin-right: 0;
+}
+
+.comment-list .edit-link,
+.comment-list .children .edit-link {
+	margin-right: 1em;
+	margin-left: 0;
+}
+
+.comment-meta .comment-author .avatar {
+	float: right;
+	margin-left: 1.563em;
+	margin-right: 0;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+
+.gallery-caption {
+	padding: 0 0 0 0.5em;
+	text-align: right;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+
+.gallery-item {
+	padding: 0 0 0 1em;
+}
+
+/*--------------------------------------------------------------
+# Media Queries
+--------------------------------------------------------------*/
+
+/**
+ * <= 600px
+ */
+
+@media screen and (max-width: 37.5em) {
+
+	.has-cards .entry-card:nth-of-type(2n) {
+		margin-left: 5%;
+		margin-right: 0;
+	}
+}
+
+/**
+ * >= 600px
+ */
+
+@media screen and (min-width: 37.5em) {
+
+	.branding-container {
+		-webkit-box-pack: right;
+		-ms-flex-pack: right;
+		justify-content: right;
+	}
+
+	.main-navigation ul {
+		text-align: left;
+	}
+
+	.main-navigation ul ul {
+		text-align: right;
+		padding: 0;
+	}
+
+	.main-navigation ul ul,
+	.main-navigation ul ul ul {
+		left: auto;
+		right: -999em;
+	}
+
+	.main-navigation .menu-item-has-children a,
+	.main-navigation .page_item_has_children a {
+		padding: 0.75em 1.25em;
+	}
+
+	.main-navigation ul ul .menu-item-has-children > a,
+	.main-navigation ul ul .page_item_has_children > a {
+		padding: 0.75em 1.25em 0.75em 2em;
+	}
+
+	.main-navigation ul ul .menu-item-has-children > a > .icon,
+	.main-navigation ul ul .page_item_has_children > a > .icon {
+		right: auto;
+		left: 5px;
+		-webkit-transform: rotate(-270deg);
+		transform: rotate(-270deg);
+	}
+
+	.main-navigation ul li.menu-item-has-children:before,
+	.main-navigation ul li.menu-item-has-children:after,
+	.main-navigation ul li.page_item_has_children:before,
+	.main-navigation ul li.page_item_has_children:after {
+		left: 0.85em;
+		right: auto;
+	}
+
+	.main-navigation .menu-item-has-children > a > .icon,
+	.main-navigation .page_item_has_children > a > .icon {
+		right: 4px;
+		left: 0;
+	}
+
+	.social-links {
+		float: left;
+		text-align: left;
+	}
+
+	.content-area {
+		float: right;
+		margin: 0 0 0 -35%;
+	}
+
+	.no-sidebar:not(.has-cards) .site-main,
+	.error404 .site-main,
+	.no-results .site-main,
+	.page-template-portfolio-page:not(.has-cards) .site-main {
+		margin-left: 0;
+	}
+
+	.site-main {
+		margin: 0 0 0 35%;
+	}
+
+	.has-cards .entry-card:nth-of-type(3n),
+	.has-cards .entry-card:nth-of-type(3n + 2) {
+		margin-left: 5%;
+		margin-right: 0;
+	}
+
+	.has-cards .homepage-feature {
+		margin-left: 5%;
+		margin-right: 0;
+	}
+
+	.has-cards .homepage-feature:nth-child(2n) {
+		margin-left: 5%;
+		margin-right: 0;
+	}
+
+	.has-cards .homepage-feature:nth-child(3n) {
+		margin-left: 0;
+	}
+
+	.site-content .widget-area {
+		float: left;
+	}
+
+	.site-footer {
+		text-align: right;
+	}
+}

@@ -14,7 +14,8 @@
 		word-wrap: break-word;
 	}
 
-	ul, ol {
+	ul,
+	ol {
 		margin: 0;
 	}
 
@@ -24,13 +25,15 @@
 		max-width: 100%;
 		word-wrap: break-word;
 
-		a, span {
+		a,
+		span {
 			padding-bottom: 0.563em;
 			padding-top: 0.5em;
 			display: inline-block;
 			vertical-align: middle;
 
-			a, span {
+			a,
+			span {
 				padding: 0;
 			}
 		}
@@ -137,7 +140,8 @@
 			padding-bottom: 0;
 		}
 
-		a, span {
+		a,
+		span {
 			padding: 0;
 		}
 	}
