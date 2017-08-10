@@ -16,8 +16,8 @@
 				<?php the_post_thumbnail( 'ansel-feature-card-featured' ); ?>
 			</a>
 		<?php else : ?>
-			<a href="<?php the_permalink(); ?>">
-				<img src="<?php echo get_template_directory_uri() . '/assets/images/card-default-thumbnail-featured.png'; ?>" <?php echo the_title_attribute( 'echo=0' ); ?> />
+			<a class="placeholder" href="<?php the_permalink(); ?>">
+				<?php the_title( '<span class="screen-reader-text">', '</span>' ); ?>
 			</a>
 		<?php endif; ?>
 	</div>

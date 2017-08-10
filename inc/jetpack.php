@@ -315,14 +315,16 @@ function ansel_homepage_feature_thumbnail( $src, $feature_id = '', $feature_type
 
 	if ( $thumbnail_id ) {
 		$thumbnail = wp_get_attachment_image( $thumbnail_id, 'ansel-feature-card', false, $thumbnail_attr );
+		$class = '';
 	} else {
-		$thumbnail = '<img src="' . get_template_directory_uri() . '/assets/images/card-default-thumbnail.png" alt="' . $thumbnail_attr['alt'] . '" />';
+		$thumbnail = get_the_title( '<span class="screen-reader-text">', '</span>' );
+		$class = 'placeholder';
 	}
 
 	$url = ansel_homepage_get_feature_url( $feature_id, $feature_type );
 
 	if ( ! empty( $feature_id ) && ! empty( $feature_type ) ) {
-		$thumbnail = '<a href="' . esc_url( $url ) . '">' . $thumbnail . '</a>';
+		$thumbnail = '<a class="' . $class . '" href="' . esc_url( $url ) . '">' . $thumbnail . '</a>';
 	}
 
 	echo $thumbnail;

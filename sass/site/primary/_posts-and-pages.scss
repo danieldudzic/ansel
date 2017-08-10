@@ -77,11 +77,26 @@ body {
 
 			img {
 				border-radius: 3px;
+			}
 
+			a {
+				display: block;
 				@include transition(0.3s);
 
 				&:hover {
 					opacity: 0.7;
+				}
+
+				&.placeholder {
+					width: 100%;
+				}
+
+				&.placeholder:before {
+					background: $color__background-canvas;
+					border-radius: 3px;
+					content: "";
+					display: block;
+					padding-top: 66.66666%;
 				}
 			}
 		}
@@ -115,11 +130,26 @@ body {
 
 			img {
 				border-radius: 3px;
+			}
 
+			a {
+				display: block;
 				@include transition(0.3s);
 
 				&:hover {
 					opacity: 0.7;
+				}
+
+				&.placeholder {
+					width: 100%;
+				}
+
+				&.placeholder:before {
+					background: $color__background-canvas;
+					border-radius: 3px;
+					content: "";
+					display: block;
+					padding-top: 66.66666%;
 				}
 			}
 		}
@@ -128,6 +158,14 @@ body {
 
 	.entry-card-featured {
 		width: 100%;
+
+		.post-thumbnail {
+			a {
+				&.placeholder:before {
+					padding-top: 50%;
+				}
+			}
+		}
 	}
 
 	.page-title {
