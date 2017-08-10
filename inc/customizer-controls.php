@@ -34,7 +34,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 						echo '<option value="select"' . selected( $this->value(), 'select', false ) . '>' . esc_html__( '— Select —', 'ansel' ) . '</option>';
 
 						if ( ! empty( $options['pages'] ) ) {
-							echo '<optgroup label="' . esc_html( $types['pages_label'] ) . '">';
+							echo '<optgroup label="' . esc_attr( $types['pages_label'] ) . '">';
 
 							foreach ( $options['pages'] as $value => $label ) {
 								echo '<option value="' . esc_attr( $value ) . '"' . selected( $this->value(), $value, false ) . '>' . esc_html( $label ) . '</option>';
@@ -44,7 +44,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 						}
 
 					if ( ! empty( $options['portfolio_types'] ) ) {
-						echo '<optgroup label="' . esc_html( $types['portfolio_types_label'] ) . '">';
+						echo '<optgroup label="' . esc_attr( $types['portfolio_types_label'] ) . '">';
 
 						foreach ( $options['portfolio_types'] as $value => $label ) {
 							echo '<option value="' . esc_attr( $value ) . '"' . selected( $this->value(), $value, false ) . '>' . esc_html( $label ) . '</option>';
@@ -54,7 +54,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 					}
 
 					if ( ! empty( $options['categories'] ) ) {
-						echo '<optgroup label="' . esc_html( $types['categories_label'] ) . '">';
+						echo '<optgroup label="' . esc_attr( $types['categories_label'] ) . '">';
 
 						foreach ( $options['categories'] as $value => $label ) {
 							echo '<option value="' . esc_attr( $value ) . '"' . selected( $this->value(), $value, false ) . '>' . esc_html( $label ) . '</option>';
