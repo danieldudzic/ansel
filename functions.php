@@ -66,7 +66,7 @@ function ansel_setup() {
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'ansel_custom_background_args', array(
-		'default-color' => 'ffffff',
+		'default-color' => 'f7f7f7',
 		'default-image' => '',
 	) ) );
 
@@ -100,7 +100,7 @@ add_action( 'after_setup_theme', 'ansel_setup' );
  * @global int $content_width
  */
 function ansel_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'ansel_content_width', 1000 );
+	$GLOBALS['content_width'] = apply_filters( 'ansel_content_width', 650 );
 }
 add_action( 'after_setup_theme', 'ansel_content_width', 0 );
 
@@ -194,11 +194,11 @@ function ansel_fonts_url() {
 		$font_families = array();
 
 		if ( 'off' !== $work_sans ) {
-			$font_families[] = 'Work Sans:100,200,300,400,500,600,700,800,900';
+			$font_families[] = 'Work Sans:400,700';
 		}
 
 		if ( 'off' !== $karla ) {
-			$font_families[] = 'Karla:400,700,400italic,700italic';
+			$font_families[] = 'Karla:400,700';
 		}
 
 		$query_args = array(
@@ -271,17 +271,6 @@ function ansel_posts_navigation() {
 			}
 		}
 	endif;
-}
-
-/**
- * Load the author template if Author Bio is not available.
- */
-function ansel_author_bio() {
-	if ( ! function_exists( 'jetpack_author_bio' ) ) {
-		get_template_part( 'template-parts/content', 'author' );
-	} else {
-		jetpack_author_bio();
-	}
 }
 
 /**

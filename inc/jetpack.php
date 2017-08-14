@@ -367,3 +367,14 @@ function ansel_get_attachment_id( $url ) {
 	}
 	return $attachment_id;
 }
+
+/**
+ * Load the author template if Author Bio is not available.
+ */
+function ansel_author_bio() {
+	if ( ! function_exists( 'jetpack_author_bio' ) ) {
+		get_template_part( 'template-parts/content', 'author' );
+	} else {
+		jetpack_author_bio();
+	}
+}
