@@ -120,15 +120,6 @@ function ansel_social_menu() {
 }
 
 /**
- * Getter function for Featured Content.
- *
- * @return (string) The value of the filter defined in add_theme_support( 'featured-content' )
- */
-function ansel_get_featured_projects() {
-	return apply_filters( 'ansel_get_featured_projects', array() );
-}
-
-/**
  * Portfolio Title.
  */
 function ansel_portfolio_title( $before = '', $after = '' ) {
@@ -146,32 +137,6 @@ function ansel_portfolio_title( $before = '', $after = '' ) {
 	}
 
 	echo $before . $title . $after;
-}
-
-/**
- * Portfolio Content.
- */
-function ansel_portfolio_content( $before = '', $after = '' ) {
-	$jetpack_portfolio_content = get_option( 'jetpack_portfolio_content' );
-
-	if ( is_tax() && get_the_archive_description() ) {
-		echo $before . get_the_archive_description() . $after;
-	} else if ( isset( $jetpack_portfolio_content ) && '' != $jetpack_portfolio_content ) {
-		$content = convert_chars( convert_smilies( wptexturize( stripslashes( wp_filter_post_kses( addslashes( $jetpack_portfolio_content ) ) ) ) ) );
-		echo $before . $content . $after;
-	}
-}
-
-/**
- * Portfolio Featured Image.
- */
-function ansel_portfolio_thumbnail( $before = '', $after = '' ) {
-	$jetpack_portfolio_featured_image = get_option( 'jetpack_portfolio_featured_image' );
-
-	if ( isset( $jetpack_portfolio_featured_image ) && '' != $jetpack_portfolio_featured_image ) {
-		$featured_image = wp_get_attachment_image( (int) $jetpack_portfolio_featured_image, 'full-width' );
-		echo $before . $featured_image . $after;
-	}
 }
 
 /**
