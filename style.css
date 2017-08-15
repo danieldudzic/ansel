@@ -2210,13 +2210,9 @@ p a[href$=".gif"] {
     width: 100%;
   }
   .no-sidebar:not(.has-cards) .content-area,
-  .no-sidebar:not(.has-cards) .post-thumbnail,
   .error404 .content-area,
-  .error404 .post-thumbnail,
   .no-results .content-area,
-  .no-results .post-thumbnail,
-  .page-template-portfolio-page:not(.has-cards) .content-area,
-  .page-template-portfolio-page:not(.has-cards) .post-thumbnail {
+  .page-template-portfolio-page:not(.has-cards) .content-area {
     float: none;
     margin-left: auto;
     margin-right: auto;
