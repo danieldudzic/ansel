@@ -1205,11 +1205,10 @@ body:not(.has-custom-header):not(.has-cards) .site-content {
   font-family: "Work Sans", sans-serif;
   font-size: 24px;
   font-size: 1.5rem;
-  margin: 1em auto 0.5em;
 }
 
 .site-description:last-child {
-  margin: 1em auto 0.5em;
+  margin: 0.5em auto 0;
 }
 
 .has-custom-header .site-content .featured-image-header {
@@ -2039,11 +2038,8 @@ p a[href$=".gif"] {
  * >= 600px
  */
 @media screen and (min-width: 37.5em) {
-  .site-description {
-    margin: 1.5em auto 0.25em;
-  }
   .site-description:last-child {
-    margin: 1.5em auto 0.25em;
+    margin: 0.25em auto 0;
   }
   .branding-container {
     display: -webkit-box;
@@ -2063,6 +2059,7 @@ p a[href$=".gif"] {
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
     margin-top: 0.25em;
+    margin-bottom: 1.75em;
     width: auto;
   }
   .js .menu-toggle,
@@ -2074,7 +2071,8 @@ p a[href$=".gif"] {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
-    max-width: calc(100% - 16em);
+    max-width: 100%;
+    margin-bottom: 0.75em;
   }
   .js .main-navigation ul,
   .js .main-navigation ul ul,

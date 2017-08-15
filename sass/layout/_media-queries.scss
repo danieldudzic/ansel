@@ -26,10 +26,8 @@
 @media screen and ( min-width: 37.5em ) {
 
 	.site-description {
-		margin: 1.5em auto 0.25em;
-
 		&:last-child {
-			margin: 1.5em auto 0.25em;
+			margin: 0.25em auto 0;
 		}
 	}
 
@@ -45,6 +43,7 @@
 	.site-branding {
 		flex: 1 1 auto;
 		margin-top: 0.25em;
+		margin-bottom: 1.75em;
 		width: auto;
 	}
 
@@ -56,7 +55,8 @@
 	.main-navigation {
 		width: auto;
 		flex: 1 1 auto;
-		max-width: calc(100% - 16em);
+		max-width: 100%;
+		margin-bottom: 0.75em;
 
 		.js & ul,
 		.js & ul ul,
