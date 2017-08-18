@@ -9,10 +9,11 @@
 			color: $color__text-main;
 		}
 	}
-}
 
-.comments-area .comment {
-	margin-bottom: 2.500em;
+	.comment,
+	.pingback {
+		margin-bottom: 2.500em;
+	}
 }
 
 .comment-list {

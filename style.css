@@ -1675,7 +1675,8 @@ body .site-main {
   color: #444444;
 }
 
-.comments-area .comment {
+.comments-area .comment,
+.comments-area .pingback {
   margin-bottom: 2.500em;
 }
 
