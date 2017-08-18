@@ -1200,14 +1200,12 @@ body:not(.has-custom-header):not(.has-cards) .site-content {
   height: auto;
 }
 
-.site-description {
+.site-description,
+p.site-description {
   color: #999999;
   font-family: "Work Sans", sans-serif;
   font-size: 24px;
   font-size: 1.5rem;
-}
-
-.site-description:last-child {
   margin: 0.5em auto 0;
 }
 
@@ -1736,6 +1734,10 @@ body .site-main {
   margin: 0 0 1.5em;
 }
 
+.comment-content p:last-child {
+  margin-bottom: 0;
+}
+
 .comment-content a {
   word-wrap: break-word;
 }
@@ -2029,7 +2031,8 @@ p a[href$=".gif"] {
  * >= 600px
  */
 @media screen and (min-width: 37.5em) {
-  .site-description:last-child {
+  .site-description,
+  p.site-description {
     margin: 0.25em auto 0;
   }
   .branding-container {

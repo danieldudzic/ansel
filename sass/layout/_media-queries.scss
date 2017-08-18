@@ -25,10 +25,9 @@
 
 @media screen and ( min-width: 37.5em ) {
 
-	.site-description {
-		&:last-child {
-			margin: 0.25em auto 0;
-		}
+	.site-description,
+	p.site-description {
+		margin: 0.25em auto 0;
 	}
 
 	.branding-container {
