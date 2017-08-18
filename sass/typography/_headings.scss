@@ -9,3 +9,22 @@ h6 {
 	font-weight: normal;
 	color: $color__link-alt;
 }
+
+h4 {
+	color: $color__text-main;
+	@include font-size(1.125);
+	font-weight: 700;
+}
+
+h5 {
+	@include font-size(0.8125);
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+h6 {
+	color: $color__text-main;
+	@include font-size(1);
+	font-weight: 700;
+	margin: 1em 0;
+}
