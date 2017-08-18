@@ -17,13 +17,6 @@
 	&.alignright {
 		display: block;
 		margin-bottom: 1em;
-
-		.widget &,
-		.blog &,
-		.archive &,
-		.search & {
-			margin: 0;
-		}
 	}
 
 	&.aligncenter {

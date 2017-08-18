@@ -962,12 +962,14 @@ a:hover, a:active {
   display: inline;
   float: left;
   margin-right: 1.5em;
+  margin-bottom: 1em;
 }
 
 .alignright {
   display: inline;
   float: right;
   margin-left: 1.5em;
+  margin-bottom: 1em;
 }
 
 .aligncenter {
@@ -1895,22 +1897,6 @@ object {
 .wp-caption.aligncenter, .wp-caption.alignnone, .wp-caption.alignleft, .wp-caption.alignright {
   display: block;
   margin-bottom: 1em;
-}
-
-.widget .wp-caption.aligncenter,
-.blog .wp-caption.aligncenter,
-.archive .wp-caption.aligncenter,
-.search .wp-caption.aligncenter, .widget .wp-caption.alignnone,
-.blog .wp-caption.alignnone,
-.archive .wp-caption.alignnone,
-.search .wp-caption.alignnone, .widget .wp-caption.alignleft,
-.blog .wp-caption.alignleft,
-.archive .wp-caption.alignleft,
-.search .wp-caption.alignleft, .widget .wp-caption.alignright,
-.blog .wp-caption.alignright,
-.archive .wp-caption.alignright,
-.search .wp-caption.alignright {
-  margin: 0;
 }
 
 .wp-caption.aligncenter {
