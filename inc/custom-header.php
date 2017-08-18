@@ -19,7 +19,7 @@
 function ansel_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'ansel_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '999999',
+		'default-text-color'     => '444444',
 		'width'                  => 1000,
 		'height'                 => 500,
 		'flex-height'            => true,

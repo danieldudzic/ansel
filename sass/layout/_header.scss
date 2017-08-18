@@ -40,9 +40,10 @@
 
 .site-description,
 p.site-description {
-	color: $color__link-alt;
+	color: $color__text-main;
 	font-family: $font__main;
-	@include font-size(1.5);
+	@include font-size(1.25);
+	text-transform: uppercase;
 	margin: 0.5em auto 0;
 }
 
