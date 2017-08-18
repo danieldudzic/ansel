@@ -378,6 +378,13 @@
 		width: $size__site-sidebar;
 	}
 
+	.comments-area {
+		li > ul, li > ol {
+			margin-bottom: 0;
+			margin-left: 2.5em;
+		}
+	}
+
 	.comment-navigation,
 	.posts-navigation,
 	.post-navigation {

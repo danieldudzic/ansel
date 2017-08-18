@@ -1680,6 +1680,11 @@ body .site-main {
   margin-bottom: 2.500em;
 }
 
+.comments-area li > ul, .comments-area li > ol {
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
 .comment-list {
   margin-left: 0;
 }
@@ -2297,6 +2302,10 @@ p a[href$=".gif"] {
     float: right;
     overflow: hidden;
     width: 30%;
+  }
+  .comments-area li > ul, .comments-area li > ol {
+    margin-bottom: 0;
+    margin-left: 2.5em;
   }
   .comment-navigation .nav-previous,
   .posts-navigation .nav-previous,
