@@ -452,7 +452,7 @@ hr {
 
 ul,
 ol {
-  margin: 0 0 1.5em 3em;
+  margin: 0 0 1.5em 1.5em;
   padding-left: 0;
 }
 
@@ -467,7 +467,7 @@ ol {
 li > ul,
 li > ol {
   margin-bottom: 0;
-  margin-left: 3em;
+  margin-left: 1.5em;
 }
 
 dt {
@@ -1358,8 +1358,8 @@ p.site-description {
   margin-bottom: 5.625em;
 }
 
-body .site-main {
-  margin-bottom: 6.5em;
+body:not(.hfeed) .site-main {
+  margin-bottom: 5em;
   overflow: hidden;
 }
 
