@@ -24,13 +24,13 @@ blockquote {
 
 ul,
 ol {
-	margin: 0 3em 1.5em 0;
+	margin: 0 1.5em 1.5em 0;
 	padding-right: 0;
 }
 
 li > ul,
 li > ol {
-	margin-right: 3em;
+	margin-right: 1.5em;
 	margin-left: 0;
 }
 
@@ -40,6 +40,7 @@ li > ol {
 
 .search-form label {
 	margin-left: 10px;
+	margin-right: 0;
 }
 
 /*--------------------------------------------------------------
@@ -70,8 +71,6 @@ li > ol {
 	padding: 0.75em 0;
 }
 
-/* Menu toggle */
-
 .menu-toggle {
 	float: right;
 }
@@ -80,8 +79,6 @@ li > ol {
 	margin-left: 0.5em;
 	margin-right: 0;
 }
-
-/* Dropdown Toggle */
 
 .dropdown-toggle {
 	left: -0.5em;
@@ -176,6 +173,10 @@ li > ol {
 .comment-list .children .edit-link {
 	margin-right: 1em;
 	margin-left: 0;
+}
+
+.comment-list .children {
+	margin-right: 0;
 }
 
 .comment-meta .comment-author .avatar {
@@ -319,6 +320,17 @@ li > ol {
 
 	.site-content .widget-area {
 		float: left;
+	}
+
+	.comments-area li > ul,
+	.comments-area li > ol {
+		margin-right: 1.5em;
+		margin-left: 0;
+	}
+
+	.comments-area .comment-list .children {
+		margin-right: 2.5em;
+		margin-left: 0;
 	}
 
 	.site-footer {
