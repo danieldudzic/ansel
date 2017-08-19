@@ -100,7 +100,7 @@ function ansel_infinite_scroll_render() {
 		the_post();
 		if ( is_search() ) :
 			get_template_part( 'template-parts/content', 'search' );
-		elseif ( 'jetpack-portfolio' === get_post_type() || ansel_is_page_template_portfolio() ) :
+		elseif ( 'jetpack-portfolio' === get_post_type() || ansel_is_page_template_showcase() ) :
 			get_template_part( 'template-parts/content', 'card' );
 		else :
 			get_template_part( 'template-parts/content', get_post_format() );
@@ -160,62 +160,62 @@ function ansel_has_post_thumbnail( $post = null ) {
 }
 
 /**
- * Get Homepage Features data.
+ * Get Showcase Items data.
  */
-function ansel_get_homepage_features() {
-	$homepage_features = '';
+function ansel_get_showcase_items() {
+	$showcase_items = '';
 
 	for ( $x = 1; $x <= 9; $x++ ) {
-		$homepage_features[ $x ]['content'] = '';
-		$homepage_features[ $x ]['thumbnail'] = '';
+		$showcase_items[ $x ]['content'] = '';
+		$showcase_items[ $x ]['thumbnail'] = '';
 
-		$content = get_theme_mod( 'ansel_homepage_feature_content_' . $x );
-		$thumbnail = get_theme_mod( 'ansel_homepage_feature_content_thumbnail_' . $x );
+		$content = get_theme_mod( 'ansel_showcase_item_content_' . $x );
+		$thumbnail = get_theme_mod( 'ansel_showcase_item_content_thumbnail_' . $x );
 
 		if ( ! empty( $content ) ) {
-			$homepage_features[ $x ]['content'] = $content;
+			$showcase_items[ $x ]['content'] = $content;
 		}
 
 		if ( ! empty( $thumbnail ) ) {
-			$homepage_features[ $x ]['thumbnail'] = $thumbnail;
+			$showcase_items[ $x ]['thumbnail'] = $thumbnail;
 		}
 	}
 
-	if ( empty( $homepage_features ) ) {
+	if ( empty( $showcase_items ) ) {
 		return false;
 	} else {
-		$features = '';
+		$items = '';
 
-		foreach ( $homepage_features as $feature ) {
-			if ( ! empty( $feature['content'] ) || 'select' === $feature['content'] ) {
+		foreach ( $showcase_items as $item ) {
+			if ( ! empty( $item['content'] ) || 'select' === $item['content'] ) {
 
-				$feature_id = '';
+				$item_id = '';
 
-				if ( 'select' !== $feature['content'] ) {
-					$exploded_feature = explode( '_', $feature['content'] );
+				if ( 'select' !== $item['content'] ) {
+					$exploded_item = explode( '_', $item['content'] );
 
-					$feature_id = $exploded_feature[1];
-					$feature_type = $exploded_feature[0];
+					$item_id = $exploded_item[1];
+					$item_type = $exploded_item[0];
 
-					$features[ $feature_id ]['type'] = $feature_type;
+					$items[ $item_id ]['type'] = $item_type;
 
-					if ( ! empty( $feature['thumbnail'] ) ) {
-						$features[ $feature_id ]['thumbnail'] = $feature['thumbnail'];
+					if ( ! empty( $item['thumbnail'] ) ) {
+						$items[ $item_id ]['thumbnail'] = $item['thumbnail'];
 					} else {
-						$features[ $feature_id ]['thumbnail'] = '';
+						$items[ $item_id ]['thumbnail'] = '';
 					}
 				}
 			}
 		}
 
-		return $features;
+		return $items;
 	}
 }
 
 /**
- * Get Homepage Feature title.
+ * Get Showcase Item title.
  */
-function ansel_homepage_get_feature_title( $id, $type ) {
+function ansel_get_showcase_item_title( $id, $type ) {
 	switch ( $type ) {
 		case 'page':
 			$title = get_the_title( $id );
@@ -233,9 +233,9 @@ function ansel_homepage_get_feature_title( $id, $type ) {
 }
 
 /**
- * Get Homepage Feature url.
+ * Get Showcase Item url.
  */
-function ansel_homepage_get_feature_url( $id, $type ) {
+function ansel_get_showcase_item_url( $id, $type ) {
 	switch ( $type ) {
 		case 'page':
 			$url = get_permalink( $id );
@@ -253,16 +253,16 @@ function ansel_homepage_get_feature_url( $id, $type ) {
 }
 
 /**
- * Display the Homepage Feature title.
+ * Display the Showcase Item title.
  */
-function ansel_homepage_feature_title( $id, $type ) {
-	echo '<a href="' . esc_url( ansel_homepage_get_feature_url( $id, $type ) ) . '" rel="bookmark">' . apply_filters( 'the_title', ansel_homepage_get_feature_title( $id, $type ), $id ) . '</a>';
+function ansel_showcase_item_title( $id, $type ) {
+	echo '<a href="' . esc_url( ansel_get_showcase_item_url( $id, $type ) ) . '" rel="bookmark">' . apply_filters( 'the_title', ansel_get_showcase_item_title( $id, $type ), $id ) . '</a>';
 }
 
 /**
- * Display the Homepage Feature thumbnail.
+ * Display the Showcase Item thumbnail.
  */
-function ansel_homepage_feature_thumbnail( $src, $feature_id = '', $feature_type = '' ) {
+function ansel_showcase_item_thumbnail( $src, $item_id = '', $item_type = '' ) {
 
 	if ( ! empty( $src ) ) {
 		$thumbnail_id = ansel_get_attachment_id( $src );
@@ -272,23 +272,23 @@ function ansel_homepage_feature_thumbnail( $src, $feature_id = '', $feature_type
 
 	$thumbnail_attr = '';
 
-	if ( ! empty( $feature_id ) && ! empty( $feature_type ) ) {
+	if ( ! empty( $item_id ) && ! empty( $item_type ) ) {
 		$thumbnail_attr = array(
-			'alt' => esc_attr( ansel_homepage_get_feature_title( $feature_id, $feature_type ) ),
+			'alt' => esc_attr( ansel_get_showcase_item_title( $item_id, $item_type ) ),
 		);
 	}
 
 	if ( $thumbnail_id ) {
-		$thumbnail = wp_get_attachment_image( $thumbnail_id, 'ansel-feature-card', false, $thumbnail_attr );
+		$thumbnail = wp_get_attachment_image( $thumbnail_id, 'ansel-entry-card', false, $thumbnail_attr );
 		$class = '';
 	} else {
-		$thumbnail = '<span class="screen-reader-text">' . get_the_title( $feature_id ) . '</span>';
+		$thumbnail = '<span class="screen-reader-text">' . esc_html( ansel_get_showcase_item_title( $item_id, $item_type ) ) . '</span>';
 		$class = 'placeholder';
 	}
 
-	$url = ansel_homepage_get_feature_url( $feature_id, $feature_type );
+	$url = ansel_get_showcase_item_url( $item_id, $item_type );
 
-	if ( ! empty( $feature_id ) && ! empty( $feature_type ) ) {
+	if ( ! empty( $item_id ) && ! empty( $item_type ) ) {
 		$thumbnail = '<a class="' . $class . '" href="' . esc_url( $url ) . '">' . $thumbnail . '</a>';
 	}
 

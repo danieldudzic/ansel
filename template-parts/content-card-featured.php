@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying portfolio posts on the archive page
+ * Template part for displaying portfolio and showcase posts on the archive page
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -13,7 +13,7 @@
 	<div class="post-thumbnail">
 		<?php if ( ansel_has_post_thumbnail() ) : ?>
 			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'ansel-feature-card-featured' ); ?>
+				<?php the_post_thumbnail( 'ansel-entry-card-featured' ); ?>
 			</a>
 		<?php else : ?>
 			<a class="placeholder" href="<?php the_permalink(); ?>">

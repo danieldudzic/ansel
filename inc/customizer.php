@@ -23,9 +23,9 @@ function ansel_customize_register( $wp_customize ) {
 	) );
 
 	/**
-	 * Add the Homepage Feature sections.
+	 * Add the Showcase Item sections.
 	 */
-	ansel_generate_customizer_homepage_feature_sections( $wp_customize );
+	ansel_generate_customizer_showcase_item_sections( $wp_customize );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -67,10 +67,10 @@ function ansel_customize_preview_js() {
 add_action( 'customize_preview_init', 'ansel_customize_preview_js' );
 
 /**
- * Check if the page is using the Portfolio Template.
+ * Check if the page is using the Showcase Template.
  */
-function ansel_is_page_template_portfolio() {
-	if ( is_page_template( 'templates/portfolio-page.php' ) ) {
+function ansel_is_page_template_showcase() {
+	if ( is_page_template( 'templates/showcase-page.php' ) ) {
 		return true;
 	} else {
 		return false;
@@ -78,14 +78,14 @@ function ansel_is_page_template_portfolio() {
 }
 
 /**
- * Sanitize the Homepage Features select.
+ * Sanitize the Showcase Items select.
  */
 function ansel_sanitize_select( $input ) {
 	// Ensure input is a slug.
 	$input = sanitize_key( $input );
 
 	// Get list of choices from the control associated with the setting.
-	$choices = ansel_get_homepage_feature_content_choices();
+	$choices = ansel_get_showcase_item_content_choices();
 
 	$options = $choices['options'];
 
@@ -103,48 +103,48 @@ function ansel_sanitize_select( $input ) {
 }
 
 /**
- * Generate 9 Homepage Feature sections.
+ * Generate 9 Showcase Item sections.
  */
-function ansel_generate_customizer_homepage_feature_sections( $wp_customize ) {
+function ansel_generate_customizer_showcase_item_sections( $wp_customize ) {
 
 	for ( $x = 1; $x <= 9; $x++ ) {
 
-		$wp_customize->add_section( 'ansel_homepage_feature_' . $x, array(
-			'title'           => esc_html__( 'Homepage Feature ', 'ansel' ) . $x,
-			'active_callback' => 'ansel_is_page_template_portfolio',
+		$wp_customize->add_section( 'ansel_showcase_item_' . $x, array(
+			'title'           => esc_html__( 'Showcase Item ', 'ansel' ) . $x,
+			'active_callback' => 'ansel_is_page_template_showcase',
 			'panel'           => 'ansel_theme_options',
-			'description'     => esc_html__( 'Homepage features link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
+			'description'     => esc_html__( 'Showcase items link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 		) );
 
-		$wp_customize->add_setting( 'ansel_homepage_feature_content_' . $x, array(
+		$wp_customize->add_setting( 'ansel_showcase_item_content_' . $x, array(
 			'default'           => false,
 			'sanitize_callback' => 'ansel_sanitize_select',
 		) );
 
-		$wp_customize->add_control( new Ansel_Select_Homepage_Feature_Control( $wp_customize, 'ansel_homepage_feature_content_' . $x, array(
-			'label'   => esc_html__( 'Feature Content', 'ansel' ),
-			'section' => 'ansel_homepage_feature_' . $x,
+		$wp_customize->add_control( new Ansel_Select_Showcase_Item_Control( $wp_customize, 'ansel_showcase_item_content_' . $x, array(
+			'label'   => esc_html__( 'Item Content', 'ansel' ),
+			'section' => 'ansel_showcase_item_' . $x,
 			'type'    => 'select',
-			'choices' => ansel_get_homepage_feature_content_choices(),
+			'choices' => ansel_get_showcase_item_content_choices(),
 		) ) );
 
-		$wp_customize->add_setting( 'ansel_homepage_feature_content_thumbnail_' . $x, array(
+		$wp_customize->add_setting( 'ansel_showcase_item_content_thumbnail_' . $x, array(
 			'default'           => false,
 			'sanitize_callback' => 'esc_url_raw',
 		) );
 
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_homepage_feature_content_thumbnail_' . $x, array(
-			'section'  => 'ansel_homepage_feature_' . $x,
-			'settings' => 'ansel_homepage_feature_content_thumbnail_' . $x,
-			'label'    => esc_html__( 'Feature Content Thumbnail', 'ansel' ),
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ansel_showcase_item_content_thumbnail_' . $x, array(
+			'section'  => 'ansel_showcase_item_' . $x,
+			'settings' => 'ansel_showcase_item_content_thumbnail_' . $x,
+			'label'    => esc_html__( 'Item Content Thumbnail', 'ansel' ),
 		) ) );
 	}
 }
 
 /**
- * Get all the options for the Homepage Feature Content select.
+ * Get all the options for the Showcase Item Content select.
  */
-function ansel_get_homepage_feature_content_choices() {
+function ansel_get_showcase_item_content_choices() {
 	$options = array(
 		'pages'           => '',
 		'portfolio_types' => '',

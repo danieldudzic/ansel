@@ -27,8 +27,8 @@ function ansel_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
-	// Add a class of has-cards when displaying portfolio items.
-	if ( ! is_single() && 'jetpack-portfolio' === get_post_type() || ( ansel_is_page_template_portfolio() && ansel_get_homepage_features() ) ) {
+	// Add a class of has-cards when displaying showcase items.
+	if ( ! is_single() && 'jetpack-portfolio' === get_post_type() || ( ansel_is_page_template_showcase() && ansel_get_showcase_items() ) ) {
 		$classes[] = 'has-cards';
 	}
 

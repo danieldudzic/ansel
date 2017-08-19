@@ -140,13 +140,13 @@ li > ol {
 	float: right;
 }
 
-.has-cards .homepage-feature {
+.has-cards .showcase-item {
 	float: right;
 	margin-left: 10%;
 	margin-right: 0;
 }
 
-.has-cards .homepage-feature:nth-child(2n) {
+.has-cards .showcase-item:nth-child(2n) {
 	margin-left: 0;
 }
 
@@ -289,7 +289,7 @@ li > ol {
 	.no-sidebar:not(.has-cards) .site-main,
 	.error404 .site-main,
 	.no-results .site-main,
-	.page-template-portfolio-page:not(.has-cards) .site-main {
+	.page-template-showcase-page:not(.has-cards) .site-main {
 		margin-left: 0;
 	}
 
@@ -303,17 +303,17 @@ li > ol {
 		margin-right: 0;
 	}
 
-	.has-cards .homepage-feature {
+	.has-cards .showcase-item {
 		margin-left: 5%;
 		margin-right: 0;
 	}
 
-	.has-cards .homepage-feature:nth-child(2n) {
+	.has-cards .showcase-item:nth-child(2n) {
 		margin-left: 5%;
 		margin-right: 0;
 	}
 
-	.has-cards .homepage-feature:nth-child(3n) {
+	.has-cards .showcase-item:nth-child(3n) {
 		margin-left: 0;
 	}
 

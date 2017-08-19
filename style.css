@@ -1470,7 +1470,7 @@ body:not(.hfeed) .site-main {
   padding-top: 66.66666%;
 }
 
-.has-cards .homepage-feature {
+.has-cards .showcase-item {
   float: left;
   text-align: center;
   width: 45%;
@@ -1478,15 +1478,15 @@ body:not(.hfeed) .site-main {
   margin-bottom: 0.938em;
 }
 
-.has-cards .homepage-feature:nth-child(2n) {
+.has-cards .showcase-item:nth-child(2n) {
   margin-right: 0;
 }
 
-.has-cards .homepage-feature:nth-child(2n+1) {
+.has-cards .showcase-item:nth-child(2n+1) {
   clear: both;
 }
 
-.has-cards .homepage-feature .entry-title {
+.has-cards .showcase-item .entry-title {
   font-family: "Karla", sans-serif;
   text-transform: uppercase;
   font-size: 16px;
@@ -1495,28 +1495,28 @@ body:not(.hfeed) .site-main {
   padding: 0.813em 0;
 }
 
-.has-cards .homepage-feature .entry-thumbnail {
+.has-cards .showcase-item .entry-thumbnail {
   margin-bottom: 0;
 }
 
-.has-cards .homepage-feature .entry-thumbnail img {
+.has-cards .showcase-item .entry-thumbnail img {
   border-radius: 3px;
 }
 
-.has-cards .homepage-feature .entry-thumbnail a {
+.has-cards .showcase-item .entry-thumbnail a {
   display: block;
   transition: all 0.3s ease-in-out;
 }
 
-.has-cards .homepage-feature .entry-thumbnail a:hover {
+.has-cards .showcase-item .entry-thumbnail a:hover {
   opacity: 0.7;
 }
 
-.has-cards .homepage-feature .entry-thumbnail a.placeholder {
+.has-cards .showcase-item .entry-thumbnail a.placeholder {
   width: 100%;
 }
 
-.has-cards .homepage-feature .entry-thumbnail a.placeholder:before {
+.has-cards .showcase-item .entry-thumbnail a.placeholder:before {
   background: #f7f7f7;
   border-radius: 3px;
   content: "";
@@ -1537,7 +1537,7 @@ body:not(.hfeed) .site-main {
   margin-bottom: 2em;
 }
 
-.has-cards .no-homepage-features {
+.has-cards .no-showcase-items {
   margin-bottom: 6em;
 }
 
@@ -2234,7 +2234,7 @@ p a[href$=".gif"] {
   .no-sidebar:not(.has-cards) .content-area,
   .error404 .content-area,
   .no-results .content-area,
-  .page-template-portfolio-page:not(.has-cards) .content-area {
+  .page-template-showcase-page:not(.has-cards) .content-area {
     float: none;
     margin-left: auto;
     margin-right: auto;
@@ -2243,7 +2243,7 @@ p a[href$=".gif"] {
   .no-sidebar:not(.has-cards) .site-main,
   .error404 .site-main,
   .no-results .site-main,
-  .page-template-portfolio-page:not(.has-cards) .site-main {
+  .page-template-showcase-page:not(.has-cards) .site-main {
     margin-right: 0;
   }
   .site-main {
@@ -2294,23 +2294,23 @@ p a[href$=".gif"] {
   .has-cards .entry-card:nth-of-type(3n+5) {
     clear: both;
   }
-  .has-cards .homepage-feature {
+  .has-cards .showcase-item {
     width: 30%;
     margin-right: 5%;
   }
-  .has-cards .homepage-feature:nth-child(2n) {
+  .has-cards .showcase-item:nth-child(2n) {
     margin-right: 5%;
   }
-  .has-cards .homepage-feature:nth-child(2n+1) {
+  .has-cards .showcase-item:nth-child(2n+1) {
     clear: none;
   }
-  .has-cards .homepage-feature:nth-child(3n) {
+  .has-cards .showcase-item:nth-child(3n) {
     margin-right: 0;
   }
-  .has-cards .homepage-feature:nth-child(3n+1) {
+  .has-cards .showcase-item:nth-child(3n+1) {
     clear: both;
   }
-  .has-cards .no-homepage-features {
+  .has-cards .no-showcase-items {
     float: none;
     margin-left: auto;
     margin-right: auto;

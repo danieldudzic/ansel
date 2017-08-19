@@ -1,12 +1,12 @@
 <?php
 /**
- * Custom Customizer Control for Homepage Features
+ * Custom Customizer Control for Showcase Items
  *
  * @package Ansel
  */
 
 if ( class_exists( 'WP_Customize_Control' ) ) :
-	class Ansel_Select_Homepage_Feature_Control extends WP_Customize_Control {
+	class Ansel_Select_Showcase_Item_Control extends WP_Customize_Control {
 
 		public function render_content() {
 			if ( empty( $this->choices ) )
@@ -67,5 +67,5 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 
 			<?php
 		} //render_content()
-	} // Ansel_Select_Homepage_Feature_Control()
+	} // Ansel_Select_Showcase_Item_Control()
 endif;

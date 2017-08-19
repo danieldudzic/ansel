@@ -263,7 +263,7 @@
 	.no-sidebar:not(.has-cards),
 	.error404,
 	.no-results,
-	.page-template-portfolio-page:not(.has-cards) {
+	.page-template-showcase-page:not(.has-cards) {
 		.content-area {
 			float: none;
 			margin-left: auto;
@@ -358,7 +358,7 @@
 			}
 		}
 
-		.homepage-feature {
+		.showcase-item {
 			width: 30%;
 			margin-right: 5%;
 
@@ -379,7 +379,7 @@
 			}
 		}
 
-		.no-homepage-features {
+		.no-showcase-items {
 			float: none;
 			margin-left: auto;
 			margin-right: auto;
