@@ -430,6 +430,7 @@ html {
 body {
   background: #f7f7f7;
   /* Fallback for when there is no custom background color defined. */
+  overflow-wrap: break-word;
 }
 
 blockquote,
@@ -880,6 +881,12 @@ a:hover, a:active {
 .post-navigation a:focus {
   color: #444444;
   transition: all 0.3s ease-in-out;
+}
+
+.comment-navigation {
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .nav-subtitle {
@@ -1682,11 +1689,6 @@ body:not(.hfeed) .site-main {
   margin-bottom: 2.500em;
 }
 
-.comments-area li > ul, .comments-area li > ol {
-  margin-bottom: 0;
-  margin-left: 0;
-}
-
 .comment-list {
   margin-left: 0;
 }
@@ -1703,6 +1705,7 @@ body:not(.hfeed) .site-main {
 
 .comment-list .children {
   margin-top: 2.500em;
+  margin-left: 0;
 }
 
 .comments-title {
@@ -2001,6 +2004,11 @@ p a[href$=".gif"] {
   max-width: 11.11%;
 }
 
+.gallery-caption {
+  margin: 0.313em 0;
+  padding: 0 0.938em;
+}
+
 /*--------------------------------------------------------------
 # Media Queries
 --------------------------------------------------------------*/
@@ -2017,6 +2025,18 @@ p a[href$=".gif"] {
   }
   .has-cards .entry-card-featured {
     width: 100%;
+  }
+}
+
+/**
+ * >= 380px
+ */
+@media screen and (min-width: 18.75em) {
+  .posts-navigation .nav-previous {
+    width: 45%;
+  }
+  .posts-navigation .nav-next {
+    width: 45%;
   }
 }
 
@@ -2291,15 +2311,16 @@ p a[href$=".gif"] {
   }
   .comments-area li > ul, .comments-area li > ol {
     margin-bottom: 0;
+    margin-left: 1.5em;
+  }
+  .comments-area .comment-list .children {
     margin-left: 2.5em;
   }
   .comment-navigation .nav-previous,
-  .posts-navigation .nav-previous,
   .post-navigation .nav-previous {
     width: 45%;
   }
   .comment-navigation .nav-next,
-  .posts-navigation .nav-next,
   .post-navigation .nav-next {
     width: 45%;
   }

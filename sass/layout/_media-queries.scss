@@ -20,6 +20,23 @@
 }
 
 /**
+ * >= 380px
+ */
+
+@media screen and ( min-width: 18.75em ) {
+	.posts-navigation {
+		.nav-previous {
+			width: 45%;
+		}
+
+		.nav-next {
+			width: 45%;
+		}
+	}
+}
+
+
+/**
  * >= 600px
  */
 
@@ -381,12 +398,17 @@
 	.comments-area {
 		li > ul, li > ol {
 			margin-bottom: 0;
-			margin-left: 2.5em;
+			margin-left: 1.5em;
+		}
+
+		.comment-list {
+			.children {
+				margin-left: 2.5em;
+			}
 		}
 	}
 
 	.comment-navigation,
-	.posts-navigation,
 	.post-navigation {
 		.nav-previous {
 			width: 45%;

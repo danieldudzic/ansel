@@ -14,11 +14,6 @@
 	.pingback {
 		margin-bottom: 2.500em;
 	}
-
-	li > ul, li > ol {
-		margin-bottom: 0;
-		margin-left: 0;
-	}
 }
 
 .comment-list {
@@ -35,6 +30,7 @@
 
 	.children {
 		margin-top: 2.500em;
+		margin-left: 0;
 	}
 }
 
