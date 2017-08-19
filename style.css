@@ -2032,10 +2032,14 @@ p a[href$=".gif"] {
  * >= 380px
  */
 @media screen and (min-width: 18.75em) {
-  .posts-navigation .nav-previous {
+  .posts-navigation .nav-previous,
+  .comment-navigation .nav-previous,
+  .post-navigation .nav-previous {
     width: 45%;
   }
-  .posts-navigation .nav-next {
+  .posts-navigation .nav-next,
+  .comment-navigation .nav-next,
+  .post-navigation .nav-next {
     width: 45%;
   }
 }
@@ -2315,14 +2319,6 @@ p a[href$=".gif"] {
   }
   .comments-area .comment-list .children {
     margin-left: 2.5em;
-  }
-  .comment-navigation .nav-previous,
-  .post-navigation .nav-previous {
-    width: 45%;
-  }
-  .comment-navigation .nav-next,
-  .post-navigation .nav-next {
-    width: 45%;
   }
   .site-footer {
     text-align: left;
