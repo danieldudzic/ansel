@@ -42,7 +42,7 @@
 p.site-description {
 	color: $color__text-main;
 	font-family: $font__main;
-	@include font-size(1.25);
+	@include font-size(1.125);
 	text-transform: uppercase;
 	margin: 0.5em auto 0;
 }

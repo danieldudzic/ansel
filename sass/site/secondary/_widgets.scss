@@ -128,6 +128,19 @@
 		}
 	}
 
+	&.widget_recent_comments {
+		li {
+			padding-bottom: 0.563em;
+			padding-top: 0.5em;
+
+			a,
+			span {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
+	}
+
 	&.widget_rss li {
 		padding: 2em 0;
 
