@@ -282,7 +282,7 @@ function ansel_homepage_feature_thumbnail( $src, $feature_id = '', $feature_type
 		$thumbnail = wp_get_attachment_image( $thumbnail_id, 'ansel-feature-card', false, $thumbnail_attr );
 		$class = '';
 	} else {
-		$thumbnail = get_the_title( '<span class="screen-reader-text">', '</span>' );
+		$thumbnail = '<span class="screen-reader-text">' . get_the_title( $feature_id ) . '</span>';
 		$class = 'placeholder';
 	}
 
