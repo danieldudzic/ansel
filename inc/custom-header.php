@@ -19,7 +19,7 @@
 function ansel_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'ansel_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '444444',
+		'default-text-color'     => '2c55e2',
 		'width'                  => 1000,
 		'height'                 => 500,
 		'flex-height'            => true,
@@ -60,7 +60,7 @@ function ansel_header_style() {
 			<?php
 		// If the user has set a custom color for the text use that.
 		else : ?>
-			.site-description {
+			.site-title a {
 				color: #<?php echo esc_attr( $header_text_color ); ?>;
 			}
 			<?php
