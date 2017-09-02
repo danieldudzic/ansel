@@ -67,11 +67,15 @@ function ansel_customize_preview_js() {
 add_action( 'customize_preview_init', 'ansel_customize_preview_js' );
 
 /**
- * Check if the page is using the Showcase Template.
+ * Check if the page is using the Front Page template and displaying the showcase items.
  */
 function ansel_is_page_template_showcase() {
-	if ( is_page_template( 'templates/showcase-page.php' ) ) {
-		return true;
+	if ( is_front_page() ) {
+		if ( 'posts' == get_option( 'show_on_front' ) ) {
+			return false;
+		} else {
+			return true;
+		}
 	} else {
 		return false;
 	}
