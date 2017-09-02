@@ -20,25 +20,6 @@
 }
 
 /**
- * >= 380px
- */
-
-@media screen and ( min-width: 18.75em ) {
-	.posts-navigation,
-	.comment-navigation,
-	.post-navigation {
-		.nav-previous {
-			width: 45%;
-		}
-
-		.nav-next {
-			width: 45%;
-		}
-	}
-}
-
-
-/**
  * >= 600px
  */
 
@@ -319,6 +300,19 @@
 				content: "";
 				padding: 0;
 			}
+		}
+	}
+
+	.posts-navigation,
+	.comment-navigation,
+	.post-navigation {
+		.nav-previous {
+			width: 45%;
+			margin-bottom: 0;
+		}
+
+		.nav-next {
+			width: 45%;
 		}
 	}
 

@@ -13,8 +13,6 @@
 
 	</div><!-- #content -->
 
-	<?php ansel_posts_navigation(); ?>
-
 	<footer id="colophon" class="site-footer">
 		<div class="social-links">
 			<?php ansel_social_menu(); ?>

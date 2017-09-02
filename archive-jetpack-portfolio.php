@@ -34,6 +34,7 @@ get_header(); ?>
 
 			endif; ?>
 
+			<?php ansel_posts_navigation(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

@@ -30,6 +30,7 @@ get_header(); ?>
 			endwhile; // End of the loop.
 			?>
 
+			<?php ansel_posts_navigation(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

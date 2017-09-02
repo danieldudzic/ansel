@@ -194,32 +194,36 @@
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
-	border-top: 1px solid $color__border;
+	border-top: 1px solid $color__border-button;
+	border-bottom: 1px solid $color__border-button;
 	font-weight: 700;
 	@include font-size(0.875);
 	letter-spacing: 2px;
-	margin: 0 -50px;
 	overflow: hidden;
-	padding: 1.375em 50px 0;
+	padding: 1.375em 0 0;
 	text-transform: uppercase;
 	width: auto;
 
 	.site-main & {
-		margin: 0 0 1.5em;
 		overflow: hidden;
+		margin: 3.571em 0 0;
 	}
 
 	.nav-previous {
 		float: left;
-		width: 100%;
-		margin-bottom: 1.5em;
+		width: auto;
+		padding-right: 1em;
+		padding-bottom: 1.375em;
+		max-width: 100%;
 	}
 
 	.nav-next {
 		float: right;
 		text-align: right;
-		width: 100%;
-		margin-bottom: 1.5em;
+		width: auto;
+		padding-left: 1em;
+		padding-bottom: 1.375em;
+		max-width: 100%;
 	}
 
 	a:hover,
@@ -231,9 +235,9 @@
 }
 
 .comment-navigation {
-	border: 0;
-	padding-left: 0;
-	padding-right: 0;
+	.site-main & {
+		margin: 3em 0;
+	}
 }
 
 .nav-subtitle {

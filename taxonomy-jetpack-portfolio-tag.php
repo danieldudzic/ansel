@@ -14,7 +14,21 @@ get_header(); ?>
 			if ( have_posts() ) : ?>
 
 				<header class="page-header">
-					<?php ansel_portfolio_title( '<h1 class="page-title">' . esc_html( 'Project Tag: ', 'ansel' ), '</h1>' ); ?>
+					<h1 class="page-title">
+						<?php
+						printf(
+							wp_kses(
+								/* translators: %s: project tag title */
+								__( '<span>Project Tag:</span> %s', 'ansel' ),
+								array(
+									'span' => array(
+										'class' => array(),
+									),
+								)
+							),
+							ansel_portfolio_title()
+						); ?>
+					</h1>
 				</header><!-- .page-header -->
 
 				<?php
@@ -34,6 +48,7 @@ get_header(); ?>
 
 			endif; ?>
 
+			<?php ansel_posts_navigation(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

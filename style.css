@@ -6,7 +6,7 @@ Author URI: http://wordpress.com/themes/
 Description: Ansel is a portoflio theme for sharing your awesome projects!
 Version: 1.0.0-wpcom
 License: GNU General Public License v2 or later
-License URI: LICENSE
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ansel
 Tags: author-bio, blog-excerpts, classic-menu, clean, custom-background, custom-colors, custom-header, custom-logo, custom-menu, featured-image-header, featured-images, flexible-header, infinite-scroll, light, minimal, one-column, portfolio, responsive-layout, right-sidebar, rtl-language-support, social-menu, sticky-post, threaded-comments, translation-ready, two-column, white
 
@@ -853,14 +853,14 @@ a:hover, a:active {
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
-  border-top: 1px solid #f7f7f7;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
   font-weight: 700;
   font-size: 14px;
   font-size: 0.875rem;
   letter-spacing: 2px;
-  margin: 0 -50px;
   overflow: hidden;
-  padding: 1.375em 50px 0;
+  padding: 1.375em 0 0;
   text-transform: uppercase;
   width: auto;
 }
@@ -868,16 +868,18 @@ a:hover, a:active {
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
-  margin: 0 0 1.5em;
   overflow: hidden;
+  margin: 3.571em 0 0;
 }
 
 .comment-navigation .nav-previous,
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {
   float: left;
-  width: 100%;
-  margin-bottom: 1.5em;
+  width: auto;
+  padding-right: 1em;
+  padding-bottom: 1.375em;
+  max-width: 100%;
 }
 
 .comment-navigation .nav-next,
@@ -885,8 +887,10 @@ a:hover, a:active {
 .post-navigation .nav-next {
   float: right;
   text-align: right;
-  width: 100%;
-  margin-bottom: 1.5em;
+  width: auto;
+  padding-left: 1em;
+  padding-bottom: 1.375em;
+  max-width: 100%;
 }
 
 .comment-navigation a:hover,
@@ -900,10 +904,8 @@ a:hover, a:active {
   transition: all 0.3s ease-in-out;
 }
 
-.comment-navigation {
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
+.site-main .comment-navigation {
+  margin: 3em 0;
 }
 
 .nav-subtitle {
@@ -1645,7 +1647,7 @@ body:not(.hfeed) .site-main {
   border-radius: 3px;
   overflow: hidden;
   padding: 1.5em;
-  margin: 5em 0 0;
+  margin: 5.625em 0 0;
 }
 
 .entry-author .author-avatar {
@@ -1715,7 +1717,7 @@ body:not(.hfeed) .site-main {
 --------------------------------------------------------------*/
 .comments-area {
   border-top: 1px solid #eee;
-  margin: 6em 0 0;
+  margin: 6.25em 0 0;
   padding-top: 2em;
 }
 
@@ -1755,6 +1757,7 @@ body:not(.hfeed) .site-main {
 .comment-respond h3 {
   font-size: 20px;
   font-size: 1.25rem;
+  margin: 0.5em 0;
 }
 
 .comment-body .reply {
@@ -2070,22 +2073,6 @@ p a[href$=".gif"] {
 }
 
 /**
- * >= 380px
- */
-@media screen and (min-width: 18.75em) {
-  .posts-navigation .nav-previous,
-  .comment-navigation .nav-previous,
-  .post-navigation .nav-previous {
-    width: 45%;
-  }
-  .posts-navigation .nav-next,
-  .comment-navigation .nav-next,
-  .post-navigation .nav-next {
-    width: 45%;
-  }
-}
-
-/**
  * >= 600px
  */
 @media screen and (min-width: 37.5em) {
@@ -2294,6 +2281,17 @@ p a[href$=".gif"] {
   .entry-footer span:last-of-type:after {
     content: "";
     padding: 0;
+  }
+  .posts-navigation .nav-previous,
+  .comment-navigation .nav-previous,
+  .post-navigation .nav-previous {
+    width: 45%;
+    margin-bottom: 0;
+  }
+  .posts-navigation .nav-next,
+  .comment-navigation .nav-next,
+  .post-navigation .nav-next {
+    width: 45%;
   }
   .has-cards .site-main {
     margin: 0;

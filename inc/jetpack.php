@@ -136,7 +136,7 @@ function ansel_portfolio_title( $before = '', $after = '' ) {
 		$title = single_term_title( '', false );
 	}
 
-	echo $before . $title . $after;
+	return $before . $title . $after;
 }
 
 /**
