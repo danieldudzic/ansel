@@ -44,11 +44,6 @@
 
 @media screen and ( min-width: 37.5em ) {
 
-	.site-description,
-	p.site-description {
-		margin: 0.25em auto 0;
-	}
-
 	.branding-container {
 		display: flex;
 		flex-wrap: wrap;
@@ -72,9 +67,7 @@
 
 	.main-navigation {
 		width: auto;
-		flex: 1 1 auto;
 		max-width: 100%;
-		margin-bottom: 0.75em;
 
 		.js & ul,
 		.js & ul ul,
@@ -85,7 +78,6 @@
 		ul {
 			background: transparent;
 			padding: 0;
-			text-align: right;
 
 			& .menu-item-has-children > a > .icon,
 			& .page_item_has_children > a > .icon {
@@ -130,12 +122,13 @@
 
 				a {
 					padding: 0.75em 1.25em;
+					margin-right: 0;
 					width: 14em;
 				}
 
 				& .menu-item-has-children > a,
 				& .page_item_has_children > a {
-					padding: 0.75em 2em 0.75em 1.25em;
+					padding: 0.75em 1.25em 0.75em 0.75em;
 				}
 
 				& .menu-item-has-children > a > .icon,
@@ -160,7 +153,7 @@
 					display: none;
 					height: 0;
 					position: absolute;
-					right: 0.85em;
+					right: 2.4em;
 					bottom: -1px;
 					width: 0;
 					z-index: 100000;
@@ -224,12 +217,8 @@
 		}
 
 		a {
-			padding: 0.75em 1.25em;
-		}
-
-		.menu-item-has-children a,
-		.page_item_has_children a {
-			padding: 0.75em 1.25em;
+			padding: 0.75em 0;
+			margin-right: 2em;
 		}
 
 		& .menu-item-has-children > a,

@@ -11,8 +11,8 @@
 		margin-bottom: 1em;
 
 		ul {
-			padding: 0 0 0 1.5em;
-			border-top: 1px solid $color__border-button;
+			padding: 0 0 0 0.75em;
+			border-top: 1px solid $color__border;
 			margin-bottom: 0;
 
 			&.toggled-on {
@@ -38,7 +38,7 @@
 
 		li {
 			li {
-				border-bottom: 1px solid $color__border-button;
+				border-bottom: 1px solid $color__border;
 			}
 		}
 
@@ -80,9 +80,15 @@
 		color: $color__link-hover;
 	}
 
-	.menu-item-has-children a,
-	.page_item_has_children a {
-		padding: 0.75em 2em 0.75em 0;
+	.menu-item-has-children,
+	.page_item_has_children {
+		a {
+			padding: 0.75em 0.75em 0.75em 0;
+		}
+
+		ul a {
+			padding: 0.75em;
+		}
 	}
 
 	/* Hide the menu on small screens when JavaScript is available.
