@@ -43,14 +43,16 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 							echo '</optgroup>';
 						}
 
-					if ( ! empty( $options['portfolio_types'] ) ) {
-						echo '<optgroup label="' . esc_attr( $types['portfolio_types_label'] ) . '">';
+					if ( taxonomy_exists( 'jetpack-portfolio-type' ) ) {
+						if ( ! empty( $options['portfolio_types'] ) ) {
+							echo '<optgroup label="' . esc_attr( $types['portfolio_types_label'] ) . '">';
 
-						foreach ( $options['portfolio_types'] as $value => $label ) {
-							echo '<option value="' . esc_attr( $value ) . '"' . selected( $this->value(), $value, false ) . '>' . esc_html( $label ) . '</option>';
+							foreach ( $options['portfolio_types'] as $value => $label ) {
+								echo '<option value="' . esc_attr( $value ) . '"' . selected( $this->value(), $value, false ) . '>' . esc_html( $label ) . '</option>';
+							}
+
+							echo '</optgroup>';
 						}
-
-						echo '</optgroup>';
 					}
 
 					if ( ! empty( $options['categories'] ) ) {

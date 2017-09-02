@@ -168,14 +168,17 @@ function ansel_get_showcase_item_content_choices() {
 		$options['pages'][ $page_id ] = $page->post_title;
 	}
 
-	$portfolio_types = get_terms( array(
-		'taxonomy' => 'jetpack-portfolio-type',
-		'hide_empty' => false,
-	) );
+	if ( taxonomy_exists( 'jetpack-portfolio-type' ) ) {
 
-	foreach ( $portfolio_types as $portfolio_type ) {
-		$portfolio_type_id = 'portfolio-type_' . $portfolio_type->term_id;
-		$options['portfolio_types'][ $portfolio_type_id ] = $portfolio_type->name;
+		$portfolio_types = get_terms( array(
+			'taxonomy' => 'jetpack-portfolio-type',
+			'hide_empty' => false,
+		) );
+
+		foreach ( $portfolio_types as $portfolio_type ) {
+			$portfolio_type_id = 'portfolio-type_' . $portfolio_type->term_id;
+			$options['portfolio_types'][ $portfolio_type_id ] = $portfolio_type->name;
+		}
 	}
 
 	$categories = get_categories();

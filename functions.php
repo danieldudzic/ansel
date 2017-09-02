@@ -299,6 +299,11 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/customizer-controls.php';
 
 /**
+ * Front Page Showcase functions.
+ */
+require get_template_directory() . '/inc/showcase-functions.php';
+
+/**
  * SVG icons functions and filters.
  */
 require get_template_directory() . '/inc/icon-functions.php';
