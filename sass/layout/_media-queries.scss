@@ -286,6 +286,20 @@
 		margin: 0 ( $size__site-sidebar + 5% ) 0 0;
 	}
 
+	.hfeed .hentry {
+		margin-bottom: 5.062em;
+
+		&:last-of-type {
+			margin-bottom: 5.625em;
+		}
+	}
+
+	body:not(.hfeed) {
+		.site-main {
+			margin-bottom: 5em;
+		}
+	}
+
 	.tags-hidden {
 		.entry-footer {
 			.edit-link {
@@ -341,6 +355,10 @@
 				display: inline;
 			}
 		}
+	}
+
+	.entry-author {
+		margin: 5.625em 0 0;
 	}
 
 	.posts-navigation,
@@ -421,6 +439,8 @@
 	}
 
 	.comments-area {
+		margin: 6.25em 0 0;
+
 		li > ul, li > ol {
 			margin-bottom: 0;
 			margin-left: 1.5em;

@@ -1377,15 +1377,15 @@ body:not(.comment-hidden) .entry-footer .comments-link {
 ## Posts and pages
 --------------------------------------------------------------*/
 .hfeed .hentry {
-  margin-bottom: 5.062em;
+  margin-bottom: 2.5em;
 }
 
 .hfeed .hentry:last-of-type {
-  margin-bottom: 5.625em;
+  margin-bottom: 2.813em;
 }
 
 body:not(.hfeed) .site-main {
-  margin-bottom: 5em;
+  margin-bottom: 2.5em;
   overflow: hidden;
 }
 
@@ -1634,7 +1634,7 @@ body:not(.hfeed) .site-main {
   border-radius: 3px;
   overflow: hidden;
   padding: 1.5em;
-  margin: 5.625em 0 0;
+  margin: 2.813em 0 0;
 }
 
 .entry-author .author-avatar {
@@ -1704,7 +1704,7 @@ body:not(.hfeed) .site-main {
 --------------------------------------------------------------*/
 .comments-area {
   border-top: 1px solid #eee;
-  margin: 6.25em 0 0;
+  margin: 3.125em 0 0;
   padding-top: 2em;
 }
 
@@ -2271,6 +2271,15 @@ p a[href$=".gif"] {
   .site-main {
     margin: 0 35% 0 0;
   }
+  .hfeed .hentry {
+    margin-bottom: 5.062em;
+  }
+  .hfeed .hentry:last-of-type {
+    margin-bottom: 5.625em;
+  }
+  body:not(.hfeed) .site-main {
+    margin-bottom: 5em;
+  }
   .tags-hidden .entry-footer .edit-link:after {
     content: "";
     padding: 0;
@@ -2300,6 +2309,9 @@ p a[href$=".gif"] {
   }
   .entry-footer span.cat-links {
     display: inline;
+  }
+  .entry-author {
+    margin: 5.625em 0 0;
   }
   .posts-navigation .nav-previous,
   .comment-navigation .nav-previous,
@@ -2359,6 +2371,9 @@ p a[href$=".gif"] {
     float: right;
     overflow: hidden;
     width: 30%;
+  }
+  .comments-area {
+    margin: 6.25em 0 0;
   }
   .comments-area li > ul, .comments-area li > ol {
     margin-bottom: 0;
