@@ -1729,7 +1729,8 @@ body:not(.hfeed) .site-main {
 }
 
 .comments-area .comment,
-.comments-area .pingback {
+.comments-area .pingback,
+.comments-area .trackback {
 	margin-bottom: 2.5em;
 }
 
