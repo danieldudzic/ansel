@@ -68,7 +68,7 @@ li > ol {
 
 .main-navigation .menu-item-has-children a,
 .main-navigation .page_item_has_children a {
-	padding: 0.75em 0;
+	padding: 0.75em 0 0.75em 0.75em;
 }
 
 .menu-toggle {
@@ -89,6 +89,8 @@ li > ol {
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {
 	float: right;
+	padding-left: 1em;
+	padding-right: 0;
 }
 
 .comment-navigation .nav-next,
@@ -96,6 +98,8 @@ li > ol {
 .post-navigation .nav-next {
 	float: left;
 	text-align: left;
+	padding-right: 1em;
+	padding-left: 0;
 }
 
 /*--------------------------------------------------------------
@@ -139,11 +143,6 @@ li > ol {
 
 .has-cards .showcase-item {
 	float: right;
-	margin-left: 10%;
-	margin-right: 0;
-}
-
-.has-cards .showcase-item:nth-child(2n) {
 	margin-left: 0;
 }
 
@@ -207,6 +206,22 @@ li > ol {
 --------------------------------------------------------------*/
 
 /**
+ * >= 400px
+ */
+
+@media screen and (min-width: 25em) {
+
+	.has-cards .showcase-item {
+		margin-left: 10%;
+		margin-right: 0;
+	}
+
+	.has-cards .showcase-item:nth-child(2n) {
+		margin-left: 0;
+	}
+}
+
+/**
  * <= 600px
  */
 
@@ -230,8 +245,9 @@ li > ol {
 		justify-content: right;
 	}
 
-	.main-navigation ul {
-		text-align: left;
+	.site-branding {
+		padding-left: 2em;
+		padding-right: 0;
 	}
 
 	.main-navigation ul ul {
@@ -245,14 +261,19 @@ li > ol {
 		right: -999em;
 	}
 
-	.main-navigation .menu-item-has-children a,
-	.main-navigation .page_item_has_children a {
-		padding: 0.75em 1.25em;
+	.main-navigation ul ul li:hover > ul,
+	.main-navigation ul ul li.focus > ul {
+		right: 100%;
+		left: auto;
+	}
+
+	.main-navigation ul ul a {
+		margin-left: 0;
 	}
 
 	.main-navigation ul ul .menu-item-has-children > a,
 	.main-navigation ul ul .page_item_has_children > a {
-		padding: 0.75em 1.25em 0.75em 2em;
+		padding: 0.75em 0.75em 0.75em 1.25em;
 	}
 
 	.main-navigation ul ul .menu-item-has-children > a > .icon,
@@ -267,14 +288,24 @@ li > ol {
 	.main-navigation ul li.menu-item-has-children:after,
 	.main-navigation ul li.page_item_has_children:before,
 	.main-navigation ul li.page_item_has_children:after {
-		left: 0.85em;
+		left: 2.4em;
 		right: auto;
+	}
+
+	.main-navigation ul li:hover > ul,
+	.main-navigation ul li.focus > ul {
+		left: auto;
+	}
+
+	.main-navigation a {
+		margin-left: 2em;
+		margin-right: 0px;
 	}
 
 	.main-navigation .menu-item-has-children > a > .icon,
 	.main-navigation .page_item_has_children > a > .icon {
 		right: 4px;
-		left: 0;
+		left: auto;
 	}
 
 	.social-links {

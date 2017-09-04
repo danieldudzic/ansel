@@ -238,8 +238,13 @@
 			margin-right: 2em;
 		}
 
-		& .menu-item-has-children > a,
-		& .page_item_has_children > a {
+		.menu-item-has-children ul a,
+		.page_item_has_children ul a {
+			padding: 0.75em;
+		}
+
+		.menu-item-has-children > a,
+		.page_item_has_children > a {
 			& > .icon {
 				display: inline;
 				left: 4px;
