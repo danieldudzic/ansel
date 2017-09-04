@@ -14,6 +14,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) :
 	get_template_part( 'index' );
 
 else :
+	$sidebar = '';
 
 	get_header(); ?>
 
@@ -25,53 +26,53 @@ else :
 
 				if ( ! empty( $showcase_items ) ) :
 
-					foreach ( $showcase_items as $id => $item ) { ?>
+					foreach ( $showcase_items as $showcase_id => $showcase_item ) {
+						global $showcase_id;
+						global $showcase_item;
 
-						<article id="entry-<?php echo esc_attr( $id ); ?>" class="showcase-item">
-							<div class="entry-thumbnail">
-								<?php ansel_showcase_item_thumbnail( $item['thumbnail'], $id, $item['type'] ); ?>
-							</div>
-
-							<header class="entry-header">
-								<h2 class="entry-title"><?php ansel_showcase_item_title( $id, $item['type'] ); ?></h2>
-							</header>
-
-						</article><!-- #entry-## -->
-						<?php
+						get_template_part( 'template-parts/content', 'showcase' );
 					}
+
 				else :
+					$sidebar = true;
 
-					if ( current_user_can( 'publish_posts' ) ) : ?>
+					if ( have_posts() ) :
+						while ( have_posts() ) : the_post();
 
-						<article class="page no-showcase-items">
-							<header class="entry-header">
-								<h1 class="entry-title"><?php esc_html_e( 'Showcase Items', 'ansel' ); ?></h1>
-							</header>
+							if ( get_the_content() ) {
 
-							<div class="entry-content">
-								<p><?php esc_html_e( 'Showcase items link out to other sections of the website, such as pages, project types, and post categories. They appear in a grid underneath the header image.', 'ansel' ); ?></p>
+								get_template_part( 'template-parts/content', 'page' );
 
-								<p><?php esc_html_e( 'You can set up this section in the Customizer > Theme Options.', 'ansel' ); ?></p>
-							</div>
-						</article>
-						<?php
+							} else {
 
-					else : ?>
+								if ( current_user_can( 'publish_posts' ) ) :
 
-						<article class="page no-showcase-items">
-							<div class="entry-content">
-								<?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'ansel' ); ?>
-							</div>
-							<?php get_search_form(); ?>
-						</article>
-						<?php
+									get_template_part( 'template-parts/content', 'showcase-none' );
 
+								else : ?>
+
+									<article class="page no-showcase-items">
+										<div class="entry-content">
+											<?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'ansel' ); ?>
+										</div>
+										<?php get_search_form(); ?>
+									</article>
+
+									<?php
+								endif;
+							}
+						endwhile;
 					endif;
+
 				endif; ?>
 
 				<?php ansel_posts_navigation(); ?>
 			</main><!-- #main -->
 		</div><!-- #primary -->
 
-	<?php get_footer();
+		<?php
+	if ( $sidebar ) {
+		get_sidebar();
+	}
+	get_footer();
 endif;

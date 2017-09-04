@@ -122,6 +122,7 @@ body:not(.hfeed) {
 
 			img {
 				border-radius: 3px;
+				display: block;
 			}
 
 			a {
@@ -229,6 +230,7 @@ body:not(.hfeed) {
 
 	img {
 		border-radius: 3px;
+		display: block;
 
 		@include transition(0.3s);
 

@@ -43,6 +43,15 @@
 }
 
 .gallery-caption {
-    margin: 0.313em 0;
-    padding: 0 0.938em;
+	margin: 0.313em 0;
+	padding: 0 0.938em;
+}
+
+.gallery-columns-6,
+.gallery-columns-7,
+.gallery-columns-8,
+.gallery-columns-9 {
+	.gallery-caption {
+		display: none;
+	}
 }

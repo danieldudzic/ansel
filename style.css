@@ -869,7 +869,7 @@ a:hover, a:active {
 .posts-navigation, .site-main
 .post-navigation {
   overflow: hidden;
-  margin: 3.571em 0 0;
+  margin: 3.571em 0;
 }
 
 .comment-navigation .nav-previous,
@@ -1183,19 +1183,19 @@ a:hover, a:active {
 --------------------------------------------------------------*/
 .site {
   background: #fff;
-  margin: 50px auto;
+  margin: 0 auto;
   max-width: 1100px;
-  padding: 50px 50px 0;
+  padding: 25px 25px 0;
 }
 
 .site-content {
-  margin: 0 -50px;
-  padding: 0 50px;
+  margin: 0 -25px;
+  padding: 0 25px;
 }
 
 body:not(.has-custom-header):not(.has-cards) .site-content {
   border-top: 1px solid #f7f7f7;
-  padding-top: 5.750em;
+  padding-top: 3.25em;
 }
 
 /*--------------------------------------------------------------
@@ -1277,8 +1277,8 @@ p.site-description {
 
 .site-footer {
   border-top: 1px solid #f7f7f7;
-  padding: 2.813em 50px 2em;
-  margin: 0 -50px;
+  padding: 2.813em 25px 2em;
+  margin: 0 -25px;
   text-align: center;
 }
 
@@ -1329,7 +1329,7 @@ p.site-description {
 
 .entry-footer span {
   display: block;
-  width: 100%;
+  width: inherit;
   margin-bottom: 1em;
 }
 
@@ -1503,6 +1503,7 @@ body:not(.hfeed) .site-main {
 
 .has-cards .showcase-item .entry-thumbnail img {
   border-radius: 3px;
+  display: block;
 }
 
 .has-cards .showcase-item .entry-thumbnail a {
@@ -1610,6 +1611,7 @@ body:not(.hfeed) .site-main {
 
 .post-thumbnail img {
   border-radius: 3px;
+  display: block;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -1712,7 +1714,7 @@ body:not(.hfeed) .site-main {
 
 .comments-area .comment,
 .comments-area .pingback {
-  margin-bottom: 2.500em;
+  margin-bottom: 2.5em;
 }
 
 .comment-list {
@@ -1730,19 +1732,15 @@ body:not(.hfeed) .site-main {
 }
 
 .comment-list .children {
-  margin-top: 2.500em;
+  margin-top: 2.5em;
   margin-left: 0;
-}
-
-.comments-title {
-  margin-bottom: 2.500em;
 }
 
 .comments-title,
 .comment-respond h3 {
   font-size: 20px;
   font-size: 1.25rem;
-  margin: 0.5em 0;
+  margin: 0.5em 0 1.5em;
 }
 
 .comment-body .reply {
@@ -2038,6 +2036,13 @@ p a[href$=".gif"] {
   padding: 0 0.938em;
 }
 
+.gallery-columns-6 .gallery-caption,
+.gallery-columns-7 .gallery-caption,
+.gallery-columns-8 .gallery-caption,
+.gallery-columns-9 .gallery-caption {
+  display: none;
+}
+
 /*--------------------------------------------------------------
 # Media Queries
 --------------------------------------------------------------*/
@@ -2077,6 +2082,17 @@ p a[href$=".gif"] {
  * >= 600px
  */
 @media screen and (min-width: 37.5em) {
+  .site {
+    margin: 50px auto;
+    padding: 50px 50px 0;
+  }
+  .site-content {
+    margin: 0 -50px;
+    padding: 0 50px;
+  }
+  body:not(.has-custom-header):not(.has-cards) .site-content {
+    padding-top: 5.750em;
+  }
   .branding-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2353,6 +2369,8 @@ p a[href$=".gif"] {
   }
   .site-footer {
     text-align: left;
+    padding: 2.813em 50px 2em;
+    margin: 0 -50px;
   }
   .site-footer .site-info {
     display: inline-block;

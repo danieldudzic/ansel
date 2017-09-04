@@ -48,6 +48,20 @@
 
 @media screen and ( min-width: 37.5em ) {
 
+	.site {
+		margin: 50px auto;
+		padding: 50px 50px 0;
+	}
+
+	.site-content {
+		margin: 0 -50px;
+		padding: 0 50px;
+
+		body:not(.has-custom-header):not(.has-cards) & {
+			padding-top: 5.750em;
+		}
+	}
+
 	.branding-container {
 		display: flex;
 		flex-wrap: wrap;
@@ -421,6 +435,8 @@
 
 	.site-footer {
 		text-align: left;
+		padding: 2.813em 50px 2em;
+		margin: 0 -50px;
 
 		.site-info {
 			display: inline-block;

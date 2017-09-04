@@ -9,8 +9,8 @@
 
 .site-footer {
 	border-top: 1px solid $color__border;
-	padding: 2.813em 50px 2em;
-	margin: 0 -50px;
+	padding: 2.813em 25px 2em;
+	margin: 0 -25px;
 	text-align: center;
 
 	a {
@@ -57,7 +57,7 @@
 
 	span {
 		display: block;
-		width: 100%;
+		width: inherit;
 		margin-bottom: 1em;
 
 		a {

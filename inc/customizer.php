@@ -93,11 +93,11 @@ function ansel_sanitize_select( $input ) {
 
 	$options = $choices['options'];
 
-	if ( array_key_exists( $input, $options['pages'] ) ) {
+	if ( ! empty( $options['pages'] ) && array_key_exists( $input, $options['pages'] ) ) {
 		$sanitized_input = $input;
-	} elseif ( array_key_exists( $input, $options['portfolio_types'] ) ) {
+	} elseif ( ! empty( $options['portfolio_types'] ) && array_key_exists( $input, $options['portfolio_types'] ) ) {
 		$sanitized_input = $input;
-	} elseif ( array_key_exists( $input, $options['categories'] ) ) {
+	} elseif ( ! empty( $options['categories'] ) && array_key_exists( $input, $options['categories'] ) ) {
 		$sanitized_input = $input;
 	} else {
 		$sanitized_input = 'select';

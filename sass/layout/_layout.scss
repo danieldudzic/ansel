@@ -1,17 +1,17 @@
 .site {
 	background: $color__background-body;
-	margin: 50px auto;
+	margin: 0 auto;
 	max-width: 1100px;
-	padding: 50px 50px 0;
+	padding: 25px 25px 0;
 }
 
 .site-content {
-	margin: 0 -50px;
-	padding: 0 50px;
+	margin: 0 -25px;
+	padding: 0 25px;
 
 	body:not(.has-custom-header):not(.has-cards) & {
 		border-top: 1px solid $color__border;
-		padding-top: 5.750em;
+		padding-top: 3.25em;
 	}
 }
 

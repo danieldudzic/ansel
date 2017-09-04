@@ -44,7 +44,7 @@ function ansel_setup() {
 
 	add_image_size( 'ansel-featured-image-post', 650, 9999 );
 	add_image_size( 'ansel-featured-image-header', 1000, 9999 );
-	add_image_size( 'ansel-entry-card', 300, 200, true );
+	add_image_size( 'ansel-entry-card', 550, 367, true );
 	add_image_size( 'ansel-entry-card-featured', 1000, 500, true );
 
 	// This theme uses wp_nav_menu() in one location.
@@ -227,7 +227,7 @@ function ansel_scripts() {
 		'has_navigation' => 'false',
 	);
 
-	wp_enqueue_script( 'ansel-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array(), '1.0', true );
+	wp_enqueue_script( 'ansel-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array( 'jquery' ), '1.0', true );
 
 	$ansel_l10n['has_navigation'] = 'true';
 	$ansel_l10n['expand']         = esc_html__( 'Expand child menu', 'ansel' );
