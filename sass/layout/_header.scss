@@ -23,18 +23,19 @@
 	}
 }
 
+.site-branding {
+	margin-bottom: 1em;
+}
+
 .custom-logo-link {
-	margin-bottom: 1.417em;
 	width: auto;
 	width: 100%;
 	display: block;
+	margin-bottom: 2.313em;
 
 	img {
 		max-width: 100%;
-		display: inline-block;
-		max-height: 100px;
-		width: auto;
-		height: auto;
+		display: block;
 	}
 }
 

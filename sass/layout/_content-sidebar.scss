@@ -38,7 +38,6 @@
 	color: $color__text-alt;
 	@include font-size(0.875);
 	letter-spacing: 2px;
-	margin: 0 0 1.5em;
 	text-transform: uppercase;
 
 	a {
@@ -54,6 +53,8 @@
 }
 
 .entry-footer {
+	margin: 0 0 1.5em;
+
 	span {
 		display: block;
 		width: 100%;
@@ -96,4 +97,8 @@
 			}
 		}
 	}
+}
+
+body:not(.comment-hidden) .entry-footer .comments-link {
+	overflow: visible !important;
 }

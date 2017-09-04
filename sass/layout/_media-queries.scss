@@ -1,8 +1,31 @@
 /**
+ * >= 400px
+ */
+
+@media screen and ( min-width: 25em ) {
+
+	.has-cards {
+		.showcase-item {
+			width: 45%;
+			margin-right: 10%;
+
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+
+			&:nth-child(2n+1) {
+				clear: both;
+			}
+		}
+	}
+}
+
+/**
  * <= 600px
  */
 
 @media screen and ( max-width: 37.5em ) {
+
 	.has-cards {
 		.entry-card {
 			width: 45%;
@@ -36,9 +59,8 @@
 
 	.site-branding {
 		flex: 1 1 auto;
-		margin-top: 0.25em;
-		margin-bottom: 1.75em;
 		width: auto;
+		padding-right: 2em;
 	}
 
 	.js .menu-toggle,
@@ -299,6 +321,10 @@
 			&:last-of-type:after {
 				content: "";
 				padding: 0;
+			}
+
+			&.cat-links {
+				display: inline;
 			}
 		}
 	}

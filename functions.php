@@ -79,8 +79,8 @@ function ansel_setup() {
 	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
 	add_theme_support( 'custom-logo', array(
-		'height'      => 100,
-		'width'       => 250,
+		'height'      => 200,
+		'width'       => 1000,
 		'flex-width'  => true,
 		'flex-height' => true,
 		'header-text' => array(
@@ -249,28 +249,26 @@ add_action( 'wp_enqueue_scripts', 'ansel_scripts' );
  * Conditially output the post(s) navigation.
  */
 function ansel_posts_navigation() {
-	if ( have_posts() ) :
-		if ( is_single() ) {
-			the_post_navigation( array(
-				'prev_text' => '<span aria-hidden="true" class="nav-subtitle">' .
-									esc_html_x( 'Previous', 'previous post', 'ansel' ) .
-								'</span>%title',
-				'next_text' => '<span aria-hidden="true" class="nav-subtitle">' .
-									esc_html_x( 'Next', 'next post', 'ansel' ) .
-								'</span>%title',
+	if ( is_single() ) {
+		the_post_navigation( array(
+			'prev_text' => '<span aria-hidden="true" class="nav-subtitle">' .
+								esc_html_x( 'Previous', 'previous post', 'ansel' ) .
+							'</span>%title',
+			'next_text' => '<span aria-hidden="true" class="nav-subtitle">' .
+								esc_html_x( 'Next', 'next post', 'ansel' ) .
+							'</span>%title',
+		) );
+	} else {
+		if ( 'jetpack-portfolio' === get_post_type() ) {
+			the_posts_navigation( array(
+				'prev_text'          => esc_html__( 'Older Projects', 'ansel' ),
+				'next_text'          => esc_html__( 'Newer Projects', 'ansel' ),
+				'screen_reader_text' => esc_html__( 'Portfolio Navigation', 'ansel' ),
 			) );
 		} else {
-			if ( 'jetpack-portfolio' === get_post_type() ) {
-				the_posts_navigation( array(
-					'prev_text'          => esc_html__( 'Older Projects', 'ansel' ),
-					'next_text'          => esc_html__( 'Newer Projects', 'ansel' ),
-					'screen_reader_text' => esc_html__( 'Portfolio Navigation', 'ansel' ),
-				) );
-			} else {
-				the_posts_navigation();
-			}
+			the_posts_navigation();
 		}
-	endif;
+	}
 }
 
 /**

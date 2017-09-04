@@ -24,14 +24,23 @@
 	wp.customize( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {
 			if ( 'blank' === to ) {
-				$( '.site-title, .site-description' ).css( {
+				$( '.site-branding' ).css( {
 					'clip': 'rect(1px, 1px, 1px, 1px)',
-					'position': 'absolute'
+					'height': '1px',
+					'overflow': 'hidden',
+					'overflow-wrap': 'normal',
+					'position': 'absolute',
+					'width': '1px'
+
 				} );
 			} else {
-				$( '.site-title, .site-description' ).css( {
+				$( '.site-branding' ).css( {
 					'clip': 'auto',
-					'position': 'relative'
+					'height': 'inherit',
+					'overflow': 'inherit',
+					'overflow-wrap': 'inherit',
+					'position': 'relative',
+					'width': 'inherit'
 				} );
 				$( '.site-title a' ).css( {
 					'color': to

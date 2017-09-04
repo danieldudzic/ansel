@@ -27,10 +27,10 @@
 	<header id="masthead" class="site-header">
 		<div class="branding-container">
 
+			<?php the_custom_logo(); ?>
+
 			<div class="site-branding">
 				<?php
-				the_custom_logo();
-
 				if ( is_front_page() && is_home() ) : ?>
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					<?php
@@ -62,7 +62,7 @@
 				if ( has_nav_menu( 'menu-1' ) ) :
 					wp_nav_menu( array(
 						'theme_location' => 'menu-1',
-						'menu_id'        => 'top-menu',
+						'menu_id'        => 'header-menu',
 					) );
 				endif;
 				?>

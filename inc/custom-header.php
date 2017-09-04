@@ -22,6 +22,7 @@ function ansel_custom_header_setup() {
 		'default-text-color'     => '2c55e2',
 		'width'                  => 1000,
 		'height'                 => 500,
+		'flex-width'             => true,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'ansel_header_style',
 	) ) );
@@ -52,10 +53,13 @@ function ansel_header_style() {
 		// Has the text been hidden?
 		if ( ! display_header_text() ) :
 			?>
-			.site-title,
-			.site-description {
-				position: absolute;
+			.site-branding {
 				clip: rect(1px, 1px, 1px, 1px);
+				height: 1px;
+				overflow: hidden;
+				overflow-wrap: normal;
+				position: absolute;
+				width: 1px;
 			}
 			<?php
 		// If the user has set a custom color for the text use that.

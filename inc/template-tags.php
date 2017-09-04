@@ -109,16 +109,40 @@ function ansel_entry_footer() {
 	$tags_list = get_the_tag_list();
 
 	if ( $tags_list && 'jetpack-portfolio' !== get_post_type() ) {
-		/* translators: 1: list of tags. */
-		printf( '<div class="tags-links">' . esc_html__( 'Tagged %1$s', 'ansel' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+		echo '<div class="tags-links">';
+		printf(
+			wp_kses(
+				/* translators: %s: List of Tags */
+				__( '<span class="screen-reader-text">Tagged</span> %s', 'ansel' ),
+				array(
+					'span' => array(
+						'class' => array(),
+					),
+				)
+			),
+			$tags_list
+		);
+		echo '</div>';
 	}
 
 	if ( 'jetpack-portfolio' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_term_list( get_the_ID(), 'jetpack-portfolio-tag' );
 		if ( $tags_list ) {
-		/* translators: 1: list of tags. */
-			printf( '<div class="tags-links">' . esc_html__( 'Tagged %1$s', 'ansel' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+			echo '<div class="tags-links">';
+			printf(
+				wp_kses(
+					/* translators: %s: List of Tags */
+					__( '<span class="screen-reader-text">Tagged</span> %s', 'ansel' ),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				$tags_list
+			);
+			echo '</div>';
 		}
 	}
 

@@ -52,4 +52,5 @@
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
 
-<?php ansel_author_bio();
+<?php
+ansel_author_bio();

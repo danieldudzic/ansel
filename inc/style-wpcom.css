@@ -1,0 +1,26 @@
+/* WordPress.com Widgets */
+
+.widget.jetpack_subscription_widget #subscribe-text {
+	margin-top: 1em;
+}
+
+.widget.jetpack_subscription_widget #subscribe-email {
+	margin: 1em 0;
+}
+
+.widget.widget_goodreads div[class^="gr_custom_container"] {
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+}
+
+.widget.widget_goodreads div[class^="gr_custom_each_container"] {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 1em;
+	padding-bottom: 0.563em;
+	padding-top: 0.5em;
+}
+
+.widget.widget_jetpack_display_posts_widget .jetpack-display-remote-posts p {
+	margin-bottom: inherit !important;
+}

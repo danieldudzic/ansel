@@ -1146,31 +1146,6 @@ a:hover, a:active {
   display: none;
 }
 
-.widget.jetpack_subscription_widget #subscribe-text {
-  margin-top: 1em;
-}
-
-.widget.jetpack_subscription_widget #subscribe-email {
-  margin: 1em 0;
-}
-
-.widget.widget_goodreads div[class^="gr_custom_container"] {
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-}
-
-.widget.widget_goodreads div[class^="gr_custom_each_container"] {
-  border-bottom: 1px solid #eee;
-  margin-bottom: 1em;
-  padding-bottom: 0.563em;
-  padding-top: 0.5em;
-}
-
-.widget.widget_jetpack_display_posts_widget .jetpack-display-remote-posts p {
-  margin-bottom: inherit !important;
-}
-
 .widget.widget_recent_comments li {
   padding-bottom: 0.563em;
   padding-top: 0.5em;
@@ -1250,19 +1225,20 @@ body:not(.has-custom-header):not(.has-cards) .site-content {
   color: #999999;
 }
 
+.site-branding {
+  margin-bottom: 1em;
+}
+
 .custom-logo-link {
-  margin-bottom: 1.417em;
   width: auto;
   width: 100%;
   display: block;
+  margin-bottom: 2.313em;
 }
 
 .custom-logo-link img {
   max-width: 100%;
-  display: inline-block;
-  max-height: 100px;
-  width: auto;
-  height: auto;
+  display: block;
 }
 
 .site-description,
@@ -1331,7 +1307,6 @@ p.site-description {
   font-size: 14px;
   font-size: 0.875rem;
   letter-spacing: 2px;
-  margin: 0 0 1.5em;
   text-transform: uppercase;
 }
 
@@ -1346,6 +1321,10 @@ p.site-description {
 .entry-footer a:hover,
 .entry-footer a:focus {
   color: #2C55E2;
+}
+
+.entry-footer {
+  margin: 0 0 1.5em;
 }
 
 .entry-footer span {
@@ -1390,6 +1369,10 @@ p.site-description {
   border-color: #2C55E2;
 }
 
+body:not(.comment-hidden) .entry-footer .comments-link {
+  overflow: visible !important;
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -1411,7 +1394,7 @@ body:not(.hfeed) .site-main {
   max-width: 100%;
   word-wrap: break-word;
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: 0.2em;
   font-size: 24px;
   font-size: 1.5rem;
 }
@@ -1500,17 +1483,9 @@ body:not(.hfeed) .site-main {
 .has-cards .showcase-item {
   float: left;
   text-align: center;
-  width: 45%;
-  margin-right: 10%;
-  margin-bottom: 0.938em;
-}
-
-.has-cards .showcase-item:nth-child(2n) {
+  width: 100%;
   margin-right: 0;
-}
-
-.has-cards .showcase-item:nth-child(2n+1) {
-  clear: both;
+  margin-bottom: 0.938em;
 }
 
 .has-cards .showcase-item .entry-title {
@@ -1623,6 +1598,7 @@ body:not(.hfeed) .site-main {
 }
 
 .post-thumbnail {
+  margin-top: 1.5em;
   margin-bottom: 1em;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -1639,6 +1615,15 @@ body:not(.hfeed) .site-main {
 }
 
 .post-thumbnail img:hover {
+  opacity: 0.7;
+}
+
+.custom-logo {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-logo:hover {
   opacity: 0.7;
 }
 
@@ -2057,6 +2042,22 @@ p a[href$=".gif"] {
 # Media Queries
 --------------------------------------------------------------*/
 /**
+ * >= 400px
+ */
+@media screen and (min-width: 25em) {
+  .has-cards .showcase-item {
+    width: 45%;
+    margin-right: 10%;
+  }
+  .has-cards .showcase-item:nth-child(2n) {
+    margin-right: 0;
+  }
+  .has-cards .showcase-item:nth-child(2n+1) {
+    clear: both;
+  }
+}
+
+/**
  * <= 600px
  */
 @media screen and (max-width: 37.5em) {
@@ -2093,9 +2094,8 @@ p a[href$=".gif"] {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
-    margin-top: 0.25em;
-    margin-bottom: 1.75em;
     width: auto;
+    padding-right: 2em;
   }
   .js .menu-toggle,
   .js .dropdown-toggle {
@@ -2281,6 +2281,9 @@ p a[href$=".gif"] {
   .entry-footer span:last-of-type:after {
     content: "";
     padding: 0;
+  }
+  .entry-footer span.cat-links {
+    display: inline;
   }
   .posts-navigation .nav-previous,
   .comment-navigation .nav-previous,
