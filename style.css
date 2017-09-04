@@ -1396,11 +1396,11 @@ body:not(.comment-hidden) .entry-footer .comments-link {
 ## Posts and pages
 --------------------------------------------------------------*/
 
-.hfeed .hentry {
+.hfeed:not(.has-cards) .hentry {
 	margin-bottom: 2.5em;
 }
 
-.hfeed .hentry:last-of-type {
+.hfeed:not(.has-cards) .hentry:last-of-type {
 	margin-bottom: 2.813em;
 }
 
@@ -1453,13 +1453,8 @@ body:not(.hfeed) .site-main {
 .has-cards .entry-card {
 	float: left;
 	text-align: center;
+	width: 100%;
 	margin-bottom: 0.938em;
-}
-
-.has-cards .entry-card:first-of-type .entry-title {
-	font-size: 1.5em;
-	margin-top: 0.583em;
-	margin-bottom: 0.292em;
 }
 
 .has-cards .entry-card .entry-title {
@@ -1468,11 +1463,12 @@ body:not(.hfeed) .site-main {
 	font-size: 16px;
 	font-size: 1rem;
 	letter-spacing: 2px;
-	padding: 0.813em 0;
+	padding: 1.125em 0 0.813em;
 }
 
 .has-cards .entry-card .post-thumbnail {
 	margin-bottom: 0;
+	margin-top: 0;
 }
 
 .has-cards .entry-card .post-thumbnail img {
@@ -1515,7 +1511,7 @@ body:not(.hfeed) .site-main {
 	font-size: 16px;
 	font-size: 1rem;
 	letter-spacing: 2px;
-	padding: 0.813em 0;
+	padding: 1.125em 0 0.813em;
 }
 
 .has-cards .showcase-item .entry-thumbnail {
@@ -1553,17 +1549,13 @@ body:not(.hfeed) .site-main {
 	width: 100%;
 }
 
-.has-cards .entry-card-featured .post-thumbnail a.placeholder:before {
-	padding-top: 50%;
-}
-
 .has-cards .page-title {
 	text-align: center;
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 
 .has-cards .no-showcase-items {
-	margin-bottom: 6em;
+	margin-bottom: 3em;
 }
 
 .entry-content,
@@ -2100,25 +2092,27 @@ p a[href$=".gif"] {
 	.has-cards .showcase-item:nth-child(2n+1) {
 		clear: both;
 	}
-}
-
-/**
- * <= 600px
- */
-
-@media screen and (max-width: 37.5em) {
 
 	.has-cards .entry-card {
 		width: 45%;
 	}
 
+	.has-cards .entry-card:first-of-type .entry-title {
+		font-size: 1.5em;
+		margin-bottom: 0.292em;
+	}
+
 	.has-cards .entry-card:nth-of-type(2n) {
-		margin-right: 5%;
+		margin-right: 10%;
 		clear: both;
 	}
 
 	.has-cards .entry-card-featured {
 		width: 100%;
+	}
+
+	.has-cards .entry-card-featured .post-thumbnail a.placeholder:before {
+		padding-top: 50%;
 	}
 }
 
@@ -2375,11 +2369,11 @@ p a[href$=".gif"] {
 		margin: 0 35% 0 0;
 	}
 
-	.hfeed .hentry {
+	.hfeed:not(.has-cards) .hentry {
 		margin-bottom: 5.062em;
 	}
 
-	.hfeed .hentry:last-of-type {
+	.hfeed:not(.has-cards) .hentry:last-of-type {
 		margin-bottom: 5.625em;
 	}
 
@@ -2456,6 +2450,11 @@ p a[href$=".gif"] {
 		width: 30%;
 	}
 
+	.has-cards .entry-card:nth-of-type(2n) {
+		margin-right: 0;
+		clear: none;
+	}
+
 	.has-cards .entry-card:nth-of-type(3n),
 	.has-cards .entry-card:nth-of-type(3n + 2) {
 		margin-right: 5%;
@@ -2495,6 +2494,10 @@ p a[href$=".gif"] {
 
 	.has-cards .entry-card-featured {
 		width: 100%;
+	}
+
+	.has-cards .no-showcase-items {
+		margin-bottom: 6em;
 	}
 
 	.site-content .widget-area {

@@ -54,25 +54,19 @@ body:not(.hfeed) {
 	.entry-card {
 		float: left;
 		text-align: center;
+		width: 100%;
 		margin-bottom: 0.938em;
-
-		&:first-of-type {
-			.entry-title {
-				font-size: 1.5em;
-				margin-top: 0.583em;
-				margin-bottom: 0.292em;
-			}
-		}
 
 		.entry-title {
 			font-family: $font__secondary;
 			text-transform: uppercase;
 			@include font-size(1);
 			letter-spacing: 2px;
-			padding: 0.813em 0;
+			padding: 1.125em 0 0.813em;
 		}
 
 		.post-thumbnail {
+			margin-top: 0;
 			margin-bottom: 0;
 
 			img {
@@ -114,7 +108,7 @@ body:not(.hfeed) {
 			text-transform: uppercase;
 			@include font-size(1);
 			letter-spacing: 2px;
-			padding: 0.813em 0;
+			padding: 1.125em 0 0.813em;
 		}
 
 		.entry-thumbnail {
@@ -151,23 +145,15 @@ body:not(.hfeed) {
 
 	.entry-card-featured {
 		width: 100%;
-
-		.post-thumbnail {
-			a {
-				&.placeholder:before {
-					padding-top: 50%;
-				}
-			}
-		}
 	}
 
 	.page-title {
 		text-align: center;
-		margin-bottom: 2em;
+		margin-bottom: 1em;
 	}
 
 	.no-showcase-items {
-		margin-bottom: 6em;
+		margin-bottom: 3em;
 	}
 }
 

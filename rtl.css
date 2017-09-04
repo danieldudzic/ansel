@@ -219,16 +219,9 @@ li > ol {
 	.has-cards .showcase-item:nth-child(2n) {
 		margin-left: 0;
 	}
-}
-
-/**
- * <= 600px
- */
-
-@media screen and (max-width: 37.5em) {
 
 	.has-cards .entry-card:nth-of-type(2n) {
-		margin-left: 5%;
+		margin-left: 10%;
 		margin-right: 0;
 	}
 }
@@ -327,6 +320,11 @@ li > ol {
 
 	.site-main {
 		margin: 0 0 0 35%;
+	}
+
+	.has-cards .entry-card:nth-of-type(2n) {
+		margin-left: 0;
+		clear: none;
 	}
 
 	.has-cards .entry-card:nth-of-type(3n),
