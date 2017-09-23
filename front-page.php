@@ -66,7 +66,6 @@ else :
 
 				endif; ?>
 
-				<?php ansel_posts_navigation(); ?>
 			</main><!-- #main -->
 		</div><!-- #primary -->
 

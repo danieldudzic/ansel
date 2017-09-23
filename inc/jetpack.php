@@ -149,7 +149,19 @@ function ansel_portfolio_content( $before = '', $after = '' ) {
 		echo $before . get_the_archive_description() . $after;
 	} else if ( isset( $jetpack_portfolio_content ) && '' != $jetpack_portfolio_content ) {
 		$content = convert_chars( convert_smilies( wptexturize( stripslashes( wp_filter_post_kses( addslashes( $jetpack_portfolio_content ) ) ) ) ) );
-		echo $before . $content . $after;
+		return $before . $content . $after;
+	}
+}
+
+/**
+ * Portfolio Featured Image.
+ */
+function ansel_portfolio_thumbnail( $before = '', $after = '' ) {
+	$jetpack_portfolio_featured_image = get_option( 'jetpack_portfolio_featured_image' );
+
+	if ( isset( $jetpack_portfolio_featured_image ) && '' != $jetpack_portfolio_featured_image ) {
+		$featured_image = wp_get_attachment_image( (int) $jetpack_portfolio_featured_image, 'full-width' );
+		return $before . $featured_image . $after;
 	}
 }
 

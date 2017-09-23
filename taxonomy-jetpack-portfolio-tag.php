@@ -29,7 +29,7 @@ get_header(); ?>
 							ansel_portfolio_title()
 						); ?>
 					</h1>
-					<?php ansel_portfolio_content( '<div class="archive-description">', '</div>' ); ?>
+					<?php echo ansel_portfolio_content( '<div class="archive-description">', '</div>' ); ?>
 				</header><!-- .page-header -->
 
 				<?php

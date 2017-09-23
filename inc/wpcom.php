@@ -18,7 +18,7 @@ function ansel_wpcom_setup() {
 	// Set theme colors for third party services.
 	if ( ! isset( $themecolors ) ) {
 		$themecolors = array(
-			'bg'     => 'f7f7f7',
+			'bg'     => 'ffffff',
 			'border' => 'f7f7f7',
 			'text'   => '444444',
 			'link'   => '2c55e2',

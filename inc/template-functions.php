@@ -37,6 +37,11 @@ function ansel_body_classes( $classes ) {
 		$classes[] = 'no-results';
 	}
 
+	// Add a class of has-portfolio-archive-featured-image when the featured image is set.
+	if ( ansel_portfolio_thumbnail() && is_post_type_archive( 'jetpack-portfolio' ) ) {
+		$classes[] = 'has-portfolio-archive-featured-image';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'ansel_body_classes' );
