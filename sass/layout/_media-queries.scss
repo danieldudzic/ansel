@@ -72,15 +72,6 @@
 		padding: 50px 50px 0;
 	}
 
-	.site-content {
-		margin: 0 -50px;
-		padding: 0 50px;
-
-		body:not(.has-custom-header):not(.has-cards) & {
-			padding-top: 5.750em;
-		}
-	}
-
 	.branding-container {
 		display: flex;
 		flex-wrap: wrap;
@@ -94,11 +85,6 @@
 		flex: 1 1 auto;
 		width: auto;
 		padding-right: 2em;
-	}
-
-	.js .menu-toggle,
-	.js .dropdown-toggle {
-		display: none;
 	}
 
 	.main-navigation {
@@ -273,15 +259,23 @@
 		}
 	}
 
-	.menu-toggle {
+	.menu-toggle,
+	.js .menu-toggle,
+	.js .dropdown-toggle {
 		display: none;
 	}
 
-	.social-links {
-		clear: none;
-		float: right;
-		max-width: 30%;
-		text-align: right;
+	.site-content {
+		margin: 0 -50px;
+		padding: 0 50px;
+
+		body:not(.has-custom-header):not(.has-cards) & {
+			padding-top: 5.750em;
+		}
+	}
+
+	.site-main {
+		margin: 0 ( $size__site-sidebar + 5% ) 0 0;
 	}
 
 	.content-area {
@@ -304,10 +298,6 @@
 		.site-main {
 			margin-right: 0;
 		}
-	}
-
-	.site-main {
-		margin: 0 ( $size__site-sidebar + 5% ) 0 0;
 	}
 
 	.hfeed:not(.has-cards) .hentry {
@@ -390,6 +380,44 @@
 		.nav-next {
 			width: 45%;
 		}
+	}
+
+	.site-content .widget-area {
+		float: right;
+		overflow: hidden;
+		width: $size__site-sidebar;
+	}
+
+	.comments-area {
+		margin: 6.25em 0 0;
+
+		li > ul, li > ol {
+			margin-bottom: 0;
+			margin-left: 1.5em;
+		}
+
+		.comment-list {
+			.children {
+				margin-left: 2.5em;
+			}
+		}
+	}
+
+	.site-footer {
+		text-align: left;
+		padding: 2.813em 50px 2em;
+		margin: 0 -50px;
+
+		.site-info {
+			display: inline-block;
+		}
+	}
+
+	.social-links {
+		clear: none;
+		float: right;
+		max-width: 30%;
+		text-align: right;
 	}
 
 	.has-cards {
@@ -480,37 +508,6 @@
 
 		.no-showcase-items {
 			margin-bottom: 6em;
-		}
-	}
-
-	.site-content .widget-area {
-		float: right;
-		overflow: hidden;
-		width: $size__site-sidebar;
-	}
-
-	.comments-area {
-		margin: 6.25em 0 0;
-
-		li > ul, li > ol {
-			margin-bottom: 0;
-			margin-left: 1.5em;
-		}
-
-		.comment-list {
-			.children {
-				margin-left: 2.5em;
-			}
-		}
-	}
-
-	.site-footer {
-		text-align: left;
-		padding: 2.813em 50px 2em;
-		margin: 0 -50px;
-
-		.site-info {
-			display: inline-block;
 		}
 	}
 }

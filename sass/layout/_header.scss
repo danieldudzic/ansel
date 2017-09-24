@@ -2,6 +2,10 @@
 	padding-bottom: 2.313em;
 }
 
+.site-branding {
+	margin-bottom: 1em;
+}
+
 .site-title {
 	margin: 0;
 	line-height: 1;
@@ -23,8 +27,20 @@
 	}
 }
 
-.site-branding {
-	margin-bottom: 1em;
+.site-description,
+p.site-description {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include font-size(1.125);
+	margin: 1em auto 0;
+}
+
+.custom-logo {
+	@include transition(0.3s);
+
+	&:hover {
+		opacity: 0.7;
+	}
 }
 
 .custom-logo-link {
@@ -37,14 +53,6 @@
 		max-width: 100%;
 		display: block;
 	}
-}
-
-.site-description,
-p.site-description {
-	color: $color__text-main;
-	font-family: $font__main;
-	@include font-size(1.125);
-	margin: 1em auto 0;
 }
 
 .has-custom-header .site-content .featured-image-header {

@@ -1,0 +1,25 @@
+.site-footer {
+	border-top: 1px solid $color__border;
+	padding: 2.813em 25px 2em;
+	margin: 0 -25px;
+	text-align: center;
+
+	a {
+		color: $color__text-alt;
+
+		&:hover,
+		&:focus {
+			color: $color__link-hover;
+		}
+	}
+
+	.site-info {
+		clear: both;
+		color: $color__text-alt;
+		font-weight: 400;
+		@include font-size(0.875);
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		margin-bottom: 0.75em;
+	}
+}
