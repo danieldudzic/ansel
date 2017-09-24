@@ -146,8 +146,8 @@ function ansel_portfolio_content( $before = '', $after = '' ) {
 	$jetpack_portfolio_content = get_option( 'jetpack_portfolio_content' );
 
 	if ( is_tax() && get_the_archive_description() ) {
-		echo $before . get_the_archive_description() . $after;
-	} else if ( isset( $jetpack_portfolio_content ) && '' != $jetpack_portfolio_content ) {
+		return $before . get_the_archive_description() . $after;
+	} elseif ( isset( $jetpack_portfolio_content ) && '' != $jetpack_portfolio_content ) {
 		$content = convert_chars( convert_smilies( wptexturize( stripslashes( wp_filter_post_kses( addslashes( $jetpack_portfolio_content ) ) ) ) ) );
 		return $before . $content . $after;
 	}
