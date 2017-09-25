@@ -9,10 +9,10 @@
 	display: block;
 }
 
-#infinite-handle {
+.infinite-scroll #infinite-handle {
 	clear: both;
 	text-align: center;
-	margin-bottom: 6.25em;
+	margin-bottom: 5em;
 
 	span {
 		border: 3px solid $color__border-button;

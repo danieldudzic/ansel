@@ -1071,6 +1071,7 @@ a:hover, a:active {
   border-top: 1px solid #eee;
   margin: 0;
   max-width: 100%;
+  vertical-align: middle;
   word-wrap: break-word;
 }
 
@@ -1079,7 +1080,6 @@ a:hover, a:active {
   padding-bottom: 0.563em;
   padding-top: 0.5em;
   display: inline-block;
-  vertical-align: middle;
 }
 
 .widget li a a,
@@ -1087,6 +1087,10 @@ a:hover, a:active {
 .widget li span a,
 .widget li span span {
   padding: 0;
+}
+
+.widget p:last-child {
+  margin-bottom: 1.5em;
 }
 
 .widget select {
@@ -1325,11 +1329,11 @@ body .site-main {
   overflow: hidden;
 }
 
-.hfeed .hentry {
+.hfeed:not(.has-cards) .hentry {
   margin-bottom: 2.5em;
 }
 
-.hfeed .hentry:last-of-type {
+.hfeed:not(.has-cards) .hentry:last-of-type {
   margin-bottom: 2.813em;
 }
 
@@ -1830,13 +1834,13 @@ body:not(.comment-hidden) .entry-footer .comments-link {
   display: block;
 }
 
-#infinite-handle {
+.infinite-scroll #infinite-handle {
   clear: both;
   text-align: center;
-  margin-bottom: 6.25em;
+  margin-bottom: 5em;
 }
 
-#infinite-handle span {
+.infinite-scroll #infinite-handle span {
   border: 3px solid #eee;
   border-radius: 3px;
   background: #fff;
@@ -1855,12 +1859,12 @@ body:not(.comment-hidden) .entry-footer .comments-link {
   transition: all 0.3s ease-in-out;
 }
 
-#infinite-handle span:hover {
+.infinite-scroll #infinite-handle span:hover {
   border-color: #2C55E2;
   color: #2C55E2;
 }
 
-#infinite-handle span:active, #infinite-handle span:focus {
+.infinite-scroll #infinite-handle span:active, .infinite-scroll #infinite-handle span:focus {
   border-color: #2C55E2;
   color: #2C55E2;
 }

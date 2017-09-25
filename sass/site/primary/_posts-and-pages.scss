@@ -5,7 +5,7 @@ body {
 	}
 }
 
-.hfeed .hentry {
+.hfeed:not(.has-cards) .hentry {
 	margin-bottom: 2.5em;
 
 	&:last-of-type {

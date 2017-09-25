@@ -23,6 +23,7 @@
 		border-top: 1px solid $color__border-button;
 		margin: 0;
 		max-width: 100%;
+		vertical-align: middle;
 		word-wrap: break-word;
 
 		a,
@@ -30,13 +31,16 @@
 			padding-bottom: 0.563em;
 			padding-top: 0.5em;
 			display: inline-block;
-			vertical-align: middle;
 
 			a,
 			span {
 				padding: 0;
 			}
 		}
+	}
+
+	p:last-child {
+		margin-bottom: 1.5em;
 	}
 
 	/* Make sure select elements fit in widgets. */
