@@ -269,8 +269,8 @@
 		margin: 0 -50px;
 		padding: 0 50px;
 
-		body:not(.has-custom-header):not(.has-cards) & {
-			padding-top: 5.750em;
+		body:not(.has-custom-header) & {
+			padding-top: 5em;
 		}
 	}
 

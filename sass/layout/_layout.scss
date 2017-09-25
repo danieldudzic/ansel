@@ -8,11 +8,6 @@
 .site-content {
 	margin: 0 -25px;
 	padding: 0 25px;
-
-	body:not(.has-custom-header):not(.has-cards) & {
-		border-top: 1px solid $color__border;
-		padding-top: 3.25em;
-	}
 }
 
 /*--------------------------------------------------------------

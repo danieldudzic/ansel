@@ -1201,11 +1201,6 @@ a:hover, a:active {
   padding: 0 25px;
 }
 
-body:not(.has-custom-header):not(.has-cards) .site-content {
-  border-top: 1px solid #f7f7f7;
-  padding-top: 3.25em;
-}
-
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
@@ -1285,6 +1280,11 @@ p.site-description {
 --------------------------------------------------------------*/
 .content-area {
   width: 100%;
+}
+
+body:not(.has-custom-header) .site-content {
+  border-top: 1px solid #f7f7f7;
+  padding-top: 2.5em;
 }
 
 .site-content .widget-area {
@@ -2252,8 +2252,8 @@ p a[href$=".gif"] {
     margin: 0 -50px;
     padding: 0 50px;
   }
-  body:not(.has-custom-header):not(.has-cards) .site-content {
-    padding-top: 5.750em;
+  body:not(.has-custom-header) .site-content {
+    padding-top: 5em;
   }
   .site-main {
     margin: 0 35% 0 0;

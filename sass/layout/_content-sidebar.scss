@@ -2,7 +2,14 @@
 	width: 100%;
 }
 
-.site-content .widget-area {
-	overflow: hidden;
-	width: 100%;
+.site-content {
+	body:not(.has-custom-header) & {
+		border-top: 1px solid $color__border;
+		padding-top: 2.5em;
+	}
+
+	.widget-area {
+		overflow: hidden;
+		width: 100%;
+	}
 }

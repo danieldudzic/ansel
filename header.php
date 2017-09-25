@@ -72,5 +72,5 @@
 
 	<div id="content" class="site-content">
 
-	<?php
-	ansel_custom_header();
+		<?php
+		ansel_custom_header();
