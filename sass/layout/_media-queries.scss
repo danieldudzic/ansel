@@ -250,6 +250,10 @@
 					color: $color__link-hover;
 				}
 			}
+
+			&:last-of-type a {
+				margin-right: 0;
+			}
 		}
 
 		a {

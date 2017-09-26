@@ -318,6 +318,10 @@ li > ol {
 		margin-right: 0;
 	}
 
+	.main-navigation li:last-of-type a {
+		margin-left: 0;
+	}
+
 	.main-navigation .menu-item-has-children > a > .icon,
 	.main-navigation .page_item_has_children > a > .icon {
 		right: 4px;
