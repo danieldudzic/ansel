@@ -711,12 +711,16 @@ a:active {
 	position: relative;
 }
 
-.main-navigation ul li li {
-	border-bottom: 1px solid #f7f7f7;
+.main-navigation ul li.menu-item-has-children a {
+	padding-right: 1.5em;
 }
 
 .main-navigation ul li:not(.menu-item-has-children) a {
-	padding: 0.75em 0;
+	padding-right: 0;
+}
+
+.main-navigation ul li li {
+	border-bottom: 1px solid #f7f7f7;
 }
 
 .main-navigation ul li:hover > ul,
@@ -754,16 +758,6 @@ a:active {
 .main-navigation .current_page_ancestor > a,
 .main-navigation .current-menu-ancestor > a {
 	color: #2C55E2;
-}
-
-.main-navigation .menu-item-has-children a,
-.main-navigation .page_item_has_children a {
-	padding: 0.75em 1.5em 0.75em 0;
-}
-
-.main-navigation .menu-item-has-children ul a,
-.main-navigation .page_item_has_children ul a {
-	padding: 0.75em 1.5em 0.75em 0;
 }
 
 .js .main-navigation ul,
@@ -2217,6 +2211,18 @@ p a[href$=".gif"] {
 		top: 0;
 	}
 
+	.main-navigation ul ul li a {
+		padding: 0.750em;
+	}
+
+	.main-navigation ul ul li.menu-item-has-children a {
+		padding-right: 1.5em;
+	}
+
+	.main-navigation ul ul li:not(.menu-item-has-children) a {
+		padding-right: 0.750em;
+	}
+
 	.main-navigation ul ul li:hover > ul,
 	.main-navigation ul ul li.focus > ul {
 		left: 100%;
@@ -2235,14 +2241,8 @@ p a[href$=".gif"] {
 	}
 
 	.main-navigation ul ul a {
-		padding: 0.75em 1.25em;
 		margin-right: 0;
 		width: 14em;
-	}
-
-	.main-navigation ul ul .menu-item-has-children > a,
-	.main-navigation ul ul .page_item_has_children > a {
-		padding: 0.75em 1.25em 0.75em 0.75em;
 	}
 
 	.main-navigation ul ul .menu-item-has-children > a > .icon,
@@ -2254,6 +2254,14 @@ p a[href$=".gif"] {
 		right: 5px;
 		-webkit-transform: rotate(-90deg);
 		transform: rotate(-90deg);
+	}
+
+	.main-navigation ul li.menu-item-has-children a {
+		padding-right: 0.750em;
+	}
+
+	.main-navigation ul li:not(.menu-item-has-children) a {
+		padding-right: 0;
 	}
 
 	.main-navigation ul li.menu-item-has-children:before,
@@ -2299,10 +2307,6 @@ p a[href$=".gif"] {
 		right: auto;
 	}
 
-	.main-navigation ul li:not(.menu-item-has-children) a {
-		padding: 0.75em;
-	}
-
 	.main-navigation > div > ul {
 		border: 0;
 		margin-bottom: 0;
@@ -2334,16 +2338,6 @@ p a[href$=".gif"] {
 	.main-navigation a {
 		padding: 0.75em 0;
 		margin-right: 2em;
-	}
-
-	.main-navigation .menu-item-has-children a,
-	.main-navigation .page_item_has_children a {
-		padding: 0.75em 0.75em 0.75em 0;
-	}
-
-	.main-navigation .menu-item-has-children ul a,
-	.main-navigation .page_item_has_children ul a {
-		padding: 0.75em;
 	}
 
 	.main-navigation .menu-item-has-children > a > .icon,

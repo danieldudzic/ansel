@@ -61,19 +61,18 @@ li > ol {
 	left: auto;
 }
 
+.main-navigation ul li.menu-item-has-children a {
+	padding-left: 1.5em;
+	padding-right: 0;
+}
+
+.main-navigation ul li:not(.menu-item-has-children) a {
+	padding-left: 0;
+}
+
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
 	right: auto;
-}
-
-.main-navigation .menu-item-has-children a,
-.main-navigation .page_item_has_children a {
-	padding: 0.75em 0 0.75em 1.5em;
-}
-
-.main-navigation .menu-item-has-children ul a,
-.main-navigation .page_item_has_children ul a {
-	padding: 0.75em 0 0.75em 1.5em;
 }
 
 .menu-toggle {
@@ -264,6 +263,16 @@ li > ol {
 		left: auto;
 	}
 
+	.main-navigation ul ul li.menu-item-has-children a {
+		padding-left: 1.5em;
+		padding-right: 0.750em;
+	}
+
+	.main-navigation ul ul li:not(.menu-item-has-children) a {
+		padding-left: 0.750em;
+		padding-right: 0.750em;
+	}
+
 	.main-navigation ul ul li:hover > ul,
 	.main-navigation ul ul li.focus > ul {
 		right: 100%;
@@ -274,17 +283,21 @@ li > ol {
 		margin-left: 0;
 	}
 
-	.main-navigation ul ul .menu-item-has-children > a,
-	.main-navigation ul ul .page_item_has_children > a {
-		padding: 0.75em 0.75em 0.75em 1.25em;
-	}
-
 	.main-navigation ul ul .menu-item-has-children > a > .icon,
 	.main-navigation ul ul .page_item_has_children > a > .icon {
 		right: auto;
 		left: 5px;
 		-webkit-transform: rotate(-270deg);
 		transform: rotate(-270deg);
+	}
+
+	.main-navigation ul li.menu-item-has-children a {
+		padding-left: 0.750em;
+		padding-right: 0;
+	}
+
+	.main-navigation ul li:not(.menu-item-has-children) a {
+		padding-right: 0;
 	}
 
 	.main-navigation ul li.menu-item-has-children:before,
@@ -303,16 +316,6 @@ li > ol {
 	.main-navigation a {
 		margin-left: 2em;
 		margin-right: 0;
-	}
-
-	.main-navigation .menu-item-has-children a,
-	.main-navigation .page_item_has_children a {
-		padding: 0.75em 0 0.75em 0.75em;
-	}
-
-	.main-navigation .menu-item-has-children ul a,
-	.main-navigation .page_item_has_children ul a {
-		padding: 0.75em;
 	}
 
 	.main-navigation .menu-item-has-children > a > .icon,

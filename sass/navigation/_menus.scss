@@ -37,12 +37,16 @@
 		}
 
 		li {
-			li {
-				border-bottom: 1px solid $color__border;
+			&.menu-item-has-children a {
+				padding-right: 1.5em;
 			}
 
 			&:not(.menu-item-has-children) a {
-				padding: 0.75em 0;
+				padding-right: 0;
+			}
+
+			li {
+				border-bottom: 1px solid $color__border;
 			}
 		}
 
@@ -82,17 +86,6 @@
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
 		color: $color__link-hover;
-	}
-
-	.menu-item-has-children,
-	.page_item_has_children {
-		a {
-			padding: 0.75em 1.5em 0.75em 0;
-		}
-
-		ul a {
-			padding: 0.75em 1.5em 0.75em 0;
-		}
 	}
 
 	/* Hide the menu on small screens when JavaScript is available.
