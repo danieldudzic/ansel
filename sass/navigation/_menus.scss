@@ -40,6 +40,10 @@
 			li {
 				border-bottom: 1px solid $color__border;
 			}
+
+			&:not(.menu-item-has-children) a {
+				padding: 0.75em 0;
+			}
 		}
 
 		li:hover > ul,
@@ -83,11 +87,11 @@
 	.menu-item-has-children,
 	.page_item_has_children {
 		a {
-			padding: 0.75em 0.75em 0.75em 0;
+			padding: 0.75em 1.5em 0.75em 0;
 		}
 
 		ul a {
-			padding: 0.75em 0.75em 0.75em 0;
+			padding: 0.75em 1.5em 0.75em 0;
 		}
 	}
 

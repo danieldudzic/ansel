@@ -207,6 +207,10 @@
 				&.focus > ul {
 					right: auto;
 				}
+
+				&:not(.menu-item-has-children) a {
+					padding: 0.75em;
+				}
 			}
 		}
 
@@ -241,6 +245,11 @@
 		a {
 			padding: 0.75em 0;
 			margin-right: 2em;
+		}
+
+		.menu-item-has-children a,
+		.page_item_has_children a {
+			padding: 0.75em 0.75em 0.75em 0;
 		}
 
 		.menu-item-has-children ul a,
