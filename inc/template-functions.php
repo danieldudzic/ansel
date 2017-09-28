@@ -28,7 +28,7 @@ function ansel_body_classes( $classes ) {
 	}
 
 	// Add a class of has-cards when displaying showcase items.
-	if ( ! is_single() && 'jetpack-portfolio' === get_post_type() || ( ansel_is_page_template_showcase() && ansel_get_showcase_items() ) ) {
+	if ( ! is_single() && 'jetpack-portfolio' === get_post_type() || ( ansel_is_page_template_front_page() && ansel_get_showcase_items() ) ) {
 		$classes[] = 'has-cards';
 	}
 

@@ -100,7 +100,7 @@ function ansel_infinite_scroll_render() {
 		the_post();
 		if ( is_search() ) :
 			get_template_part( 'template-parts/content', 'search' );
-		elseif ( 'jetpack-portfolio' === get_post_type() || ansel_is_page_template_showcase() ) :
+		elseif ( 'jetpack-portfolio' === get_post_type() || ansel_is_page_template_front_page() ) :
 			get_template_part( 'template-parts/content', 'card' );
 		else :
 			get_template_part( 'template-parts/content', get_post_format() );

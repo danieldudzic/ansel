@@ -69,7 +69,7 @@ add_action( 'customize_preview_init', 'ansel_customize_preview_js' );
 /**
  * Check if the page is using the Front Page template and displaying the showcase items.
  */
-function ansel_is_page_template_showcase() {
+function ansel_is_page_template_front_page() {
 	if ( is_front_page() ) {
 		if ( 'posts' == get_option( 'show_on_front' ) ) {
 			return false;
@@ -115,7 +115,6 @@ function ansel_generate_customizer_showcase_item_sections( $wp_customize ) {
 
 		$wp_customize->add_section( 'ansel_showcase_item_' . $x, array(
 			'title'           => esc_html__( 'Showcase Item ', 'ansel' ) . $x,
-			'active_callback' => 'ansel_is_page_template_showcase',
 			'panel'           => 'ansel_theme_options',
 			'description'     => esc_html__( 'Showcase items link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 		) );
