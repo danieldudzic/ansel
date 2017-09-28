@@ -1097,6 +1097,11 @@ a:active {
 	padding: 0;
 }
 
+.widget div > ul li,
+.widget > ul li {
+	list-style: none;
+}
+
 .widget p:last-child {
 	margin-bottom: 1.5em;
 }

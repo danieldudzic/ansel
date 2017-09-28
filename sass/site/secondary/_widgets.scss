@@ -39,6 +39,11 @@
 		}
 	}
 
+	div > ul li,
+	& > ul li {
+		list-style: none;
+	}
+
 	p:last-child {
 		margin-bottom: 1.5em;
 	}
@@ -62,7 +67,7 @@
 	}
 
 	&.widget_text p {
-	    margin: 0 0 1em;
+		margin: 0 0 1em;
 	}
 
 	&.widget_tag_cloud,
