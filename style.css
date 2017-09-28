@@ -2384,8 +2384,7 @@ p a[href$=".gif"] {
 
 	.no-sidebar:not(.has-cards) .content-area,
 	.error404 .content-area,
-	.no-results .content-area,
-	.page-template-showcase-page:not(.has-cards) .content-area {
+	.no-results .content-area {
 		float: none;
 		margin-left: auto;
 		margin-right: auto;
@@ -2394,8 +2393,7 @@ p a[href$=".gif"] {
 
 	.no-sidebar:not(.has-cards) .site-main,
 	.error404 .site-main,
-	.no-results .site-main,
-	.page-template-showcase-page:not(.has-cards) .site-main {
+	.no-results .site-main {
 		margin-right: 0;
 	}
 
