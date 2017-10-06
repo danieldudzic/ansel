@@ -437,6 +437,10 @@ html {
 	box-sizing: inherit;
 }
 
+:focus {
+	outline: none;
+}
+
 body {
 	background: #f7f7f7; /* Fallback for when there is no custom background color defined. */
 	overflow-wrap: break-word;
@@ -595,7 +599,10 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-	color: #111;
+	color: #222;
+	border-color: #999;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 select {

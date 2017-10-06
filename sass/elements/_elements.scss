@@ -8,6 +8,10 @@ html {
 	box-sizing: inherit;
 }
 
+:focus {
+	outline: none;
+}
+
 body {
 	background: $color__background-canvas; /* Fallback for when there is no custom background color defined. */
 	overflow-wrap: break-word;
