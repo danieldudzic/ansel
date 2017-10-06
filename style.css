@@ -2429,7 +2429,7 @@ p a[href$=".gif"] {
 
 	.entry-footer span:after {
 		content: "|";
-		color: #999999;
+		color: #ccc;
 		padding: 0 6px;
 	}
 
