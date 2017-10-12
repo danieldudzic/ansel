@@ -19,7 +19,8 @@ function ansel_customize_register( $wp_customize ) {
 	 * Add the Theme Options section.
 	 */
 	$wp_customize->add_panel( 'ansel_theme_options', array(
-		'title' => esc_html__( 'Theme Options', 'ansel' ),
+		'title'       => esc_html__( 'Theme Options', 'ansel' ),
+		'description' => esc_html__( 'Showcase items link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
 	/**
