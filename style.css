@@ -2000,6 +2000,10 @@ p > :first-child > .wp-caption.alignright:first-child {
 	margin-top: 0;
 }
 
+.wp-caption-text {
+	text-align: center;
+}
+
 .wp-caption-text,
 .gallery-caption {
 	color: #999999;
@@ -2021,7 +2025,6 @@ p > :first-child > .wp-caption.alignright:first-child {
 	display: block;
 	margin-bottom: 0;
 	padding: 0 0.5em 0 0;
-	text-align: left;
 }
 
 p a[href$=".jpg"],
@@ -2043,6 +2046,7 @@ p a[href$=".gif"] {
 	display: inline-block;
 	margin: 0 0 1.5em;
 	padding: 0 1em 0 0;
+	text-align: center;
 	vertical-align: top;
 	width: 100%;
 }
