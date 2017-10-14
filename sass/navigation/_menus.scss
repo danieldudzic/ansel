@@ -1,18 +1,18 @@
 .main-navigation {
+	border-radius: 3px;
 	clear: both;
 	display: block;
+	overflow: hidden;
 	width: 100%;
 
 	ul {
-		background: $color__background-button;
+		background: $color__background-canvas;
 		list-style: none;
 		margin: 0;
 		text-align: left;
-		margin-bottom: 1em;
 
 		ul {
 			padding: 0 0 0 1.5em;
-			border-top: 1px solid $color__border;
 			margin-bottom: 0;
 
 			&.toggled-on {
@@ -37,16 +37,28 @@
 		}
 
 		li {
+			&:hover,
+			&.focus {
+				& > a {
+					background: $color__link-hover;
+					color: $color__background-button;
+				}
+
+				& > .dropdown-toggle {
+					color: $color__background-button;
+				}
+			}
+
+			a {
+				padding: 0.750em;
+			}
+
 			&.menu-item-has-children a {
-				padding-right: 1.5em;
+				padding-right: 2.250em;
 			}
 
 			&:not(.menu-item-has-children) a {
-				padding-right: 0;
-			}
-
-			li {
-				border-bottom: 1px solid $color__border;
+				padding-right: 0.750em;
 			}
 		}
 
@@ -57,15 +69,10 @@
 	}
 
 	li {
-		border-bottom: 1px solid $color__border;
 		position: relative;
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		word-wrap: break-word;
-
-		&:last-child {
-			border: 0;
-		}
 	}
 
 	a {
@@ -75,17 +82,18 @@
 		text-decoration: none;
 
 		@include transition(0.1s);
-
-		&:hover {
-			color: $color__link-hover;
-		}
 	}
 
 	.current_page_item > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-		color: $color__link-hover;
+	.current-menu-ancestor > a,
+	.current_page_item > .dropdown-toggle,
+	.current-menu-item > .dropdown-toggle,
+	.current_page_ancestor > .dropdown-toggle,
+	.current-menu-ancestor > .dropdown-toggle {
+		background: $color__link-hover;
+		color: $color__background-button;
 	}
 
 	/* Hide the menu on small screens when JavaScript is available.
@@ -155,13 +163,14 @@
 	padding: 0.5em;
 	line-height: 1.75;
 	position: absolute;
-	right: -0.5em;
+	right: 0.25em;
 	text-shadow: none;
 	top: 0;
 
 	&:hover,
 	&:focus {
 		background: transparent;
+		color: $color__background-button;
 	}
 
 	&:focus {
