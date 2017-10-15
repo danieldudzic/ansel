@@ -312,14 +312,6 @@
 		}
 	}
 
-	.hfeed:not(.has-cards) .hentry {
-		margin-bottom: 5.062em;
-
-		&:last-of-type {
-			margin-bottom: 5.625em;
-		}
-	}
-
 	.tags-hidden {
 		.entry-footer {
 			.edit-link {
