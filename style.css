@@ -895,9 +895,15 @@ a:active {
 .post-navigation .nav-previous {
 	float: left;
 	width: auto;
+	max-width: 100%;
+}
+
+.comment-navigation .nav-previous a,
+.posts-navigation .nav-previous a,
+.post-navigation .nav-previous a {
+	display: block;
 	padding-right: 1em;
 	padding-bottom: 1.375em;
-	max-width: 100%;
 }
 
 .comment-navigation .nav-next,
@@ -906,9 +912,15 @@ a:active {
 	float: right;
 	text-align: right;
 	width: auto;
+	max-width: 100%;
+}
+
+.comment-navigation .nav-next a,
+.posts-navigation .nav-next a,
+.post-navigation .nav-next a {
+	display: block;
 	padding-left: 1em;
 	padding-bottom: 1.375em;
-	max-width: 100%;
 }
 
 .comment-navigation a:hover,

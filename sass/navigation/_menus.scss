@@ -209,18 +209,26 @@
 	.nav-previous {
 		float: left;
 		width: auto;
-		padding-right: 1em;
-		padding-bottom: 1.375em;
 		max-width: 100%;
+
+		a {
+			display: block;
+			padding-right: 1em;
+			padding-bottom: 1.375em;
+		}
 	}
 
 	.nav-next {
 		float: right;
 		text-align: right;
 		width: auto;
-		padding-left: 1em;
-		padding-bottom: 1.375em;
 		max-width: 100%;
+
+		a {
+			display: block;
+			padding-left: 1em;
+			padding-bottom: 1.375em;
+		}
 	}
 
 	a:hover,
