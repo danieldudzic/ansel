@@ -17,6 +17,11 @@ body {
 	display: block;
 }
 
+.page-header {
+	border-bottom: 1px solid $color__border-button;
+	margin-bottom: 2em;
+}
+
 .entry-title,
 .page-title {
 	max-width: 100%;

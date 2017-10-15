@@ -1383,6 +1383,11 @@ body .site-main {
 	display: block;
 }
 
+.page-header {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 2em;
+}
+
 .entry-title,
 .page-title {
 	max-width: 100%;
