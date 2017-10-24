@@ -1129,6 +1129,14 @@ a:active {
 
 .widget ul,
 .widget ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+.widget > ul,
+.widget > ol,
+.widget div > ul,
+.widget div > ol {
 	margin: 0;
 }
 
@@ -1177,7 +1185,7 @@ a:active {
 }
 
 .widget .sub-menu {
-	padding: 0 0 0 1.5em;
+	margin: 0 0 0 1.5em;
 }
 
 .widget.widget_text p {
