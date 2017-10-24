@@ -503,8 +503,46 @@ figure {
 }
 
 table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	empty-cells: show;
+	font-size: 14px;
+	font-size: 0.875rem;
 	margin: 0 0 1.5em;
 	width: 100%;
+}
+
+thead {
+	vertical-align: bottom;
+	white-space: nowrap;
+}
+
+tbody {
+	border-bottom: 1px solid #eee;
+	border-top: 1px solid #eee;
+}
+
+th {
+	font-weight: bold;
+	text-align: left;
+}
+
+th,
+td {
+	border-bottom: 1px solid #eee;
+	line-height: 120%;
+	margin: 0;
+	overflow: visible;
+	padding: 2%;
+}
+
+tr:last-child td {
+	border-bottom: none;
+}
+
+table tbody > tr:nth-child(odd) > th,
+table tbody > tr:nth-child(odd) > td {
+	background: #f7f7f7;
 }
 
 .icon {
