@@ -166,6 +166,16 @@ body:not(.comment-hidden) .entry-footer .comments-link {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+
+	a {
+		display: inline-block;
+	}
+
+	.page-number {
+		display: inline-block;
+		padding: 0 0.25em;
+		margin: 0 0.2em 0.2em 0.2em;
+	}
 }
 
 .post-thumbnail {
