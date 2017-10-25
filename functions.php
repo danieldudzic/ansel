@@ -46,6 +46,7 @@ function ansel_setup() {
 	add_image_size( 'ansel-featured-image-header', 1000, 9999 );
 	add_image_size( 'ansel-entry-card', 550, 367, true );
 	add_image_size( 'ansel-entry-card-featured', 1000, 500, true );
+	add_image_size( 'ansel-post-navigation-thumbnail', 250, 167, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -251,10 +252,12 @@ add_action( 'wp_enqueue_scripts', 'ansel_scripts' );
 function ansel_posts_navigation() {
 	if ( is_single() ) {
 		the_post_navigation( array(
-			'prev_text' => '<span aria-hidden="true" class="nav-subtitle">' .
+			'prev_text' => ansel_previous_post_thumbnail() .
+							'<span aria-hidden="true" class="nav-subtitle">' .
 								esc_html_x( 'Previous', 'previous post', 'ansel' ) .
 							'</span>%title',
-			'next_text' => '<span aria-hidden="true" class="nav-subtitle">' .
+			'next_text' => ansel_next_post_thumbnail() .
+							'<span aria-hidden="true" class="nav-subtitle">' .
 								esc_html_x( 'Next', 'next post', 'ansel' ) .
 							'</span>%title',
 		) );
@@ -267,6 +270,36 @@ function ansel_posts_navigation() {
 			) );
 		} else {
 			the_posts_navigation();
+		}
+	}
+}
+
+/**
+ * Output the previous post thumbnail.
+ */
+function ansel_previous_post_thumbnail() {
+	$prev_post = get_previous_post();
+
+	if ( $prev_post ) {
+		$prev_thumbnail = get_the_post_thumbnail( $prev_post->ID, 'ansel-post-navigation-thumbnail' );
+
+		if ( $prev_thumbnail ) {
+			return $prev_thumbnail;
+		}
+	}
+}
+
+/**
+ * Output the next post thumbnail.
+ */
+function ansel_next_post_thumbnail() {
+	$next_post = get_next_post();
+
+	if ( $next_post ) {
+		$next_thumbnail = get_the_post_thumbnail( $next_post->ID, 'ansel-post-navigation-thumbnail' );
+
+		if ( $next_thumbnail ) {
+			return $next_thumbnail;
 		}
 	}
 }

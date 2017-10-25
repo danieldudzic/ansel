@@ -976,6 +976,18 @@ a:active {
 	margin: 3em 0;
 }
 
+.post-navigation img {
+	border-radius: 3px;
+	display: inline-block;
+	margin-bottom: 1em;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.post-navigation img:hover {
+	opacity: 0.7;
+}
+
 .nav-subtitle {
 	color: #999999;
 	display: block;
