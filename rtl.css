@@ -119,8 +119,14 @@ li > ol {
 # Widgets
 --------------------------------------------------------------*/
 
+.widget ul,
+.widget ol {
+	margin-right: 1.5em;
+	margin-left: 0;
+}
+
 .widget .sub-menu {
-	padding: 0 1.5em 0 0;
+	margin: 0 1.5em 0 0;
 }
 
 .widget.widget_tag_cloud a,
