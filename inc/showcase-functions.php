@@ -45,7 +45,7 @@ function ansel_get_showcase_items() {
 					$item_id = $exploded_item[1];
 					$item_type = $exploded_item[0];
 
-					if ( 'portfolio-type' === $item_type && ! taxonomy_exists( 'jetpack-portfolio-type' ) ) {
+					if ( 'portfolio-type' === $item_type && ! taxonomy_exists( 'jetpack-portfolio-type' ) || 'portfolio-tag' === $item_type && ! taxonomy_exists( 'jetpack-portfolio-tag' ) ) {
 						continue;
 					}
 
@@ -69,15 +69,13 @@ function ansel_get_showcase_items() {
  */
 function ansel_get_showcase_item_title( $id, $type ) {
 	switch ( $type ) {
-		case 'page':
-			$title = get_the_title( $id );
-			break;
 		case 'portfolio-type':
 			$portfolio_type = get_term_by( 'id', $id, 'jetpack-portfolio-type' );
 			$title = $portfolio_type->name;
 			break;
-		case 'category':
-			$title = get_cat_name( $id );
+		case 'portfolio-tag':
+			$portfolio_tag = get_term_by( 'id', $id, 'jetpack-portfolio-tag' );
+			$title = $portfolio_tag->name;
 			break;
 	}
 
@@ -89,15 +87,13 @@ function ansel_get_showcase_item_title( $id, $type ) {
  */
 function ansel_get_showcase_item_url( $id, $type ) {
 	switch ( $type ) {
-		case 'page':
-			$url = get_permalink( $id );
-			break;
 		case 'portfolio-type':
 			$portfolio_type = get_term_by( 'id', $id, 'jetpack-portfolio-type' );
 			$url = get_term_link( $portfolio_type->slug, 'jetpack-portfolio-type' );
 			break;
-		case 'category':
-			$url = get_category_link( $id );
+		case 'portfolio-tag':
+			$portfolio_tag = get_term_by( 'id', $id, 'jetpack-portfolio-tag' );
+			$url = get_term_link( $portfolio_tag->slug, 'jetpack-portfolio-tag' );
 			break;
 	}
 

@@ -20,7 +20,7 @@ function ansel_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->add_panel( 'ansel_theme_options', array(
 		'title'       => esc_html__( 'Theme Options', 'ansel' ),
-		'description' => esc_html__( 'Showcase items link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
+		'description' => esc_html__( 'Showcase items link out to other sections of your website, such as project types and tags. They appear in a grid underneath your header image.', 'ansel' ),
 	) );
 
 	/**
@@ -68,46 +68,6 @@ function ansel_customize_preview_js() {
 add_action( 'customize_preview_init', 'ansel_customize_preview_js' );
 
 /**
- * Check if the page is using the Front Page template and displaying the showcase items.
- */
-function ansel_is_page_template_front_page() {
-	if ( is_front_page() ) {
-		if ( 'posts' == get_option( 'show_on_front' ) ) {
-			return false;
-		} else {
-			return true;
-		}
-	} else {
-		return false;
-	}
-}
-
-/**
- * Sanitize the Showcase Items select.
- */
-function ansel_sanitize_select( $input ) {
-	// Ensure input is a slug.
-	$input = sanitize_key( $input );
-
-	// Get list of choices from the control associated with the setting.
-	$choices = ansel_get_showcase_item_content_choices();
-
-	$options = $choices['options'];
-
-	if ( ! empty( $options['pages'] ) && array_key_exists( $input, $options['pages'] ) ) {
-		$sanitized_input = $input;
-	} elseif ( ! empty( $options['portfolio_types'] ) && array_key_exists( $input, $options['portfolio_types'] ) ) {
-		$sanitized_input = $input;
-	} elseif ( ! empty( $options['categories'] ) && array_key_exists( $input, $options['categories'] ) ) {
-		$sanitized_input = $input;
-	} else {
-		$sanitized_input = 'select';
-	}
-
-	return $sanitized_input;
-}
-
-/**
  * Generate 9 Showcase Item sections.
  */
 function ansel_generate_customizer_showcase_item_sections( $wp_customize ) {
@@ -115,9 +75,9 @@ function ansel_generate_customizer_showcase_item_sections( $wp_customize ) {
 	for ( $x = 1; $x <= 9; $x++ ) {
 
 		$wp_customize->add_section( 'ansel_showcase_item_' . $x, array(
-			'title'           => esc_html__( 'Showcase Item ', 'ansel' ) . $x,
-			'panel'           => 'ansel_theme_options',
-			'description'     => esc_html__( 'Showcase items link out to other sections of your website, such as your pages, project types, and post categories. They appear in a grid underneath your header image.', 'ansel' ),
+			'title'       => esc_html__( 'Showcase Item ', 'ansel' ) . $x,
+			'panel'       => 'ansel_theme_options',
+			'description' => ansel_customizer_showcase_item_section_description(),
 		) );
 
 		$wp_customize->add_setting( 'ansel_showcase_item_content_' . $x, array(
@@ -146,27 +106,54 @@ function ansel_generate_customizer_showcase_item_sections( $wp_customize ) {
 }
 
 /**
+ * Return the description for the Showcase sections.
+ */
+function ansel_customizer_showcase_item_section_description() {
+	$description = esc_html__( 'You will need to enable Portfolios in Jetpack > Settings > Writing > Custom content types in order to use the Showcase section.', 'ansel' );
+
+	if ( ansel_project_type_tag_taxonomies_exist() ) {
+		$description = esc_html__( 'Showcase items link out to other sections of your website, such as project types and tags. They appear in a grid underneath your header image.', 'ansel' );
+	}
+
+	return $description;
+}
+
+/**
+ * Sanitize the Showcase Items select.
+ */
+function ansel_sanitize_select( $input ) {
+	// Ensure input is a slug.
+	$input = sanitize_key( $input );
+
+	// Get list of choices from the control associated with the setting.
+	$choices = ansel_get_showcase_item_content_choices();
+
+	$options = $choices['options'];
+
+	if ( ! empty( $options['portfolio_types'] ) && array_key_exists( $input, $options['portfolio_types'] ) ) {
+		$sanitized_input = $input;
+	} elseif ( ! empty( $options['portfolio_tags'] ) && array_key_exists( $input, $options['portfolio_tags'] ) ) {
+		$sanitized_input = $input;
+	} else {
+		$sanitized_input = 'select';
+	}
+
+	return $sanitized_input;
+}
+
+/**
  * Get all the options for the Showcase Item Content select.
  */
 function ansel_get_showcase_item_content_choices() {
 	$options = array(
-		'pages'           => '',
 		'portfolio_types' => '',
-		'categories'      => '',
+		'portfolio_tags'  => '',
 	);
 
 	$types = array(
-		'pages_label'           => esc_html__( 'Pages', 'ansel' ),
 		'portfolio_types_label' => esc_html__( 'Portfolio Types', 'ansel' ),
-		'categories_label'      => esc_html__( 'Categories', 'ansel' ),
+		'portfolio_tags_label'  => esc_html__( 'Portfolio Tags', 'ansel' ),
 	);
-
-	$pages = get_pages();
-
-	foreach ( $pages as $page ) {
-		$page_id = 'page_' . $page->ID;
-		$options['pages'][ $page_id ] = $page->post_title;
-	}
 
 	if ( taxonomy_exists( 'jetpack-portfolio-type' ) ) {
 
@@ -181,17 +168,49 @@ function ansel_get_showcase_item_content_choices() {
 		}
 	}
 
-	$categories = get_categories();
+	if ( taxonomy_exists( 'jetpack-portfolio-tag' ) ) {
 
-	foreach ( $categories as $category ) {
-		$category_id = 'category_' . $category->term_id;
-		$options['categories'][ $category_id ] = $category->name;
+		$portfolio_tags = get_terms( array(
+			'taxonomy' => 'jetpack-portfolio-tag',
+			'hide_empty' => false,
+		) );
+
+		foreach ( $portfolio_tags as $portfolio_tag ) {
+			$portfolio_tag_id = 'portfolio-tag_' . $portfolio_tag->term_id;
+			$options['portfolio_tags'][ $portfolio_tag_id ] = $portfolio_tag->name;
+		}
 	}
 
 	$choices = array(
-		'types'   => $types,
 		'options' => $options,
+		'types'   => $types,
 	);
 
 	return $choices;
+}
+
+/**
+ * Check if the page is using the Front Page template and displaying the showcase items.
+ */
+function ansel_is_page_template_front_page() {
+	if ( is_front_page() ) {
+		if ( 'posts' == get_option( 'show_on_front' ) ) {
+			return false;
+		} else {
+			return true;
+		}
+	} else {
+		return false;
+	}
+}
+
+/**
+ * Check if Project Type or Tag taxonomies exist.
+ */
+function ansel_project_type_tag_taxonomies_exist() {
+	if ( taxonomy_exists( 'jetpack-portfolio-type' ) || taxonomy_exists( 'jetpack-portfolio-tag' ) ) {
+		return true;
+	} else {
+		return false;
+	}
 }
