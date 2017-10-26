@@ -15,7 +15,7 @@
 	</header>
 
 	<div class="entry-content">
-		<p><?php esc_html_e( 'Showcase items link out to other sections of the website, such as pages, project types, and post categories. They appear in a grid underneath the header image.', 'ansel' ); ?></p>
+		<p><?php esc_html_e( 'Showcase items link out to other sections of your website, such as project types and tags. They appear in a grid underneath your header image.', 'ansel' ); ?></p>
 
 		<p><?php esc_html_e( 'You can set up this section in the Customizer > Theme Options.', 'ansel' ); ?></p>
 

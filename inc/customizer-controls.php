@@ -28,20 +28,10 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 
 					<?php
 						$choices = $this->choices;
-						$types = $choices['types'];
 						$options = $choices['options'];
+						$types = $choices['types'];
 
 						echo '<option value="select"' . selected( $this->value(), 'select', false ) . '>' . esc_html__( '— Select —', 'ansel' ) . '</option>';
-
-						if ( ! empty( $options['pages'] ) ) {
-							echo '<optgroup label="' . esc_attr( $types['pages_label'] ) . '">';
-
-							foreach ( $options['pages'] as $value => $label ) {
-								echo '<option value="' . esc_attr( $value ) . '"' . selected( $this->value(), $value, false ) . '>' . esc_html( $label ) . '</option>';
-							}
-
-							echo '</optgroup>';
-						}
 
 					if ( taxonomy_exists( 'jetpack-portfolio-type' ) ) {
 						if ( ! empty( $options['portfolio_types'] ) ) {
@@ -55,14 +45,16 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 						}
 					}
 
-					if ( ! empty( $options['categories'] ) ) {
-						echo '<optgroup label="' . esc_attr( $types['categories_label'] ) . '">';
+					if ( taxonomy_exists( 'jetpack-portfolio-tag' ) ) {
+						if ( ! empty( $options['portfolio_tags'] ) ) {
+							echo '<optgroup label="' . esc_attr( $types['portfolio_tags_label'] ) . '">';
 
-						foreach ( $options['categories'] as $value => $label ) {
-							echo '<option value="' . esc_attr( $value ) . '"' . selected( $this->value(), $value, false ) . '>' . esc_html( $label ) . '</option>';
+							foreach ( $options['portfolio_tags'] as $value => $label ) {
+								echo '<option value="' . esc_attr( $value ) . '"' . selected( $this->value(), $value, false ) . '>' . esc_html( $label ) . '</option>';
+							}
+
+							echo '</optgroup>';
 						}
-
-						echo '</optgroup>';
 					} ?>
 				</select>
 			</label>
