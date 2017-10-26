@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying portfolio posts on the archive page.
+ * Template part for displaying portfolio posts on the archive page
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *

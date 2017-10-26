@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the Author Bio.
+ * Template part for displaying the Author Bio
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *

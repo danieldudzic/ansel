@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the Portfolio archive page.
+ * The template for displaying the Portfolio archive page
  *
  * @package Ansel
  */
