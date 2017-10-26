@@ -42,7 +42,7 @@ Ansel also supports the following features:
 * Featured Images are displayed at 1000 width and variable height on single posts and pages, and at a maximum of 650 width on the archive pages.
 * The first portfolio thumbnail is displayed at 1000 width and 500 height.
 * Portfolio thumbnails are displayed at 300 width and 200 height.
-* The recommended site logo dimensions are 250 in width and 100 in height.
+* The recommended site logo dimensions are 1000 in width and 200 in height.
 * The custom header appears at 1000 width with flexible height.
 
 == Credits/Licenses ==
